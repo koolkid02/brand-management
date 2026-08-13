@@ -70,7 +70,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.5359704003109814
+          "similarity": 0.5345155568471249
         },
         {
           "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
@@ -78,17 +78,17 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.5119810327302672
+          "similarity": 0.5096328193165897
         }
       ]
     },
     "brief": {
-      "buyer_power": "Low, driven by the loyal-core segment's high Average Order Value, low discount usage, and strong preference for provenance and craftsmanship over price.",
-      "supplier_power": "Moderate, tied to the reliance on small-batch natural fiber production, which implies specific sourcing constraints that can be leveraged against mass producers.",
-      "competitive_rivalry": "Moderate, as direct competitors exist (Nicobar, Bombay Shirt Company, Okhai) operating in a similar premium/considered-design space, but differentiation based on unique maker stories and material focus provides some separation.",
-      "threat_of_substitutes": "Moderate, substitutes exist in general fashion or lower-cost artisanal goods, but the specific value proposition of traceable, small-batch luxury acts as a strong barrier against easy substitution for this segment.",
-      "threat_of_new_entrants": "Low to Moderate, due to the high barrier to entry associated with authentic craftsmanship, specialized sourcing, and building the necessary traceable maker story required to compete effectively in the premium slow fashion niche.",
-      "positioning_summary": "Loom & Aster benefits from strong customer loyalty and a premium positioning based on unique value props (traceability, small-batch natural fibers). Margin defense relies on maintaining this differentiation against entrants who might attempt to mimic the aesthetic without replicating the authentic craft story."
+      "buyer_power": "Low, as the target segment is characterized by high loyalty, low discount usage, and a strong preference for craftsmanship and provenance over price.",
+      "supplier_power": "Moderate, as the brand controls the unique small-batch production process and traceable maker story, which provides differentiation against mass producers.",
+      "competitive_rivalry": "High among direct premium competitors (Nicobar, Bombay Shirt Company, Okhai), but rivalry is likely focused on narrative and quality rather than pure price competition due to the slow fashion positioning.",
+      "threat_of_substitutes": "Moderate. Substitutes exist in fast fashion or mass-produced alternatives, posing a threat if customers perceive the premium cost as too high relative to perceived value.",
+      "threat_of_new_entrants": "Moderate. Entry barriers are established by the requirement for specialized craftsmanship and building the necessary trust associated with a traceable, small-batch maker story.",
+      "positioning_summary": "Loom & Aster benefits from strong brand loyalty and premium pricing power. Margin defense relies on maintaining the perceived value of the unique traceability and slow fashion ethos to prevent commoditization by cheaper knockoffs."
     },
     "generation_method": "llm",
     "model": "gemma4:e2b"
@@ -115,7 +115,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.5584617342879262
+          "similarity": 0.5422435377940891
         },
         {
           "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
@@ -123,24 +123,26 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.5328042612501948
+          "similarity": 0.49916169244237396
         }
       ],
-      "positioning_summary": "Loom & Aster benefits from strong customer loyalty and a premium positioning based on unique value props (traceability, small-batch natural fibers). Margin defense relies on maintaining this differentiation against entrants who might attempt to mimic the aesthetic without replicating the authentic craft story."
+      "positioning_summary": "Loom & Aster benefits from strong brand loyalty and premium pricing power. Margin defense relies on maintaining the perceived value of the unique traceability and slow fashion ethos to prevent commoditization by cheaper knockoffs."
     },
     "constraints": {
-      "product": "Focus on the unique material composition and the small-batch nature of the creation.",
-      "price": "Maintain premium pricing posture; absolutely no discount, sale, or promotional language allowed.",
-      "place": "Curated digital presentation reflecting an editorial design journal aesthetic.",
-      "promotion": "Strictly editorial tone. All messaging must prioritize the maker/sourcing story over product features or price. No discount language whatsoever.",
-      "people": "Highlight the craftspeople, makers, and sourcing origins as central figures in the narrative.",
-      "physical_evidence": "Imagery must evoke a design journal feel; focus on texture, material quality, and the origin of the fibers.",
-      "process": "Emphasize traceability, the slow process of creation, and the artisanal methods used in sourcing and making.",
+      "product": "Focus copy on the unique material composition, artisanal techniques, and inherent quality of the garment, positioning it as a lasting object rather than a trend.",
+      "price": "Price must be presented as an investment reflecting true material cost and craftsmanship; promotional guidance must strictly avoid discount-led framing. Lead with the value of traceability and slow fashion ethos instead of price reduction.",
+      "place": "Distribution should reflect exclusivity and curation, aligning with a high-end design journal aesthetic rather than mass retail urgency.",
+      "promotion": "Absolutely no discount language, sale indicators, or urgency framing is permitted. Promotions must focus solely on the narrative of sourcing, maker stories, and the longevity of the craft.",
+      "people": "Feature the makers, artisans, and sourcing partners prominently. The narrative should center on the human element behind the creation, emphasizing their expertise and process.",
+      "physical_evidence": "Imagery must be editorial, calm, and highly aesthetic. Prioritize high-quality video content (UGC style) showcasing texture, drape, and the making process over static product shots.",
+      "process": "The narrative must foreground the traceability and slow fashion ethos. Detail the journey of the materials and the careful, considered steps involved in production to reinforce margin defense against commoditization.",
       "hard_rules": [
         "No discount language anywhere",
         "This line never goes on sale",
         "Keep it editorial",
-        "Make the maker/sourcing story front and center"
+        "Make the maker/sourcing story front and center",
+        "All copy must adopt an understated, calm, and considered tone, reading like a design journal.",
+        "Lead with the craft and material story before any mention of price or promotion."
       ]
     },
     "generation_method": "llm",

@@ -8,8 +8,20 @@ top, translating that brief into concrete creative constraints.
 Memory retrieval is driven entirely by each framework's own declared
 memory_inputs (memory/seed/frameworks/*.json) -- never hardcoded to "always
 fetch brand+market". Trend memory is deliberately NOT fetched here (no
-framework declares it); that's campaign_generation.py's job, once per run,
-per PRD §3 step 5 listing trend memory as a generation-time input.
+framework declares it); that's ideation.py's job, once per run, per PRD §3
+step 5 listing trend memory as a generation-time input.
+
+Supports Checkpoint 1.5 (Strategy Review, PRD §7): apply_analytical_framework
+and apply_seven_ps both accept an optional redirect_feedback string, folded
+into the prompt as authoritative human feedback a re-application must
+address. apply_analytical_framework also accepts framework_id_override,
+since select_analytical_framework() is deterministic on primary_goal (which
+doesn't change on redirect) -- without the override, "wrong framework"
+feedback could never actually change the outcome. This module implements
+only the override MECHANISM. It stays a pure, stateless function set: it
+does not track how many times it's been called with feedback (the PRD's
+<=2 loop-back cap), decide whether a redirect is warranted, or persist any
+session state -- all of that belongs to the future agent_loop.py orchestrator.
 
 Run from the repo root as a module:
     python -m module_b_campaigns.frameworks_apply --mock
@@ -65,7 +77,33 @@ def resolve_memory_inputs(
     return grounded
 
 
-def build_framework_prompt(framework: dict, grounded: dict, working_brief: dict) -> tuple[str, str]:
+def _format_schema_block(output_schema: dict) -> str:
+    """A literal JSON-shaped skeleton (not a flat bullet list) -- for
+    schemas with nested dict/list fields (e.g. perceptual_mapping's axes/
+    brand_position), a bullet list doesn't make the required OUTER wrapping
+    object visually obvious enough: observed the model reliably formatting
+    each top-level field correctly but never wrapping them together in one
+    {...}, emitting top-level "key: value" lines instead (YAML-shaped, not
+    JSON). Showing the full nested shape as one example, braces included,
+    fixes this by demonstrating exactly what's missing."""
+    return json.dumps(output_schema, indent=2, ensure_ascii=False)
+
+
+def _redirect_block(redirect_feedback: str | None) -> str:
+    if not redirect_feedback:
+        return ""
+    return (
+        "\n\nIMPORTANT -- this is a RE-APPLICATION after human feedback on a "
+        "previous attempt. The human reviewed the prior output and gave this "
+        "feedback, which your new output MUST directly address (do not simply "
+        "repeat the analysis that prompted this feedback):\n"
+        f"\"{redirect_feedback}\"\n"
+    )
+
+
+def build_framework_prompt(
+    framework: dict, grounded: dict, working_brief: dict, redirect_feedback: str | None = None
+) -> tuple[str, str]:
     system_prompt = (
         f"You are a marketing strategist applying the {framework['name']} framework "
         f"({framework['purpose']}). You are given verified brand and market facts "
@@ -74,24 +112,37 @@ def build_framework_prompt(framework: dict, grounded: dict, working_brief: dict)
         "strategic analysis. Respond with ONLY a single JSON object containing "
         "exactly the requested keys -- no markdown fences, no commentary, no extra keys."
     )
+    if redirect_feedback:
+        system_prompt += (
+            " If human redirect feedback is provided below, treat it as an "
+            "authoritative directive that overrides your own prior judgment "
+            "on the specific point it addresses."
+        )
 
     facts_block = "\n".join(f"- {k}: {json.dumps(v, ensure_ascii=False)}" for k, v in grounded.items())
-    schema_block = "\n".join(f"- {field}: {type_str}" for field, type_str in framework["output_schema"].items())
+    schema_block = _format_schema_block(framework["output_schema"])
 
     user_prompt = (
         "Campaign context:\n"
         f"- target segment: {working_brief['target_segment_summary']}\n"
         f"- core message: {working_brief['core_message']}\n"
         f"- primary goal: {working_brief['primary_goal']}\n\n"
-        f"Verified facts:\n{facts_block}\n\n"
-        f"Return a JSON object with exactly these keys:\n{schema_block}\n\n"
+        f"Verified facts:\n{facts_block}\n"
+        f"{_redirect_block(redirect_feedback)}\n"
+        "Return a JSON object with EXACTLY this shape -- the same top-level "
+        "keys, wrapped together in one single outer {...} object like this "
+        f"example (replace every value with your real analysis, keep the "
+        f"same nesting):\n{schema_block}\n\n"
         "Do not add any other keys."
     )
     return system_prompt, user_prompt
 
 
-def call_llm_for_framework(framework: dict, grounded: dict, working_brief: dict, config: ModelRoleConfig) -> dict:
-    system_prompt, user_prompt = build_framework_prompt(framework, grounded, working_brief)
+def call_llm_for_framework(
+    framework: dict, grounded: dict, working_brief: dict, config: ModelRoleConfig,
+    redirect_feedback: str | None = None,
+) -> dict:
+    system_prompt, user_prompt = build_framework_prompt(framework, grounded, working_brief, redirect_feedback)
     return call_json(config, system_prompt, user_prompt, required_keys=set(framework["output_schema"].keys()))
 
 
@@ -174,22 +225,32 @@ FRAMEWORK_FALLBACKS = {
 }
 
 
-def apply_analytical_framework(working_brief: dict, config: ModelRoleConfig, mock: bool = False) -> dict:
-    framework_id = select_analytical_framework(working_brief["primary_goal"])
+def apply_analytical_framework(
+    working_brief: dict,
+    config: ModelRoleConfig,
+    mock: bool = False,
+    redirect_feedback: str | None = None,
+    framework_id_override: str | None = None,
+) -> dict:
+    framework_id = framework_id_override or select_analytical_framework(working_brief["primary_goal"])
     framework = load_framework(framework_id)
     brand = load_brand(working_brief["brand_id"])
     query = f"{working_brief['primary_goal']} {working_brief['core_message']}"
     grounded = resolve_memory_inputs(framework["memory_inputs"], brand, query)
 
     if mock:
+        if redirect_feedback:
+            print("note: redirect_feedback is ignored by the deterministic fallback (template-only, cannot incorporate free-text feedback)")
         brief = FRAMEWORK_FALLBACKS[framework_id](grounded, working_brief, brand)
         method, model = "mock", None
     else:
         try:
-            brief = call_llm_for_framework(framework, grounded, working_brief, config)
+            brief = call_llm_for_framework(framework, grounded, working_brief, config, redirect_feedback)
             method, model = "llm", config.model
         except Exception as exc:  # noqa: BLE001 -- broad by design, see persona_simulation.py
             print(f"Framework application failed ({type(exc).__name__}: {exc}); using fallback template")
+            if redirect_feedback:
+                print("note: redirect_feedback is ignored by the deterministic fallback (template-only, cannot incorporate free-text feedback)")
             brief = FRAMEWORK_FALLBACKS[framework_id](grounded, working_brief, brand)
             method, model = "llm_fallback", config.model
 
@@ -203,7 +264,9 @@ def apply_analytical_framework(working_brief: dict, config: ModelRoleConfig, moc
     }
 
 
-def build_seven_ps_prompt(framework: dict, grounded: dict, working_brief: dict) -> tuple[str, str]:
+def build_seven_ps_prompt(
+    framework: dict, grounded: dict, working_brief: dict, redirect_feedback: str | None = None
+) -> tuple[str, str]:
     system_prompt = (
         "You are applying the 7Ps Marketing Mix to translate a positioning brief "
         "into concrete creative constraints that generated ad copy must obey. You "
@@ -211,27 +274,46 @@ def build_seven_ps_prompt(framework: dict, grounded: dict, working_brief: dict) 
         "contradict them), verified market patterns, and the positioning brief "
         "already produced. hard_rules must include every constraint the user "
         "explicitly stated, plus any rule implied by the brand's actual price "
-        "posture -- a premium-positioned brand must never receive discount-led "
-        "promotional guidance. Respond with ONLY a single JSON object containing "
-        "exactly the requested keys -- no markdown fences, no commentary, no extra keys."
+        "posture, applied correctly in BOTH directions: a premium-positioned "
+        "brand must never receive discount-led promotional guidance (lead "
+        "with material/craft/provenance instead), while a budget-positioned "
+        "brand should be explicitly told that discount/urgency framing IS "
+        "on-brand and encouraged (the only constraint is not misrepresenting "
+        "stock levels). Do not apply the premium-only restriction to a "
+        "budget or mid-posture brand. Respond with ONLY a single JSON "
+        "object containing exactly the requested keys -- no markdown "
+        "fences, no commentary, no extra keys."
     )
+    if redirect_feedback:
+        system_prompt += (
+            " If human redirect feedback is provided below, treat it as an "
+            "authoritative directive that overrides your own prior judgment "
+            "on the specific point it addresses."
+        )
 
     facts_block = "\n".join(f"- {k}: {json.dumps(v, ensure_ascii=False)}" for k, v in grounded.items())
-    schema_block = "\n".join(f"- {field}: {type_str}" for field, type_str in framework["output_schema"].items())
+    schema_block = _format_schema_block(framework["output_schema"])
     constraints_block = "\n".join(f"- {c}" for c in working_brief["hard_constraints"])
 
     user_prompt = (
         f"Brand and positioning facts:\n{facts_block}\n\n"
         "The user's own stated hard constraints for this campaign (must all be "
-        f"preserved in hard_rules):\n{constraints_block}\n\n"
-        f"Return a JSON object with exactly these keys:\n{schema_block}\n\n"
+        f"preserved in hard_rules):\n{constraints_block}\n"
+        f"{_redirect_block(redirect_feedback)}\n"
+        "Return a JSON object with EXACTLY this shape -- the same top-level "
+        "keys, wrapped together in one single outer {...} object like this "
+        f"example (replace every value with your real analysis, keep the "
+        f"same nesting):\n{schema_block}\n\n"
         "Do not add any other keys."
     )
     return system_prompt, user_prompt
 
 
-def call_llm_for_seven_ps(framework: dict, grounded: dict, working_brief: dict, config: ModelRoleConfig) -> dict:
-    system_prompt, user_prompt = build_seven_ps_prompt(framework, grounded, working_brief)
+def call_llm_for_seven_ps(
+    framework: dict, grounded: dict, working_brief: dict, config: ModelRoleConfig,
+    redirect_feedback: str | None = None,
+) -> dict:
+    system_prompt, user_prompt = build_seven_ps_prompt(framework, grounded, working_brief, redirect_feedback)
     return call_json(config, system_prompt, user_prompt, required_keys=set(framework["output_schema"].keys()))
 
 
@@ -269,7 +351,11 @@ def generate_mock_seven_ps(grounded: dict, working_brief: dict, brand: dict) -> 
 
 
 def apply_seven_ps(
-    working_brief: dict, positioning_brief: dict, config: ModelRoleConfig, mock: bool = False
+    working_brief: dict,
+    positioning_brief: dict,
+    config: ModelRoleConfig,
+    mock: bool = False,
+    redirect_feedback: str | None = None,
 ) -> dict:
     framework = get_executional_framework()
     brand = load_brand(working_brief["brand_id"])
@@ -288,14 +374,18 @@ def apply_seven_ps(
     }
 
     if mock:
+        if redirect_feedback:
+            print("note: redirect_feedback is ignored by the deterministic fallback (template-only, cannot incorporate free-text feedback)")
         constraints = generate_mock_seven_ps(grounded, working_brief, brand)
         method, model = "mock", None
     else:
         try:
-            constraints = call_llm_for_seven_ps(framework, grounded, working_brief, config)
+            constraints = call_llm_for_seven_ps(framework, grounded, working_brief, config, redirect_feedback)
             method, model = "llm", config.model
         except Exception as exc:  # noqa: BLE001
             print(f"7Ps application failed ({type(exc).__name__}: {exc}); using fallback template")
+            if redirect_feedback:
+                print("note: redirect_feedback is ignored by the deterministic fallback (template-only, cannot incorporate free-text feedback)")
             constraints = generate_mock_seven_ps(grounded, working_brief, brand)
             method, model = "llm_fallback", config.model
 
@@ -314,6 +404,8 @@ def run_frameworks_apply(
     mock: bool = False,
     model: str | None = None,
     temperature: float | None = None,
+    redirect_feedback: str | None = None,
+    framework_id_override: str | None = None,
 ) -> dict:
     with open(working_brief_path) as f:
         working_brief = json.load(f)
@@ -327,11 +419,13 @@ def run_frameworks_apply(
     if overrides:
         config = dataclasses.replace(config, **overrides)
 
-    positioning_brief = apply_analytical_framework(working_brief, config, mock)
+    positioning_brief = apply_analytical_framework(
+        working_brief, config, mock, redirect_feedback, framework_id_override
+    )
     print(f"Selected analytical framework: {positioning_brief['framework_id']}")
     print(f"Resolved memory inputs: {list(positioning_brief['grounded'].keys())}")
 
-    creative_constraints = apply_seven_ps(working_brief, positioning_brief, config, mock)
+    creative_constraints = apply_seven_ps(working_brief, positioning_brief, config, mock, redirect_feedback)
     print(f"Applied 7Ps (always). Resolved memory inputs: {list(creative_constraints['grounded'].keys())}")
 
     output = {"positioning_brief": positioning_brief, "creative_constraints": creative_constraints}
@@ -354,6 +448,8 @@ def main() -> None:
     parser.add_argument("--mock", action="store_true")
     parser.add_argument("--model", type=str, default=None)
     parser.add_argument("--temperature", type=float, default=None)
+    parser.add_argument("--redirect-feedback", type=str, default=None, help="Checkpoint 1.5 redirect feedback")
+    parser.add_argument("--framework-override", type=str, default=None, help="Force a specific framework_id")
     args = parser.parse_args()
 
     run_frameworks_apply(
@@ -362,6 +458,8 @@ def main() -> None:
         mock=args.mock,
         model=args.model,
         temperature=args.temperature,
+        redirect_feedback=args.redirect_feedback,
+        framework_id_override=args.framework_override,
     )
 
 

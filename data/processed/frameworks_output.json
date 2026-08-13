@@ -34,7 +34,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.556483000842871
+          "similarity": 0.5561065520252998
         },
         {
           "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
@@ -42,38 +42,38 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.4998804933124057
+          "similarity": 0.4972885433527314
         }
       ]
     },
     "brief": {
       "axes": {
         "x_axis": "Price (Budget vs. Premium)",
-        "y_axis": "Trend Relevance / Style Focus (Niche vs. Broad)"
+        "y_axis": "Trend Relevance & Exclusivity (Broad Catalog vs. Curated Drops)"
       },
       "brand_position": {
-        "x": 2.5,
-        "y": 3.0
+        "x": 1.5,
+        "y": 1.5
       },
       "competitor_positions": [
         {
           "name": "Bewakoof",
-          "x": 2.5,
-          "y": 2.0
+          "x": 2.0,
+          "y": 1.0
         },
         {
           "name": "Snitch",
-          "x": 4.0,
-          "y": 2.5
+          "x": 2.5,
+          "y": 1.5
         },
         {
           "name": "The Souled Store",
-          "x": 3.0,
-          "y": 3.5
+          "x": 2.0,
+          "y": 2.0
         }
       ],
-      "whitespace_summary": "There is whitespace in the 'Ultra-Affordable, Hyper-Current Trend Delivery' quadrant. Competitors occupy either a slightly higher price point (Snitch) or a broader/niche focus (The Souled Store). The opportunity lies in owning the intersection of extreme budget pricing and immediate trend access.",
-      "positioning_summary": "Vamp should position itself as the most accessible gateway for Gen Z to acquire weekly, cutting-edge streetwear trends without compromising on budget, emphasizing speed and trend immediacy over broad catalog depth or deep fandom focus."
+      "whitespace_summary": "Whitespace exists in the high-velocity, hyper-affordable segment where trend curation (weekly drops) is prioritized over broad catalog size or pure fandom focus. Competitors occupy either higher price points (Snitch), broader catalogs (The Souled Store), or meme/graphic focus (Bewakoof).",
+      "positioning_summary": "Vamp should position itself as the definitive source for immediate, trend-aligned streetwear drops at the absolute budget end of the spectrum, leveraging speed and scarcity to differentiate from catalog-heavy competitors."
     },
     "generation_method": "llm",
     "model": "gemma4:e2b"
@@ -101,7 +101,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.5483391651321875
+          "similarity": 0.5566306737038798
         },
         {
           "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
@@ -109,24 +109,26 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.5077467061352106
+          "similarity": 0.5170626407745553
         }
       ],
-      "positioning_summary": "Vamp should position itself as the most accessible gateway for Gen Z to acquire weekly, cutting-edge streetwear trends without compromising on budget, emphasizing speed and trend immediacy over broad catalog depth or deep fandom focus."
+      "positioning_summary": "Vamp should position itself as the definitive source for immediate, trend-aligned streetwear drops at the absolute budget end of the spectrum, leveraging speed and scarcity to differentiate from catalog-heavy competitors."
     },
     "constraints": {
-      "product": "Focus on weekly, cutting-edge streetwear drops; emphasize trend immediacy over catalog depth.",
-      "price": "Reinforce budget accessibility; avoid any language suggesting discounts or sales.",
-      "place": "D2C focus; content must be optimized for Instagram/Reels native formats.",
-      "promotion": "Use urgency-driven, slang-friendly, meme-literate language. Focus on 'the drop' rather than 'the sale.' No discount code call-outs in headlines.",
-      "people": "Adopt a voice that sounds like a friend hyping the next drop; use creator-style captions and emojis.",
-      "physical_evidence": "Prioritize UGC video content over static imagery. Include explicit size/fit reassurance elements (e.g., fit guides, try-on videos) to reduce friction.",
-      "process": "Emphasize speed and immediacy of acquisition. The experience must feel like catching a limited drop, not browsing a slow catalog.",
+      "product": "Focus on immediate, trend-aligned streetwear drops. Copy must emphasize newness and relevance over product features alone.",
+      "price": "Leverage budget positioning by framing scarcity and speed as the primary value driver, not price reduction. Urgency is encouraged.",
+      "place": "Content must be optimized for Instagram/Reels native formats (short-form video preferred) to maximize engagement.",
+      "promotion": "Use hype, countdowns, and slang to drive action. Do not use explicit discount code call-outs in headlines. Focus on the 'drop' experience.",
+      "people": "Adopt a voice that sounds like a friend hyping an exclusive drop. Use meme-literate, slang-friendly language and emoji heavily.",
+      "physical_evidence": "All content must incorporate size/fit reassurance elements (e.g., try-on videos, fit guides) to reduce perceived risk.",
+      "process": "Emphasize the speed of the drop and scarcity. The process is immediate access to the trend.",
       "hard_rules": [
-        "No discount code call-outs in the headline",
-        "Keep this capsule to feel like a drop not a sale",
-        "Do not imply limited stock we cannot back",
-        "Keep it Instagram/Reels-native, not stiff catalog copy"
+        "Do not use discount code call-outs in the headline.",
+        "Do not imply limited stock that cannot be immediately backed up by inventory.",
+        "Keep all content strictly Instagram/Reels-native format.",
+        "Avoid stiff, catalog-style copy; maintain a loud, playful, and slang-friendly tone.",
+        "Prioritize UGC-style video content over static imagery for maximum reach.",
+        "Frame urgency around the drop timing and trend relevance, not just price cuts."
       ]
     },
     "generation_method": "llm",

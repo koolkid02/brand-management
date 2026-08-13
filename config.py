@@ -22,6 +22,11 @@ class ModelRoleConfig:
     temperature: float
     max_retries: int = 2  # JSON-parse retries before caller must fall back
     request_timeout: float = 60.0
+    max_output_tokens: int = 2048  # generous budget so longer JSON (arrays of
+    # several items, e.g. a batched critique response) doesn't get silently
+    # truncated before its closing brace -- found via live testing: a
+    # follow-up-questions call returned a well-formed, unterminated JSON
+    # object because the response was cut off with no max_tokens set at all.
 
 
 def _env(name: str, default: str) -> str:

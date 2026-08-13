@@ -30,6 +30,43 @@ def _strip_code_fences(text: str) -> str:
     return "\n".join(lines).strip()
 
 
+def _attempt_json_repair(text: str) -> str | None:
+    """Small local models sometimes generate a well-formed JSON body but
+    simply forget the final closing brace(s) -- observed repeatedly with a
+    generous max_tokens budget already in place, so it's a formatting slip,
+    not truncation from hitting the token limit. Rather than only relying on
+    the model to fix itself on retry, attempt a direct repair: track
+    unclosed {/[ (respecting quoted strings) and append the matching closers
+    in the right order. Returns the repaired text, or None if there was
+    nothing to repair (the failure was something else)."""
+    stack: list[str] = []
+    in_string = False
+    escape = False
+    for ch in text:
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+        elif ch in "{[":
+            stack.append(ch)
+        elif ch in "}]":
+            if stack:
+                stack.pop()
+
+    if not stack:
+        return None
+
+    closing = '"' if in_string else ""
+    closing += "".join("}" if opener == "{" else "]" for opener in reversed(stack))
+    return text + closing
+
+
 def _extract_first_json_object(text: str) -> str:
     """Return the first balanced {...} substring, respecting quoted strings."""
     start = text.find("{")
@@ -58,6 +95,9 @@ def _extract_first_json_object(text: str) -> str:
             if depth == 0:
                 return text[start : i + 1]
 
+    repaired = _attempt_json_repair(text[start:])
+    if repaired is not None:
+        return repaired
     raise ValueError("No balanced JSON object found in response")
 
 
@@ -100,6 +140,7 @@ def call_json(
             messages=messages,
             temperature=config.temperature,
             timeout=config.request_timeout,
+            max_tokens=config.max_output_tokens,
         )
         raw = response.choices[0].message.content or ""
         try:

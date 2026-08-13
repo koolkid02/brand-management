@@ -8,21 +8,34 @@
     "hard_constraints": "No discount language anywhere, this line never goes on sale. Nothing that reads like a catalog spec sheet either, keep it editorial. And the maker/sourcing story has to be front and center, not an afterthought.",
     "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning."
   },
-  "target_segment_summary": "Premium and loyal-core segments: 28-45 urban professionals with low purchase frequency but high AOV who research before they buy and care about the maker story, not the trend cycle.",
+  "followup_qa": [
+    {
+      "question": "How should the campaign specifically differentiate the 'maker story' from competitors who mimic artisanal aesthetics?",
+      "answer": "We'll do that by showcasing the human side of our makers - sharing their stories, photos, and videos on our website and socials, highlighting the craftsmanship and attention to detail that goes into each piece. This will help create an emotional connection with our audience and differentiate us from competitors who just slap a 'handmade' label on mass-produced goods.",
+      "answer_method": "llm"
+    },
+    {
+      "question": "What specific emotional payoff or internal validation do these high-AOV customers seek when they purchase a piece with a traceable maker story?",
+      "answer": "These customers are seeking a sense of authenticity and connection to the craftsmanship that goes into each piece, as well as a validation of their own values and purchasing decisions - they're not just buying a product, but an experience and a story that resonates with them on a deeper level.",
+      "answer_method": "llm"
+    }
+  ],
+  "followup_generation_method": "llm",
+  "target_segment_summary": "Premium and loyal-core segments (28-45), urban professionals with low purchase frequency but high AOV who research before buying and value the maker story over trends.",
   "price_posture": "premium",
   "competitors_to_position_against": [
     "Nicobar",
     "Bombay Shirt Company",
     "Okhai"
   ],
-  "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace; this is fashion you buy once and keep, not fashion you buy weekly and forget.",
+  "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace - this is fashion you buy once and keep, not fashion you buy weekly and forget.",
   "hard_constraints": [
     "No discount language anywhere",
     "This line never goes on sale",
     "Keep it editorial",
     "Make the maker/sourcing story front and center"
   ],
-  "primary_goal": "We are worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we do not want this to turn into a price war on craft positioning.",
+  "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning.",
   "generation_method": "llm",
   "model": "gemma4:e2b"
 }
