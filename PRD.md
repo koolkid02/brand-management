@@ -39,17 +39,19 @@ personas and campaigns are built by different pipelines, for different reasons,
 and only come together at the moment of testing.
 
 ```
-  MODULE A: PERSONA GENERATION       MODULE B: CAMPAIGN GENERATION
-  ───────────────────────────       ─────────────────────────────
+  MODULE A: PERSONA GENERATION       MODULE B: CAMPAIGN GENERATION (bounded agentic loop)
+  ───────────────────────────       ───────────────────────────────────────────────────
   raw audience data                  brand brief
         │                                  │
         ▼                                  ▼
-  Segmentation                       [CHECKPOINT 1] Intake — human
-  (cluster into segments)            answers 5-6 planning questions
-        │                                  │  (→ working brief)
-        ▼                                  ▼
-  Persona Simulation                 Retrieve memory:
-  (segment → rich persona)             • Brand (private)
+  Segmentation                       [CHECKPOINT 1] Intake — adaptive:
+  (cluster into segments)            baseline questions + up to 3 dynamic
+        │                            follow-ups on gaps/ambiguity
+        ▼                            (→ working brief) · via dashboard
+  Persona Simulation                        │
+  (segment → rich persona)                  ▼
+        │                            Retrieve memory:
+        │                              • Brand (private)
         │                              • Market + Trend (global)
         │                                  │
         │                                  ▼
@@ -60,12 +62,28 @@ and only come together at the moment of testing.
         │                            7Ps Marketing Mix
         │                                  │  → creative constraints
         │                                  ▼
-        │                            Generate N campaign variants
+        │                       ┌──▶ [CHECKPOINT 1.5] Strategy Review — human
+        │                       │    approves direction, or redirects
+        │                       │        │                    │
+        │                       │     approve            redirect (≤2 loops)
+        │                       │        │                    │
+        │                       └────────┼────────────────────┘
+        │                                ▼
+        │                          Ideate (wide): 8-10 raw creative
+        │                          concepts across creative angles
+        │                                  │
+        │                                  ▼
+        │                          Critique: score/cut against brief,
+        │                          positioning, hard rules (reasons stated)
+        │                                  │
+        │                                  ▼
+        │                          Refine: polish the surviving
+        │                          strongest concepts
         │                                  │
         └──────────────┬───────────────────┘
                        ▼
               EVALUATION LAYER — Traction Agent
-   (test every variant against every persona; grounded
+   (test every refined variant against every persona; grounded
     scoring; synthesize pattern → ranked recommendation)
                        │
                        ▼
@@ -80,19 +98,27 @@ Turns raw audience data into a reusable population of synthetic personas.
 - Output: 6–8 personas per brand. Built once, reused across every campaign test.
 
 ### Module B — Campaign Generation
-Turns a brand brief into campaign variants — but as a **memory-grounded,
-human-checkpointed workflow**, not a single prompt. This is the key correction
-over a naive "brief in, copy out" call. Steps:
+Turns a brand brief into a small set of genuinely strong campaign variants — not a
+single "brief in, copy out" call, and not a one-shot batch of first drafts either.
+Module B runs as a **bounded agentic loop**: the phase sequence is fixed (intake →
+strategy → ideation → approval), but the model makes real, LLM-judged decisions
+within and between phases — how many follow-up questions to ask, whether to loop
+back after a strategy review, which concepts survive critique — rather than
+executing a rigid script. All human touchpoints happen through a live dashboard
+(Streamlit), not a pre-filled answers file or terminal prompts; the file-based mode
+is kept only as a scripted path for reproducible verification runs, not the primary
+experience.
 
-0. **Checkpoint 1 — Intake (human-in-the-loop):** before anything is generated,
-   a planning step asks the user a small, fixed set of 5–6 questions (target
-   segment, price posture, competitors to position against, the one core
-   message, hard constraints, primary goal). Answers become the *working
-   brief*. This is the step where a **more capable model** belongs (planning
-   reasoning), while the high-volume simulation loop downstream runs on a cheap
-   local model. For a reproducible demo the questions are displayed live and
-   answers are read from a pre-filled file; in production the same function
-   takes answers from the UI. See §5b.
+0. **Checkpoint 1 — Intake (adaptive):** the planning model asks the fixed baseline
+   questions (target segment, price posture, competitors to position against, the
+   one core message, hard constraints, primary goal) via the dashboard, then
+   reviews the answers for gaps, vagueness, or interesting tensions and asks up to
+   3 targeted follow-up questions before finalizing the *working brief* — real
+   back-and-forth, not a form. (POC: bounded to ≤3 follow-ups on the same fixed
+   baseline set, for a predictable demo; Phase 2: fully open-ended discovery.) This
+   is where the **planning-role model** belongs (stronger, once-per-run reasoning);
+   the high-volume ideation loop downstream still runs on the cheap simulation
+   model.
 1. **Retrieve brand memory (private):** brand identity, tone, stated competitors/customers.
 2. **Retrieve market + trend memory (global):** abstracted, cross-brand patterns on what's resonating in this category right now. Never raw per-brand data — see §5.
 3. **Apply an analytical framework → positioning brief:** auto-select one of
@@ -105,10 +131,25 @@ over a naive "brief in, copy out" call. Steps:
    (price posture, proof elements, promotional angle, hard rules) so generated
    creative is consistent with the real marketing mix — e.g. a premium product
    never gets discount-led copy.
-5. **Generate variants:** only now does the LLM write copy, conditioned on the
-   working brief + brand/market/trend memory + positioning brief + 7Ps
-   constraints.
-- Output: N campaign variants, each with a distinct messaging angle.
+
+   **[Checkpoint 1.5 — Strategy Review, human-in-the-loop]:** before any creative
+   is generated, the dashboard shows the selected framework, the positioning
+   brief, and the 7Ps constraints. The human approves (proceed to ideation) or
+   redirects with feedback ("wrong framework," "don't position against that
+   competitor") — a redirect re-runs steps 3-4 with that feedback folded in,
+   capped at 2 loop-backs so the POC stays bounded and demoable.
+5. **Ideate (wide):** generate 8-10 raw creative concepts spanning the angle pool
+   (simulation role — the high-volume step).
+6. **Critique:** one planning-role pass reviews all raw concepts against the
+   brief, positioning brief, and hard rules — scores each for on-brief adherence,
+   differentiation, and hard-rule compliance, and selects the strongest subset to
+   carry forward, with a stated reason for every cut (transparent process, not a
+   black box).
+7. **Refine:** surviving concepts get a genuine polish pass (planning role)
+   informed by the critique feedback — first drafts never ship as final variants.
+- Output: a small set (e.g. 3-5) of refined campaign variants, each with a
+  distinct messaging angle and a visible critique rationale, ready for the
+  evaluation layer.
 
 ### Evaluation Layer — Traction Agent
 The single meeting point of the two modules.
@@ -179,18 +220,26 @@ creative constraints → generation.
 
 ## 7. Human-in-the-loop checkpoints
 
-The system has **two** human touchpoints — direction in, approval out:
+The system has **three** human touchpoints — direction in, strategic alignment
+check, approval out:
 
-1. **Checkpoint 1 — Intake (before generation):** user answers 5–6 planning
-   questions that set strategic direction. Machine then does all the heavy
-   lifting. (POC: fixed question set for a clean demo flow; Phase 2: a stronger
-   planning model that asks only for real gaps in memory.)
-2. **Checkpoint 2 — Approval (after evaluation):** the Traction Agent ranks
+1. **Checkpoint 1 — Intake (before generation, adaptive):** user answers the
+   fixed baseline questions that set strategic direction, then answers up to 3
+   dynamic follow-up questions the planning model asks on whatever's vague or
+   under-specified. (POC: bounded follow-up count on a fixed baseline set, for a
+   clean demo flow; Phase 2: a stronger planning model that asks only for real
+   gaps in memory, fully open-ended.)
+2. **Checkpoint 1.5 — Strategy Review (after positioning + 7Ps, before creative
+   execution):** the human sees the selected framework, positioning brief, and
+   creative constraints, and either approves or redirects with feedback — a
+   redirect re-runs framework/7Ps application, capped at 2 loop-backs.
+3. **Checkpoint 2 — Approval (after evaluation):** the Traction Agent ranks
    variants; a marketer signs off on the winner before any real ad spend.
 
 This matches the challenge brief's explicit ask for human-in-the-loop
-checkpoints, and mirrors how a real consulting engagement runs: human sets
-direction, machine executes, human approves output.
+checkpoints, and mirrors how a real consulting engagement runs — now more
+literally: human sets direction, strategic alignment is checked before any
+creative work starts, machine executes, human approves output.
 
 ## 8. Grounded scoring (not free-floating LLM guesses)
 
@@ -207,12 +256,12 @@ score stays traceable to "segment history" vs "copy-specific judgment."
 | Concern | Choice | Notes |
 |---|---|---|
 | LLM inference | **Ollama or LM Studio**, local | Both expose an OpenAI-compatible `/v1/chat/completions` endpoint |
-| LLM client | One thin wrapper pointed at `http://localhost:11434/v1` (Ollama) or LM Studio's port | Swappable via config/env; `api_key` is required-but-ignored. **Role-based routing:** the planning/intake step can point at a stronger model while the high-volume simulation loop uses a cheap fast local model — match model capability to task |
+| LLM client | One thin wrapper pointed at `http://localhost:11434/v1` (Ollama) or LM Studio's port | Swappable via config/env; `api_key` is required-but-ignored. **Role-based routing:** the planning/intake step can point at a stronger model while the high-volume simulation loop uses a cheap fast local model — match model capability to task. In Module B specifically: intake follow-up generation, strategy-redirect handling, critique, and refinement all run on `"planning"`; wide/raw ideation (and Module A's persona simulation) run on `"simulation"` — the same once-per-run-vs-scales-with-N rule, now covering more steps |
 | Suggested models | `llama3.1:8b` / `mistral:7b` (fast) — any local chat model works | Low temperature (0.1–0.3) for parseable JSON output |
 | Robust parsing | Custom JSON-extraction with retry | Small local models emit messier JSON than hosted APIs — must handle gracefully |
 | Segmentation/clustering | scikit-learn (KMeans) + TF-IDF | Deterministic, offline, no GPU needed |
 | Memory stores (POC) | Local JSON + a lightweight vector similarity | Interfaces real, backends swappable |
-| Dashboard | Streamlit | For the video walkthrough |
+| Dashboard | Streamlit | Core interaction surface for Module B — adaptive intake conversation, strategy review, variant approval. Not a post-hoc demo aid; the primary way a human interacts with Checkpoints 1, 1.5, and 2 |
 
 **Design principle:** the architecture must be seamless and swappable — model
 quality is explicitly secondary to a clean, robust, well-separated pipeline.
@@ -240,9 +289,10 @@ persona-sim-engine/
 │   ├── segmentation.py        # raw data → clusters
 │   └── persona_simulation.py  # clusters → rich persona profiles
 ├── module_b_campaigns/
-│   ├── intake.py              # Checkpoint 1: 5-6 planning questions → working brief
-│   ├── frameworks_apply.py    # apply analytical framework → positioning brief; then 7Ps → constraints
-│   └── campaign_generation.py # memory-grounded workflow → variants
+│   ├── intake.py              # Checkpoint 1: adaptive baseline + follow-up questions → working brief
+│   ├── frameworks_apply.py    # analytical framework → positioning brief; 7Ps → constraints; supports redirect/re-apply
+│   ├── ideation.py            # ideate (wide) → critique → refine → final variants
+│   └── agent_loop.py          # bounded agentic orchestrator: phases + checkpoints + loop-back/follow-up decisions
 ├── evaluation/
 │   ├── persona_reaction.py    # grounded per-(persona,variant) scoring
 │   └── traction_agent.py      # synthesis across reactions → recommendation
@@ -250,9 +300,12 @@ persona-sim-engine/
 │   ├── generate_synthetic_data.py       # mock Indian D2C audience
 │   └── generate_historical_campaigns.py # mock baseline table
 ├── dashboard/
-│   └── app.py
+│   └── app.py                 # Streamlit UI: intake conversation, strategy review, variant approval
 └── run_pipeline.py            # orchestrates A + B → evaluation, end to end
 ```
+`module_b_campaigns/` supersedes the earlier flat `campaign_generation.py` script —
+its responsibilities are now split between `ideation.py` (the ideate/critique/refine
+logic) and `agent_loop.py` (the orchestrator that ties phases and checkpoints together).
 
 ---
 
@@ -271,8 +324,10 @@ persona-sim-engine/
 - [ ] Role-based model routing works (stronger model for intake/planning, cheap model for simulation loop)
 - [ ] `--mock` mode runs the whole pipeline with zero LLM calls (fast structural validation)
 - [ ] Module A produces 6–8 data-derived personas
-- [ ] Checkpoint 1 intake displays 5–6 questions and folds answers into the working brief
+- [ ] Checkpoint 1 intake asks the fixed baseline questions via the dashboard, then asks up to 3 dynamic follow-ups on gaps/ambiguity before finalizing the working brief
 - [ ] Module B visibly retrieves from all four memory layers, applies an analytical framework → positioning brief, then 7Ps → constraints, before generating (not a bare prompt)
+- [ ] Checkpoint 1.5 strategy review shows the selected framework/positioning brief/constraints in the dashboard and supports a bounded (≤2) redirect loop-back
+- [ ] Module B's ideation step generates a wider raw concept set, critiques/cuts it with stated reasons, and only refines the survivors — never ships a first draft as a final variant
 - [ ] Evaluation layer scores every variant × persona with traceable baseline+adjustment
 - [ ] Traction Agent outputs a ranked, actionable recommendation per variant
 - [ ] Checkpoint 2 approval step present in the dashboard
