@@ -48,35 +48,35 @@
     },
     "brief": {
       "axes": {
-        "x_axis": "Price (Budget vs. Premium)",
-        "y_axis": "Trend Relevance & Exclusivity (Broad Catalog vs. Curated Drops)"
+        "x_axis": "Price",
+        "y_axis": "Trend-forwardness"
       },
       "brand_position": {
-        "x": 1.5,
-        "y": 1.5
+        "x": 0.2,
+        "y": 0.8
       },
       "competitor_positions": [
         {
           "name": "Bewakoof",
-          "x": 2.0,
-          "y": 1.0
+          "x": 0.5,
+          "y": 0.5
         },
         {
           "name": "Snitch",
-          "x": 2.5,
-          "y": 1.5
+          "x": 0.5,
+          "y": 0.5
         },
         {
           "name": "The Souled Store",
-          "x": 2.0,
-          "y": 2.0
+          "x": 0.5,
+          "y": 0.5
         }
       ],
-      "whitespace_summary": "Whitespace exists in the high-velocity, hyper-affordable segment where trend curation (weekly drops) is prioritized over broad catalog size or pure fandom focus. Competitors occupy either higher price points (Snitch), broader catalogs (The Souled Store), or meme/graphic focus (Bewakoof).",
-      "positioning_summary": "Vamp should position itself as the definitive source for immediate, trend-aligned streetwear drops at the absolute budget end of the spectrum, leveraging speed and scarcity to differentiate from catalog-heavy competitors."
+      "whitespace_summary": "Placeholder estimate (fallback template) -- competitor coordinates are neutral defaults, not researched positions; pending real LLM reasoning for an actual whitespace read.",
+      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
     },
-    "generation_method": "llm",
-    "model": "gemma4:e2b"
+    "generation_method": "mock",
+    "model": null
   },
   "creative_constraints": {
     "framework_id": "seven_ps",
@@ -101,7 +101,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.5566306737038798
+          "similarity": 0.5561594157620925
         },
         {
           "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
@@ -109,29 +109,27 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.5170626407745553
+          "similarity": 0.5358865061159094
         }
       ],
-      "positioning_summary": "Vamp should position itself as the definitive source for immediate, trend-aligned streetwear drops at the absolute budget end of the spectrum, leveraging speed and scarcity to differentiate from catalog-heavy competitors."
+      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
     },
     "constraints": {
-      "product": "Focus on immediate, trend-aligned streetwear drops. Copy must emphasize newness and relevance over product features alone.",
-      "price": "Leverage budget positioning by framing scarcity and speed as the primary value driver, not price reduction. Urgency is encouraged.",
-      "place": "Content must be optimized for Instagram/Reels native formats (short-form video preferred) to maximize engagement.",
-      "promotion": "Use hype, countdowns, and slang to drive action. Do not use explicit discount code call-outs in headlines. Focus on the 'drop' experience.",
-      "people": "Adopt a voice that sounds like a friend hyping an exclusive drop. Use meme-literate, slang-friendly language and emoji heavily.",
-      "physical_evidence": "All content must incorporate size/fit reassurance elements (e.g., try-on videos, fit guides) to reduce perceived risk.",
-      "process": "Emphasize the speed of the drop and scarcity. The process is immediate access to the trend.",
+      "product": "Weekly trend drops; Sub-Rs 999 core pricing; 3-5 day dispatch",
+      "price": "Reflects the brand's real budget price posture.",
+      "place": "Primarily direct-to-consumer via the brand's own site/app, discovered through Instagram/Reels-native content.",
+      "promotion": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
+      "people": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions.",
+      "physical_evidence": "App-exclusive flash-sale mechanic",
+      "process": "3-5 day dispatch",
       "hard_rules": [
-        "Do not use discount code call-outs in the headline.",
-        "Do not imply limited stock that cannot be immediately backed up by inventory.",
-        "Keep all content strictly Instagram/Reels-native format.",
-        "Avoid stiff, catalog-style copy; maintain a loud, playful, and slang-friendly tone.",
-        "Prioritize UGC-style video content over static imagery for maximum reach.",
-        "Frame urgency around the drop timing and trend relevance, not just price cuts."
+        "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
+        "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
+        "And keep it Instagram/Reels-native, not stiff catalog copy.",
+        "Urgency/discount mechanics are on-brand and may be used, but must not misrepresent stock levels (no fake scarcity)."
       ]
     },
-    "generation_method": "llm",
-    "model": "gemma4:e2b"
+    "generation_method": "mock",
+    "model": null
   }
 }

@@ -8,20 +8,9 @@
     "hard_constraints": "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale. Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real. And keep it Instagram/Reels-native, not stiff catalog copy.",
     "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing."
   },
-  "followup_qa": [
-    {
-      "question": "Given the constraint against implying scarcity, what specific visual or narrative elements should we use on Reels to communicate the 'drop' feeling and exclusivity?",
-      "answer": "We can create a sense of urgency with quick cuts and fast-paced music, showcasing the capsule dropping on Reels as if it's happening live - think 'live' unboxing or 'first look' style. We can also use Instagram's shopping feature to tag individual pieces and show them disappearing one by one, giving that 'limited time only' feel without actually implying scarcity.",
-      "answer_method": "llm"
-    },
-    {
-      "question": "Beyond price, what is the single most unique aesthetic or cultural angle of this capsule that differentiates it from Bewakoof in the eyes of a trend-chaser?",
-      "answer": "For us, it's all about blending streetwear with a touch of old-school Vamp charm - think bold graphics, bright colors, and playful references to our heritage that feel fresh and relevant to Gen Z. This capsule is less about trying to be 'cool' in the same way Bewakoof does, and more about embracing our own unique personality and aesthetic.",
-      "answer_method": "llm"
-    }
-  ],
-  "followup_generation_method": "llm",
-  "target_segment_summary": "Trend-chasers and discount-chasers, specifically Gen Z (18-25) in metro and tier-2 cities who follow drops on Instagram Reels and buy in bursts around sales.",
+  "followup_qa": [],
+  "followup_generation_method": "mock",
+  "target_segment_summary": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
   "price_posture": "budget",
   "competitors_to_position_against": [
     "Bewakoof",
@@ -30,12 +19,11 @@
   ],
   "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
   "hard_constraints": [
-    "Do not use discount code call-outs in the headline",
-    "Do not imply limited stock that cannot be backed",
-    "Keep content Instagram/Reels-native",
-    "Avoid stiff catalog copy"
+    "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
+    "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
+    "And keep it Instagram/Reels-native, not stiff catalog copy."
   ],
   "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing.",
-  "generation_method": "llm",
-  "model": "gemma4:e2b"
+  "generation_method": "mock",
+  "model": null
 }
