@@ -1,0 +1,135 @@
+{
+  "positioning_brief": {
+    "framework_id": "perceptual_mapping",
+    "framework_name": "Perceptual Mapping",
+    "grounded": {
+      "brand.semantic.identity": {
+        "one_liner": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly.",
+        "target_customer": "18-26 year olds in metro and tier-2 cities, price-sensitive, discovers styles through Reels and influencer hauls, shops in bursts around drops/sales/festive occasions.",
+        "price_posture": "budget",
+        "value_props": [
+          "Weekly trend drops",
+          "Sub-Rs 999 core pricing",
+          "3-5 day dispatch"
+        ]
+      },
+      "brand.semantic.competitors": [
+        {
+          "name": "Bewakoof",
+          "positioning_note": "Similar price band, meme/graphic-tee led."
+        },
+        {
+          "name": "Snitch",
+          "positioning_note": "Similar Gen-Z streetwear category, slightly higher AOV."
+        },
+        {
+          "name": "The Souled Store",
+          "positioning_note": "Pop-culture/fandom-led, broader catalog."
+        }
+      ],
+      "market_memory.patterns": [
+        {
+          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
+          "tag": "ugc_video_outperforms_static",
+          "category": "fashion_d2c",
+          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
+          "supporting_brand_count": 2,
+          "similarity": 0.556483000842871
+        },
+        {
+          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
+          "tag": "size_fit_reassurance_reduces_abandonment",
+          "category": "fashion_d2c",
+          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+          "supporting_brand_count": 2,
+          "similarity": 0.4998804933124057
+        }
+      ]
+    },
+    "brief": {
+      "axes": {
+        "x_axis": "Price (Budget vs. Premium)",
+        "y_axis": "Trend Relevance / Style Focus (Niche vs. Broad)"
+      },
+      "brand_position": {
+        "x": 2.5,
+        "y": 3.0
+      },
+      "competitor_positions": [
+        {
+          "name": "Bewakoof",
+          "x": 2.5,
+          "y": 2.0
+        },
+        {
+          "name": "Snitch",
+          "x": 4.0,
+          "y": 2.5
+        },
+        {
+          "name": "The Souled Store",
+          "x": 3.0,
+          "y": 3.5
+        }
+      ],
+      "whitespace_summary": "There is whitespace in the 'Ultra-Affordable, Hyper-Current Trend Delivery' quadrant. Competitors occupy either a slightly higher price point (Snitch) or a broader/niche focus (The Souled Store). The opportunity lies in owning the intersection of extreme budget pricing and immediate trend access.",
+      "positioning_summary": "Vamp should position itself as the most accessible gateway for Gen Z to acquire weekly, cutting-edge streetwear trends without compromising on budget, emphasizing speed and trend immediacy over broad catalog depth or deep fandom focus."
+    },
+    "generation_method": "llm",
+    "model": "gemma4:e2b"
+  },
+  "creative_constraints": {
+    "framework_id": "seven_ps",
+    "grounded": {
+      "brand_name": "Vamp Streetwear",
+      "category": "fashion_d2c",
+      "price_posture": "budget",
+      "tone": {
+        "descriptors": [
+          "loud",
+          "playful",
+          "meme-literate",
+          "urgency-driven",
+          "slang-friendly"
+        ],
+        "voice_notes": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions."
+      },
+      "market_patterns": [
+        {
+          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
+          "tag": "ugc_video_outperforms_static",
+          "category": "fashion_d2c",
+          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
+          "supporting_brand_count": 2,
+          "similarity": 0.5483391651321875
+        },
+        {
+          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
+          "tag": "size_fit_reassurance_reduces_abandonment",
+          "category": "fashion_d2c",
+          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+          "supporting_brand_count": 2,
+          "similarity": 0.5077467061352106
+        }
+      ],
+      "positioning_summary": "Vamp should position itself as the most accessible gateway for Gen Z to acquire weekly, cutting-edge streetwear trends without compromising on budget, emphasizing speed and trend immediacy over broad catalog depth or deep fandom focus."
+    },
+    "constraints": {
+      "product": "Focus on weekly, cutting-edge streetwear drops; emphasize trend immediacy over catalog depth.",
+      "price": "Reinforce budget accessibility; avoid any language suggesting discounts or sales.",
+      "place": "D2C focus; content must be optimized for Instagram/Reels native formats.",
+      "promotion": "Use urgency-driven, slang-friendly, meme-literate language. Focus on 'the drop' rather than 'the sale.' No discount code call-outs in headlines.",
+      "people": "Adopt a voice that sounds like a friend hyping the next drop; use creator-style captions and emojis.",
+      "physical_evidence": "Prioritize UGC video content over static imagery. Include explicit size/fit reassurance elements (e.g., fit guides, try-on videos) to reduce friction.",
+      "process": "Emphasize speed and immediacy of acquisition. The experience must feel like catching a limited drop, not browsing a slow catalog.",
+      "hard_rules": [
+        "No discount code call-outs in the headline",
+        "Keep this capsule to feel like a drop not a sale",
+        "Do not imply limited stock we cannot back",
+        "Keep it Instagram/Reels-native, not stiff catalog copy"
+      ]
+    },
+    "generation_method": "llm",
+    "model": "gemma4:e2b"
+  }
+}

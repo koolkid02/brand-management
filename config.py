@@ -1,9 +1,10 @@
 """Model + endpoint + memory-path configuration (PRD §9 role-based routing).
 
-Each "role" maps to a task category. Only "simulation" (Module A's
-high-volume persona loop) exists today; Module B's "planning" role
-(stronger model for Checkpoint 1 intake) is added later as one more ROLES
-entry -- no code elsewhere needs to change.
+Each "role" maps to a task category: "simulation" is the cheap, high-volume
+loop (Module A personas, Module B campaign variants -- anything that scales
+with N); "planning" is the stronger model for once-per-run strategic
+reasoning (Module B's intake structuring and framework/7Ps application);
+"embedding" is the vector-similarity model used by the memory layer.
 """
 
 from __future__ import annotations
@@ -45,7 +46,19 @@ ROLES: dict[str, ModelRoleConfig] = {
                           # ignored" pattern as api_key for Ollama.
         max_retries=1,
     ),
-    # "planning": ModelRoleConfig(...)  # Module B Checkpoint 1 -- added later
+    "planning": ModelRoleConfig(
+        role="planning",
+        model=_env("PLANNING_MODEL", "gemma4:e2b"),
+        base_url=_env("PLANNING_BASE_URL", "http://localhost:11434/v1"),
+        api_key=_env("PLANNING_API_KEY", "ollama"),
+        # Lower than "simulation"'s 0.2 (still within PRD §9's 0.1-0.3 band):
+        # every planning-role call is a faithfulness task (structure/apply
+        # strictly from given facts), not a creativity task.
+        temperature=float(_env("PLANNING_TEMPERATURE", "0.15")),
+        # gemma4:e2b is larger/slower than llama3.2:latest, and planning
+        # prompts (grounded-fact blocks) run longer than persona prompts.
+        request_timeout=90.0,
+    ),
 }
 
 

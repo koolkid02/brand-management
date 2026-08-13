@@ -1,0 +1,52 @@
+[
+  {
+    "variant_id": "v1",
+    "angle": "discount_urgency",
+    "angle_label": "Discount / urgency-led",
+    "headline": "DROP ALERT \ud83d\udea8 48 HOURS ONLY \u23f0",
+    "body_copy": "Get the freshest streetwear trends before they're everywhere else! \ud83d\udca5 Our latest drop is live for 48 hours only - don't miss out! \ud83d\udd52\ufe0f",
+    "cta": "Shop Now \ud83d\udc49",
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "variant_id": "v2",
+    "angle": "social_proof",
+    "angle_label": "Social proof / UGC-led",
+    "headline": "Slay the Season in Style \ud83c\udf89",
+    "body_copy": "Don't believe us? \ud83d\udc81\u200d\u2640\ufe0f Our customers rave about our weekly drops! 'I got the Vamp tee before it sold out everywhere else' - @sarahk_95 \ud83d\udc57 'Vamp's got the trendiest pieces at prices that won't break the bank' - @jasonlau123 \ud83e\udd11",
+    "cta": "Get ready for the next drop! \ud83d\udea8 Follow us for exclusive access and try-on videos \ud83d\udcf9",
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "variant_id": "v3",
+    "angle": "aspirational_premium",
+    "angle_label": "Aspirational / premium-led",
+    "headline": "Get the Drop Before Anyone Else \ud83d\udea8",
+    "body_copy": "You don't have to choose between being first to the trend and breaking the bank. Vamp's got you covered - we're talking exclusive drops before they're everywhere else, crafted with the latest streetwear styles that'll make you stand out from the crowd.",
+    "cta": "Get Ready for the Drop \ud83d\udecd\ufe0f",
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "variant_id": "v4",
+    "angle": "problem_solution",
+    "angle_label": "Problem-solution",
+    "headline": "Don't Miss the Drop! \ud83d\udea8 Get Trendy Without Breaking the Bank \ud83d\udcb8",
+    "body_copy": "Tired of sacrificing style for savings? We feel you! \ud83d\ude12 Vamp's got the solution: our weekly drops are packed with fresh, cutting-edge streetwear trends at prices that won't make you cry yourself to sleep tonight \ud83d\ude02. No more stressing about whether you'll be able to cop before everyone else - we've got you covered! \ud83e\udd17",
+    "cta": "Get Ready for the Drop! \ud83d\udc49 Swipe Up in Our Stories to Get Exclusive Access \ud83d\udca5",
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "variant_id": "v5",
+    "angle": "trend_fomo",
+    "angle_label": "Trend / FOMO-led",
+    "headline": "Drop Alert! \ud83d\udc40 We Got You First!",
+    "body_copy": "Stay ahead of the curve with our freshest drops! \ud83d\udea8 No more waiting around for trends to happen - we're talking streetwear now, and you're getting it before anyone else. \ud83d\udcb8 From bold graphics to fresh fits, our weekly drops are the ultimate way to level up your wardrobe without breaking the bank. \ud83d\udcb8",
+    "cta": "Get Ready for Drop Day! \ud83d\udd70\ufe0f Shop Now & Stay Ahead of the Trend!",
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  }
+]

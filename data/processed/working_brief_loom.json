@@ -1,0 +1,28 @@
+{
+  "brand_id": "loom_and_aster",
+  "raw_answers": {
+    "target_segment": "Our premium and loyal-core segments - 28-45, urban professionals, low purchase frequency but high AOV, they research before they buy and care about the maker story, not the trend cycle.",
+    "price_posture": "Premium - we're a considered, small-batch brand and the price needs to reflect that. This is not a value play.",
+    "competitors": "Nicobar is the closest direct comp, similar handloom/considered-design ethos. Bombay Shirt Company too, same affluent buyer even though they're made-to-measure. Okhai is more of an artisanal/craft-cooperative comp than a head-to-head competitor.",
+    "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace - this is fashion you buy once and keep, not fashion you buy weekly and forget.",
+    "hard_constraints": "No discount language anywhere, this line never goes on sale. Nothing that reads like a catalog spec sheet either, keep it editorial. And the maker/sourcing story has to be front and center, not an afterthought.",
+    "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning."
+  },
+  "target_segment_summary": "Premium and loyal-core segments: 28-45 urban professionals with low purchase frequency but high AOV who research before they buy and care about the maker story, not the trend cycle.",
+  "price_posture": "premium",
+  "competitors_to_position_against": [
+    "Nicobar",
+    "Bombay Shirt Company",
+    "Okhai"
+  ],
+  "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace; this is fashion you buy once and keep, not fashion you buy weekly and forget.",
+  "hard_constraints": [
+    "No discount language anywhere",
+    "This line never goes on sale",
+    "Keep it editorial",
+    "Make the maker/sourcing story front and center"
+  ],
+  "primary_goal": "We are worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we do not want this to turn into a price war on craft positioning.",
+  "generation_method": "llm",
+  "model": "gemma4:e2b"
+}
