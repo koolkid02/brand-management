@@ -6,9 +6,9 @@ never sees ground_truth_segment_id -- that column exists only so this
 script can report how well the recovered clusters align with the
 generator's latent components, for our own pipeline validation.
 
-Outputs feed the (out-of-scope-for-this-plan) persona_simulation.py step:
-each cluster's real, human-interpretable stats are what persona identity
-gets derived from downstream.
+Outputs feed persona_simulation.py: each cluster's real, human-interpretable
+stats (including demographic passthrough fields age/gender, which are never
+clustering inputs) are what persona identity gets derived from downstream.
 """
 
 from __future__ import annotations
@@ -28,6 +28,13 @@ DEFAULT_OUTPUT_DIR = "data/processed"
 EXCLUDED_COLUMNS = ["customer_id", "ground_truth_segment_id"]
 TEXT_FEATURE = "browsing_search_interest"
 CATEGORICAL_FEATURE = "city_tier"
+# Demographic identity fields, descriptive only -- never clustering inputs.
+# Kept out of NUMERIC_FEATURES/CATEGORICAL_FEATURE so build_feature_matrix()
+# can't pick them up even by accident; they only feed cluster_summary.csv's
+# grounding stats for persona_simulation.py.
+PASSTHROUGH_NUMERIC_FEATURES = ["age"]
+PASSTHROUGH_CATEGORICAL_FEATURE = "gender"
+GENDER_CATEGORIES = ["Female", "Male", "Non-binary"]
 NUMERIC_FEATURES = [
     "recency_days",
     "frequency_annual",
@@ -58,7 +65,10 @@ def _tfidf_tokenizer(text: str) -> list[str]:
 def load_data(path: str = DEFAULT_INPUT) -> pd.DataFrame:
     df = pd.read_csv(path)
     unexpected = set(df.columns) - set(
-        NUMERIC_FEATURES + [TEXT_FEATURE, CATEGORICAL_FEATURE] + EXCLUDED_COLUMNS
+        NUMERIC_FEATURES
+        + PASSTHROUGH_NUMERIC_FEATURES
+        + [TEXT_FEATURE, CATEGORICAL_FEATURE, PASSTHROUGH_CATEGORICAL_FEATURE]
+        + EXCLUDED_COLUMNS
     )
     if unexpected:
         raise ValueError(f"Unexpected columns in {path}: {sorted(unexpected)}")
@@ -142,6 +152,18 @@ def summarize_clusters(
             row[f"{feat}_std"] = round(group[feat].std(), 2)
         for tier in ["Metro", "Tier2", "Tier3"]:
             row[f"city_pct_{tier}"] = city_pct.get(tier, 0.0)
+
+        for feat in PASSTHROUGH_NUMERIC_FEATURES:
+            row[f"{feat}_mean"] = round(group[feat].mean(), 2)
+            row[f"{feat}_median"] = round(group[feat].median(), 2)
+            row[f"{feat}_std"] = round(group[feat].std(), 2)
+        gender_pct = (
+            group[PASSTHROUGH_CATEGORICAL_FEATURE]
+            .value_counts(normalize=True).mul(100).round(1).to_dict()
+        )
+        for gender_val in GENDER_CATEGORIES:
+            row[f"gender_pct_{gender_val}"] = gender_pct.get(gender_val, 0.0)
+
         rows.append(row)
 
     return pd.DataFrame(rows).sort_values("cluster_id").reset_index(drop=True)

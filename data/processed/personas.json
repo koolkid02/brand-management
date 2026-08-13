@@ -1,0 +1,450 @@
+[
+  {
+    "cluster_id": 0,
+    "grounded": {
+      "cluster_id": 0,
+      "segment_size": 392,
+      "segment_pct_of_total": 19.6,
+      "age_mean": 25.92,
+      "age_median": 25.0,
+      "dominant_gender": "Female",
+      "gender_distribution": {
+        "Female": 60.7,
+        "Male": 36.5,
+        "Non-binary": 2.8
+      },
+      "dominant_city_tier": "Tier2",
+      "city_tier_distribution": {
+        "Metro": 10.2,
+        "Tier2": 46.4,
+        "Tier3": 43.4
+      },
+      "recency_days_mean": 15.63,
+      "frequency_annual_mean": 8.95,
+      "aov_inr_mean": 657.76,
+      "ltv_inr_mean": 9063.52,
+      "discount_code_usage_rate_mean": 0.75,
+      "cart_abandonment_rate_mean": 0.35,
+      "social_engagement_score_mean": 0.55,
+      "marketplace_purchase_share_mean": 0.66,
+      "channel_mix": {
+        "app": 0.68,
+        "web": 0.21,
+        "desktop": 0.11
+      },
+      "top_interests": [
+        "budget",
+        "clearance",
+        "bogo offer",
+        "lowest price",
+        "flat 50% off",
+        "sale",
+        "coupon",
+        "cashback"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Ria Jain",
+      "tagline": "Frugal fashionista on a mission for deals",
+      "voice_tone": "Direct and to-the-point",
+      "lifestyle_snapshot": "When Ria isn't working, she's scouring the web for budget-friendly fashion finds or snagging clearance sales. She's always on the lookout for bogo offers, flat 50% off, or cashback - anything that can help her stretch her wallet further. Her friends might call her a bargain hunter, but Ria just calls it smart shopping.",
+      "buying_triggers": [
+        "Best price guarantee",
+        "Discount codes",
+        "Clearance sales"
+      ],
+      "objections": [
+        "High prices",
+        "Limited selection",
+        "No coupons available"
+      ],
+      "sample_quote": "I'll take the sale over full price any day!"
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "cluster_id": 1,
+    "grounded": {
+      "cluster_id": 1,
+      "segment_size": 242,
+      "segment_pct_of_total": 12.1,
+      "age_mean": 29.86,
+      "age_median": 29.0,
+      "dominant_gender": "Female",
+      "gender_distribution": {
+        "Female": 56.2,
+        "Male": 41.7,
+        "Non-binary": 2.1
+      },
+      "dominant_city_tier": "Tier3",
+      "city_tier_distribution": {
+        "Metro": 0.0,
+        "Tier2": 0.0,
+        "Tier3": 100.0
+      },
+      "recency_days_mean": 60.43,
+      "frequency_annual_mean": 1.95,
+      "aov_inr_mean": 1711.07,
+      "ltv_inr_mean": 5208.71,
+      "discount_code_usage_rate_mean": 0.42,
+      "cart_abandonment_rate_mean": 0.48,
+      "social_engagement_score_mean": 0.57,
+      "marketplace_purchase_share_mean": 0.45,
+      "channel_mix": {
+        "app": 0.41,
+        "web": 0.36,
+        "desktop": 0.23
+      },
+      "top_interests": [
+        "wishlist",
+        "reviews",
+        "sherwani",
+        "referral code",
+        "gifting",
+        "return policy",
+        "saree",
+        "fit check"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Ananya",
+      "tagline": "Curated style for every occasion",
+      "voice_tone": "Warm and discerning",
+      "lifestyle_snapshot": "As a busy professional, Ria values her time and seeks stylish solutions that fit seamlessly into her lifestyle. She loves browsing wishlist items on her favorite e-commerce platform, reading reviews to ensure the best fit, and gifting loved ones in elegant sherwanis. When shopping online, she appreciates referral codes and return policies that make her life easier.",
+      "buying_triggers": [
+        "Looking for a special outfit for a milestone event",
+        "Seeking stylish gifts for friends and family",
+        "Wanting to upgrade my wardrobe with the latest fashion trends"
+      ],
+      "objections": [
+        "Concerned about quality and durability",
+        "Worried about returns and refunds",
+        "Prefers personalized service and recommendations"
+      ],
+      "sample_quote": "I want to look and feel great, without breaking the bank or sacrificing style."
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "cluster_id": 2,
+    "grounded": {
+      "cluster_id": 2,
+      "segment_size": 284,
+      "segment_pct_of_total": 14.2,
+      "age_mean": 33.58,
+      "age_median": 33.5,
+      "dominant_gender": "Female",
+      "gender_distribution": {
+        "Female": 60.9,
+        "Male": 36.6,
+        "Non-binary": 2.5
+      },
+      "dominant_city_tier": "Tier2",
+      "city_tier_distribution": {
+        "Metro": 36.6,
+        "Tier2": 40.8,
+        "Tier3": 22.5
+      },
+      "recency_days_mean": 47.81,
+      "frequency_annual_mean": 5.37,
+      "aov_inr_mean": 1878.13,
+      "ltv_inr_mean": 15407.48,
+      "discount_code_usage_rate_mean": 0.26,
+      "cart_abandonment_rate_mean": 0.15,
+      "social_engagement_score_mean": 0.35,
+      "marketplace_purchase_share_mean": 0.2,
+      "channel_mix": {
+        "app": 0.45,
+        "web": 0.34,
+        "desktop": 0.21
+      },
+      "top_interests": [
+        "favorite brand",
+        "repeat order",
+        "loyalty points",
+        "new arrivals",
+        "my orders",
+        "early access",
+        "usual size",
+        "restock"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Sneha",
+      "tagline": "Loyal customer seeking exclusive deals and early access",
+      "voice_tone": "Warm and enthusiastic",
+      "lifestyle_snapshot": "Ria loves her favorite brand, often placing repeat orders and tracking her loyalty points to stay ahead of the game. She's always on the lookout for new arrivals and eagerly awaits early access to restock her usual size.",
+      "buying_triggers": [
+        "Exclusive discounts",
+        "Early access to new products",
+        "Restocking my usual size"
+      ],
+      "objections": [
+        "Long shipping times",
+        "Limited product selection",
+        "Higher prices"
+      ],
+      "sample_quote": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling!"
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "cluster_id": 3,
+    "grounded": {
+      "cluster_id": 3,
+      "segment_size": 351,
+      "segment_pct_of_total": 17.5,
+      "age_mean": 23.53,
+      "age_median": 23.0,
+      "dominant_gender": "Male",
+      "gender_distribution": {
+        "Female": 39.9,
+        "Male": 58.1,
+        "Non-binary": 2.0
+      },
+      "dominant_city_tier": "Metro",
+      "city_tier_distribution": {
+        "Metro": 46.7,
+        "Tier2": 42.7,
+        "Tier3": 10.5
+      },
+      "recency_days_mean": 10.37,
+      "frequency_annual_mean": 7.55,
+      "aov_inr_mean": 1391.03,
+      "ltv_inr_mean": 15125.28,
+      "discount_code_usage_rate_mean": 0.35,
+      "cart_abandonment_rate_mean": 0.29,
+      "social_engagement_score_mean": 0.8,
+      "marketplace_purchase_share_mean": 0.36,
+      "channel_mix": {
+        "app": 0.71,
+        "web": 0.19,
+        "desktop": 0.1
+      },
+      "top_interests": [
+        "sneaker match",
+        "hype",
+        "collab",
+        "restock alert",
+        "streetwear",
+        "trending now",
+        "drop alert",
+        "new drop"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Rohan Jain",
+      "tagline": "Always on the hunt for the next big drop",
+      "voice_tone": "Passionate and impatient",
+      "lifestyle_snapshot": "When Rohan isn't working, he's scouring sneaker match for the latest collabs or hyped drops. He's always on the lookout for restock alerts and can't resist the thrill of the chase - whether it's trending now or a new drop from his favorite streetwear brand.",
+      "buying_triggers": [
+        "New drop alert",
+        "Sneaker collaboration",
+        "Restocking soon"
+      ],
+      "objections": [
+        "High prices",
+        "Limited availability",
+        "Not sure if it's worth waiting"
+      ],
+      "sample_quote": "I need that drop in my hands ASAP, can't let the hype pass me by!"
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "cluster_id": 4,
+    "grounded": {
+      "cluster_id": 4,
+      "segment_size": 189,
+      "segment_pct_of_total": 9.4,
+      "age_mean": 34.56,
+      "age_median": 35.0,
+      "dominant_gender": "Female",
+      "gender_distribution": {
+        "Female": 63.0,
+        "Male": 36.0,
+        "Non-binary": 1.1
+      },
+      "dominant_city_tier": "Metro",
+      "city_tier_distribution": {
+        "Metro": 79.4,
+        "Tier2": 18.5,
+        "Tier3": 2.1
+      },
+      "recency_days_mean": 46.12,
+      "frequency_annual_mean": 3.35,
+      "aov_inr_mean": 3649.1,
+      "ltv_inr_mean": 18023.02,
+      "discount_code_usage_rate_mean": 0.13,
+      "cart_abandonment_rate_mean": 0.22,
+      "social_engagement_score_mean": 0.27,
+      "marketplace_purchase_share_mean": 0.2,
+      "channel_mix": {
+        "app": 0.22,
+        "web": 0.45,
+        "desktop": 0.33
+      },
+      "top_interests": [
+        "luxury",
+        "exclusive collection",
+        "designer drop",
+        "premium fabric",
+        "curated",
+        "premium",
+        "limited edition",
+        "made to order"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Riya",
+      "tagline": "Curated luxury for the modern connoisseur",
+      "voice_tone": "Refined and discerning",
+      "lifestyle_snapshot": "As a fashion enthusiast, Ria appreciates the finer things in life, from exclusive designer drops to premium fabrics that make a statement. She values curated collections and limited edition pieces that reflect her personal style.",
+      "buying_triggers": [
+        "New arrivals from her favorite designers",
+        "Exclusive access to limited edition items",
+        "High-quality materials and craftsmanship"
+      ],
+      "objections": [
+        "Concerns about authenticity and quality",
+        "Fear of missing out on rare or hard-to-find items",
+        "Doubts about the value for money"
+      ],
+      "sample_quote": "I only shop with brands that understand my taste for luxury and exclusivity."
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "cluster_id": 5,
+    "grounded": {
+      "cluster_id": 5,
+      "segment_size": 236,
+      "segment_pct_of_total": 11.8,
+      "age_mean": 27.73,
+      "age_median": 25.0,
+      "dominant_gender": "Female",
+      "gender_distribution": {
+        "Female": 54.2,
+        "Male": 42.4,
+        "Non-binary": 3.4
+      },
+      "dominant_city_tier": "Metro",
+      "city_tier_distribution": {
+        "Metro": 100.0,
+        "Tier2": 0.0,
+        "Tier3": 0.0
+      },
+      "recency_days_mean": 56.5,
+      "frequency_annual_mean": 1.83,
+      "aov_inr_mean": 1439.75,
+      "ltv_inr_mean": 3982.34,
+      "discount_code_usage_rate_mean": 0.45,
+      "cart_abandonment_rate_mean": 0.54,
+      "social_engagement_score_mean": 0.61,
+      "marketplace_purchase_share_mean": 0.48,
+      "channel_mix": {
+        "app": 0.42,
+        "web": 0.35,
+        "desktop": 0.23
+      },
+      "top_interests": [
+        "size chart",
+        "still deciding",
+        "cod available",
+        "size guide",
+        "wishlist",
+        "first order discount",
+        "unboxing",
+        "return policy"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Isha",
+      "tagline": "Curious about the latest fashion trends",
+      "voice_tone": "Friendly and indecisive",
+      "lifestyle_snapshot": "Ria loves browsing online for size charts and guides, but is still deciding on her next purchase. She's excited to find out if cod available is a thing at this store, and has added several items to her wishlist. She's also looking forward to getting a discount on her first order - after all, who doesn't love a good deal?",
+      "buying_triggers": [
+        "Free shipping",
+        "Discounts for new customers",
+        "Easy returns"
+      ],
+      "objections": [
+        "Quality concerns",
+        "Worries about sizing",
+        "Fear of missing out on sales"
+      ],
+      "sample_quote": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color!"
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  },
+  {
+    "cluster_id": 6,
+    "grounded": {
+      "cluster_id": 6,
+      "segment_size": 306,
+      "segment_pct_of_total": 15.3,
+      "age_mean": 29.26,
+      "age_median": 28.0,
+      "dominant_gender": "Female",
+      "gender_distribution": {
+        "Female": 57.2,
+        "Male": 40.5,
+        "Non-binary": 2.3
+      },
+      "dominant_city_tier": "Tier2",
+      "city_tier_distribution": {
+        "Metro": 0.0,
+        "Tier2": 100.0,
+        "Tier3": 0.0
+      },
+      "recency_days_mean": 60.9,
+      "frequency_annual_mean": 1.98,
+      "aov_inr_mean": 1676.6,
+      "ltv_inr_mean": 5164.62,
+      "discount_code_usage_rate_mean": 0.42,
+      "cart_abandonment_rate_mean": 0.54,
+      "social_engagement_score_mean": 0.58,
+      "marketplace_purchase_share_mean": 0.48,
+      "channel_mix": {
+        "app": 0.4,
+        "web": 0.37,
+        "desktop": 0.23
+      },
+      "top_interests": [
+        "delivery time",
+        "cod available",
+        "size chart",
+        "fit check",
+        "return policy",
+        "still deciding",
+        "compare",
+        "size guide"
+      ]
+    },
+    "narrative": {
+      "persona_name": "Meera",
+      "tagline": "Curious about fashion",
+      "voice_tone": "Friendly and cautious",
+      "lifestyle_snapshot": "Ria loves to shop online, but she's always on the lookout for ways to save time - that's why delivery time is a top priority for her. She also likes to double-check fit before making a purchase, and is often still deciding between different options. When it comes to returns, Ria wants to know what she can expect beforehand.",
+      "buying_triggers": [
+        "Looking for fast delivery",
+        "Wanting to check size chart",
+        "Seeking reassurance on return policy"
+      ],
+      "objections": [
+        "Concerned about quality",
+        "Worried about price",
+        "Uncertain about sizing"
+      ],
+      "sample_quote": "I'm still deciding between these two options, can you tell me more about the fit?"
+    },
+    "generation_method": "llm",
+    "model": "llama3.2:latest"
+  }
+]

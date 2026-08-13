@@ -21,6 +21,12 @@ nearby components more than the same total noise spread independently per
 feature would. Tightening to the values below keeps genuine per-customer
 heterogeneity while landing cluster recovery in a realistic-but-recoverable
 ARI band (~0.4-0.7) rather than either trivially perfect or unrecoverable.
+
+age and gender are demographic identity fields added for downstream persona
+grounding (module_a_personas/persona_simulation.py). They are generated as
+independent per-component draws, like city_tier/channel below, and are
+intentionally excluded from segmentation.py's clustering feature space --
+segmentation stays purely behavioral/engagement-based.
 """
 
 from __future__ import annotations
@@ -31,6 +37,8 @@ import numpy as np
 import pandas as pd
 
 CITY_TIERS = ["Metro", "Tier2", "Tier3"]
+GENDER_CATEGORIES = ["Female", "Male", "Non-binary"]
+AGE_MIN, AGE_MAX = 18, 55
 RATE_FEATURES = [
     "discount_code_usage_rate",
     "cart_abandonment_rate",
@@ -66,6 +74,8 @@ COMPONENTS = [
         "freq_shape": 3.0, "freq_scale": 3.0,           # mean freq ~9
         "recency_mean": 15,
         "aov_mean": 650,
+        "age_mean": 26, "age_sd": 6,
+        "gender_probs": [0.62, 0.36, 0.02],
         "rates": {
             "discount_code_usage_rate": 0.75,
             "cart_abandonment_rate": 0.35,
@@ -85,6 +95,8 @@ COMPONENTS = [
         "freq_shape": 3.0, "freq_scale": 1.0,           # mean freq ~3
         "recency_mean": 40,
         "aov_mean": 3800,
+        "age_mean": 34, "age_sd": 7,
+        "gender_probs": [0.55, 0.42, 0.03],
         "rates": {
             "discount_code_usage_rate": 0.10,
             "cart_abandonment_rate": 0.20,
@@ -105,6 +117,8 @@ COMPONENTS = [
         "freq_shape": 3.5, "freq_scale": 2.0,           # mean freq ~7
         "recency_mean": 10,
         "aov_mean": 1400,
+        "age_mean": 23, "age_sd": 4,
+        "gender_probs": [0.40, 0.57, 0.03],
         "rates": {
             "discount_code_usage_rate": 0.35,
             "cart_abandonment_rate": 0.30,
@@ -125,6 +139,8 @@ COMPONENTS = [
         "freq_shape": 1.5, "freq_scale": 1.0,           # mean freq ~1.5
         "recency_mean": 55,
         "aov_mean": 1200,
+        "age_mean": 29, "age_sd": 8,
+        "gender_probs": [0.58, 0.40, 0.02],
         "rates": {
             "discount_code_usage_rate": 0.40,
             "cart_abandonment_rate": 0.70,
@@ -145,6 +161,8 @@ COMPONENTS = [
         "freq_shape": 3.0, "freq_scale": 1.67,          # mean freq ~5
         "recency_mean": 45,
         "aov_mean": 1800,
+        "age_mean": 33, "age_sd": 7,
+        "gender_probs": [0.60, 0.38, 0.02],
         "rates": {
             "discount_code_usage_rate": 0.25,
             "cart_abandonment_rate": 0.15,
@@ -165,6 +183,8 @@ COMPONENTS = [
         "freq_shape": 2.0, "freq_scale": 1.25,          # mean freq ~2.5
         "recency_mean": 70,
         "aov_mean": 2800,
+        "age_mean": 36, "age_sd": 8,
+        "gender_probs": [0.65, 0.33, 0.02],
         "rates": {
             "discount_code_usage_rate": 0.30,
             "cart_abandonment_rate": 0.35,
@@ -185,6 +205,8 @@ COMPONENTS = [
         "freq_shape": 1.0, "freq_scale": 1.0,           # mean freq ~1
         "recency_mean": 55,
         "aov_mean": 1100,
+        "age_mean": 21, "age_sd": 4,
+        "gender_probs": [0.55, 0.42, 0.03],
         "rates": {
             "discount_code_usage_rate": 0.55,
             "cart_abandonment_rate": 0.45,
@@ -271,10 +293,17 @@ def _generate_component(rng: np.random.Generator, comp_idx: int, n: int) -> pd.D
         b = (1.0 - mu) * RATE_CONCENTRATION
         rates[feat] = rng.beta(a, b)
 
-    # City tier and channel mix: independent per-component draws (documented
-    # simplification -- no latent-factor modulation for these two fields).
+    # City tier, channel mix, age, and gender: independent per-component
+    # draws (documented simplification -- no latent-factor modulation for
+    # these fields). Age/gender are demographic identity, not a behavioral
+    # outcome of the engagement factor g, so there's no principled reason
+    # for g to drive them.
     city_tier = rng.choice(CITY_TIERS, size=n, p=comp["city_probs"])
     channel = rng.dirichlet(comp["channel_alpha"], size=n)
+    age = np.clip(
+        np.round(rng.normal(comp["age_mean"], comp["age_sd"], size=n)), AGE_MIN, AGE_MAX
+    ).astype(int)
+    gender = rng.choice(GENDER_CATEGORIES, size=n, p=comp["gender_probs"])
 
     # LTV: derived from actual purchase behavior, not an independent draw.
     tenure_years_factor = rng.uniform(0.5, 2.5, size=n)
@@ -302,6 +331,8 @@ def _generate_component(rng: np.random.Generator, comp_idx: int, n: int) -> pd.D
         "desktop_channel_weight": channel[:, 2],
         "social_engagement_score": rates["social_engagement_score"],
         "marketplace_purchase_share": rates["marketplace_purchase_share"],
+        "age": age,
+        "gender": gender,
         "city_tier": city_tier,
         "browsing_search_interest": interest_text,
         "ground_truth_segment_id": comp_idx,

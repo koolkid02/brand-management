@@ -1,0 +1,128 @@
+"""OpenAI-compatible chat client (Ollama/LM Studio), JSON-safe with retry.
+
+Small local models emit messier JSON than hosted APIs -- prose around the
+object, markdown code fences, occasionally truncated output. call_json()
+strips fences, extracts the first balanced {...} object, and retries with
+the parse error fed back to the model before giving up.
+"""
+
+from __future__ import annotations
+
+import json
+
+from openai import OpenAI
+
+from config import ModelRoleConfig
+
+
+class LLMJSONError(RuntimeError):
+    """Raised when the model still hasn't returned valid JSON after retries."""
+
+
+def _strip_code_fences(text: str) -> str:
+    stripped = text.strip()
+    if not stripped.startswith("```"):
+        return stripped
+    lines = stripped.split("\n")
+    lines = lines[1:]  # drop opening ``` or ```json
+    if lines and lines[-1].strip().startswith("```"):
+        lines = lines[:-1]
+    return "\n".join(lines).strip()
+
+
+def _extract_first_json_object(text: str) -> str:
+    """Return the first balanced {...} substring, respecting quoted strings."""
+    start = text.find("{")
+    if start == -1:
+        raise ValueError("No '{' found in response")
+
+    depth = 0
+    in_string = False
+    escape = False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start : i + 1]
+
+    raise ValueError("No balanced JSON object found in response")
+
+
+def parse_json_response(raw_text: str) -> dict:
+    candidate = _strip_code_fences(raw_text)
+    json_str = _extract_first_json_object(candidate)
+    return json.loads(json_str)
+
+
+def call_json(
+    config: ModelRoleConfig,
+    system_prompt: str,
+    user_prompt: str,
+    required_keys: set[str] | None = None,
+) -> dict:
+    """Call the chat model and return a parsed JSON dict.
+
+    If required_keys is given, a syntactically valid JSON object that is
+    missing any of them is treated the same as a parse failure and retried
+    with feedback -- small local models often return valid-but-incomplete
+    JSON (e.g. silently dropping one requested key), which plain json.loads
+    can't catch on its own.
+
+    Only retries on JSON-malformity/incompleteness -- connection errors,
+    timeouts, and other OpenAI SDK exceptions propagate immediately, since
+    those indicate infra failure (e.g. Ollama not running), not an
+    LLM-quality issue that a retry could fix.
+    """
+    client = OpenAI(base_url=config.base_url, api_key=config.api_key)
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    last_error: Exception | None = None
+    last_raw: str | None = None
+    for _ in range(config.max_retries + 1):
+        response = client.chat.completions.create(
+            model=config.model,
+            messages=messages,
+            temperature=config.temperature,
+            timeout=config.request_timeout,
+        )
+        raw = response.choices[0].message.content or ""
+        try:
+            parsed = parse_json_response(raw)
+            if required_keys is not None:
+                missing = required_keys - set(parsed.keys())
+                if missing:
+                    raise ValueError(f"missing required keys: {sorted(missing)}")
+            return parsed
+        except (ValueError, json.JSONDecodeError) as exc:
+            last_error = exc
+            last_raw = raw
+            messages.append({"role": "assistant", "content": raw})
+            messages.append({
+                "role": "user",
+                "content": (
+                    f"That response was not usable ({exc}). Reply again with "
+                    "ONLY a single valid JSON object containing exactly the "
+                    "requested keys -- no markdown fences, no commentary."
+                ),
+            })
+
+    raise LLMJSONError(
+        f"Failed to get valid JSON after {config.max_retries + 1} attempts. "
+        f"Last error: {last_error}. Last raw response: {last_raw!r}"
+    )
