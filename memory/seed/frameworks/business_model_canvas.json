@@ -1,0 +1,24 @@
+{
+  "framework_id": "business_model_canvas",
+  "name": "Business Model Canvas",
+  "role": "analytical",
+  "purpose": "Operational structure, partnerships, and revenue/cost model vs. competitors. Selected when the goal is about operational or cost advantage, sourcing, or subscription economics.",
+  "selection_keywords": [
+    "operational advantage", "cost advantage", "sourcing", "subscription",
+    "supply chain", "unit economics", "partnerships", "cost structure"
+  ],
+  "is_default": false,
+  "priority": 3,
+  "memory_inputs": ["brand.semantic", "brand.episodic.history", "market_memory.patterns"],
+  "output_schema": {
+    "key_partners": "list[str]",
+    "key_activities": "list[str]",
+    "value_propositions": "list[str]",
+    "customer_relationships": "list[str]",
+    "channels": "list[str]",
+    "customer_segments": "list[str]",
+    "cost_structure": "list[str]",
+    "revenue_streams": "list[str]",
+    "positioning_summary": "str"
+  }
+}

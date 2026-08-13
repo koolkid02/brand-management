@@ -1,0 +1,20 @@
+{
+  "framework_id": "perceptual_mapping",
+  "name": "Perceptual Mapping",
+  "role": "analytical",
+  "purpose": "Plots the brand vs. competitors on a 2D grid (e.g. price x quality) to find competitive whitespace. Selected when the goal is about launching, differentiating, or standing out in a crowded category.",
+  "selection_keywords": [
+    "new brand", "launch", "crowded category", "differentiation", "differentiate",
+    "positioning map", "whitespace", "stand out", "undifferentiated"
+  ],
+  "is_default": false,
+  "priority": 1,
+  "memory_inputs": ["brand.semantic.identity", "brand.semantic.competitors", "market_memory.patterns"],
+  "output_schema": {
+    "axes": {"x_axis": "str", "y_axis": "str"},
+    "brand_position": {"x": "float", "y": "float"},
+    "competitor_positions": "list[{name: str, x: float, y: float}]",
+    "whitespace_summary": "str",
+    "positioning_summary": "str"
+  }
+}

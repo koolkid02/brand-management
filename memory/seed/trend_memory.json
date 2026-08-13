@@ -1,0 +1,92 @@
+[
+  {
+    "trend_id": "trend_fashion_001",
+    "category": "fashion_d2c",
+    "label": "Micro-drop 'restock countdown' Reels stickers driving urgency FOMO in festive-season streetwear content",
+    "description": "Brands overlaying Instagram's countdown sticker on Reels teasing an upcoming restock/drop are seeing outsized save/share rates versus static drop announcements.",
+    "signal_type": "creative_angle",
+    "date_observed": "2026-08-05",
+    "source_note": "mock signal grounded in observed Reels fashion-trend cycles"
+  },
+  {
+    "trend_id": "trend_fashion_002",
+    "category": "fashion_d2c",
+    "label": "Y2K-revival low-rise cargo styling resurging in college-fest content",
+    "description": "Low-rise cargo pants and Y2K accessory styling are resurging in college-fest and campus-creator content, particularly among Tier-2 city audiences.",
+    "signal_type": "product_trend",
+    "date_observed": "2026-07-28",
+    "source_note": "mock signal grounded in observed campus/college-fest content cycles"
+  },
+  {
+    "trend_id": "trend_fashion_003",
+    "category": "fashion_d2c",
+    "label": "Founder/creator duet-reaction videos to customer try-on hauls",
+    "description": "Founders and creators duetting/reacting to real customer try-on haul videos are outperforming brand-produced try-on content.",
+    "signal_type": "creative_angle",
+    "date_observed": "2026-08-10",
+    "source_note": "mock signal grounded in observed creator-economy duet formats"
+  },
+  {
+    "trend_id": "trend_fashion_004",
+    "category": "fashion_d2c",
+    "label": "Festive/wedding-season ethnic-crossover capsule teasers ahead of Diwali",
+    "description": "Streetwear-native brands teasing ethnic-crossover capsules ahead of Diwali/wedding season are seeing early engagement spikes.",
+    "signal_type": "seasonal_signal",
+    "date_observed": "2026-08-01",
+    "source_note": "mock signal grounded in observed festive-season content cycles"
+  },
+  {
+    "trend_id": "trend_fashion_005",
+    "category": "fashion_d2c",
+    "label": "Countdown-sticker flash-sale urgency content",
+    "description": "Earlier wave of countdown-timer flash-sale content -- the same urgency mechanic as trend_fashion_001, from a much earlier point in the cycle.",
+    "signal_type": "creative_angle",
+    "date_observed": "2026-03-10",
+    "source_note": "mock signal, superseded by trend_fashion_001 -- retained to test freshness decay"
+  },
+  {
+    "trend_id": "trend_beauty_001",
+    "category": "beauty_d2c",
+    "label": "Ingredient-deep-dive 'what's really in this serum' explainers outperforming benefit-only claims",
+    "description": "Short-form explainer content walking through the actual active-ingredient list is outperforming posts making benefit-only claims ('brightens skin').",
+    "signal_type": "creative_angle",
+    "date_observed": "2026-08-06",
+    "source_note": "mock signal grounded in observed clean-beauty content cycles"
+  },
+  {
+    "trend_id": "trend_beauty_002",
+    "category": "beauty_d2c",
+    "label": "'Skinimalism' minimal routines trending over full-glam tutorials",
+    "description": "Minimal 3-4 step 'skinimalism' routine content is trending over elaborate 10-step or full-glam tutorial formats.",
+    "signal_type": "product_trend",
+    "date_observed": "2026-07-25",
+    "source_note": "mock signal grounded in observed skincare-routine content cycles"
+  },
+  {
+    "trend_id": "trend_beauty_003",
+    "category": "beauty_d2c",
+    "label": "Skin-barrier repair / monsoon-humidity skincare content spiking seasonally",
+    "description": "Skin-barrier repair and humidity-adjusted routine content is spiking seasonally with the monsoon.",
+    "signal_type": "seasonal_signal",
+    "date_observed": "2026-08-09",
+    "source_note": "mock signal grounded in observed seasonal skincare content cycles"
+  },
+  {
+    "trend_id": "trend_beauty_004",
+    "category": "beauty_d2c",
+    "label": "Dermat-duet reaction videos fact-checking skincare claims",
+    "description": "Dermatologists duetting/reacting to fact-check brand and influencer skincare claims are drawing high engagement and trust signals.",
+    "signal_type": "creative_angle",
+    "date_observed": "2026-07-30",
+    "source_note": "mock signal grounded in observed derm-creator content cycles"
+  },
+  {
+    "trend_id": "trend_beauty_005",
+    "category": "beauty_d2c",
+    "label": "Full ingredient-list breakdown carousel posts",
+    "description": "Earlier wave of ingredient-transparency content as static carousel posts -- the same underlying angle as trend_beauty_001, from a much earlier point in the cycle.",
+    "signal_type": "creative_angle",
+    "date_observed": "2026-02-20",
+    "source_note": "mock signal, superseded by trend_beauty_001 -- retained to test freshness decay"
+  }
+]

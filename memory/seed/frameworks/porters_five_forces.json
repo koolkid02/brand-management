@@ -1,0 +1,21 @@
+{
+  "framework_id": "porters_five_forces",
+  "name": "Porter's Five Forces",
+  "role": "analytical",
+  "purpose": "Structural analysis of industry competition -- buyer/supplier power, substitutes, new entrants, rivalry. Selected when the goal is about margin pressure, price competition, or defensibility.",
+  "selection_keywords": [
+    "margin pressure", "price war", "defensibility", "defensible", "competitive intensity",
+    "new entrants", "substitutes", "supplier power", "buyer power", "commoditized"
+  ],
+  "is_default": false,
+  "priority": 2,
+  "memory_inputs": ["brand.semantic", "brand.semantic.competitors", "market_memory.patterns"],
+  "output_schema": {
+    "buyer_power": "str",
+    "supplier_power": "str",
+    "competitive_rivalry": "str",
+    "threat_of_substitutes": "str",
+    "threat_of_new_entrants": "str",
+    "positioning_summary": "str"
+  }
+}

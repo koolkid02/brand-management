@@ -35,6 +35,16 @@ ROLES: dict[str, ModelRoleConfig] = {
         api_key=_env("SIMULATION_API_KEY", "ollama"),
         temperature=float(_env("SIMULATION_TEMPERATURE", "0.2")),
     ),
+    "embedding": ModelRoleConfig(
+        role="embedding",
+        model=_env("EMBEDDING_MODEL", "nomic-embed-text:latest"),
+        base_url=_env("EMBEDDING_BASE_URL", "http://localhost:11434/v1"),
+        api_key=_env("EMBEDDING_API_KEY", "ollama"),
+        temperature=0.0,  # unused by the embeddings endpoint; kept only because
+                          # ModelRoleConfig requires it -- same "required but
+                          # ignored" pattern as api_key for Ollama.
+        max_retries=1,
+    ),
     # "planning": ModelRoleConfig(...)  # Module B Checkpoint 1 -- added later
 }
 

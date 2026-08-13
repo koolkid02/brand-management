@@ -1,0 +1,17 @@
+{
+  "framework_id": "swot",
+  "name": "SWOT",
+  "role": "analytical",
+  "purpose": "General strategic grounding: internal strengths/weaknesses against external opportunities/threats. Default when no more specific analytical framework is clearly indicated by the goal.",
+  "selection_keywords": [],
+  "is_default": true,
+  "priority": 99,
+  "memory_inputs": ["brand.semantic", "brand.insights", "market_memory.patterns"],
+  "output_schema": {
+    "strengths": "list[str]",
+    "weaknesses": "list[str]",
+    "opportunities": "list[str]",
+    "threats": "list[str]",
+    "positioning_summary": "str"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "brand_id": "glowroot",
+  "schema_version": 1,
+  "semantic": {
+    "name": "GlowRoot",
+    "category": "beauty_d2c",
+    "sub_positioning": "clean_skincare",
+    "founded_year": 2021,
+    "identity": {
+      "one_liner": "Ingredient-transparent, dermat-reviewed skincare for India's climate and skin tones.",
+      "target_customer": "22-35 year olds researching ingredients before buying, motivated by transparency and dermat validation over influencer hype alone.",
+      "price_posture": "mid",
+      "value_props": ["Full ingredient-list transparency", "Dermat-reviewed formulations", "Formulated for Indian climate/skin tones"]
+    },
+    "tone": {
+      "descriptors": ["informative", "reassuring", "clinical-but-warm", "myth-busting"],
+      "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
+    },
+    "competitors": [
+      {"name": "Mamaearth", "positioning_note": "Larger toxin-free personal-care brand, broader mass-market reach."},
+      {"name": "Sugar Cosmetics", "positioning_note": "Color cosmetics-led, bolder Gen-Z-first brand voice."},
+      {"name": "Plum", "positioning_note": "Vegan clean-beauty positioning, similar ingredient-conscious buyer."}
+    ],
+    "customers": {
+      "summary": "This brand deliberately does not map onto Module A's fashion-derived audience archetypes -- it exists in this seed set to prove category-scoped memory isolation, not narrative continuity with the fashion D2C brands.",
+      "primary_segments": []
+    }
+  },
+  "episodic": {
+    "history": [
+      {"date": "2021-04-01", "event_type": "founding", "title": "GlowRoot founded", "summary": "Launched with a 3-product serum line formulated with a dermatologist advisory panel."},
+      {"date": "2022-07-01", "event_type": "milestone", "title": "Reformulation after transparency feedback", "summary": "Reformulated flagship serum after customer feedback requesting fuller ingredient disclosure."},
+      {"date": "2024-02-14", "event_type": "milestone", "title": "1 million units sold", "summary": "Crossed 1 million cumulative units sold across the core routine line."}
+    ]
+  },
+  "insights": [
+    {"insight_id": "glow_001", "tag": "ugc_video_outperforms_static", "category": "beauty_d2c", "observation": "Skincare-routine reels from real customers outperformed studio flatlay images on saves and comments across recent launches.", "date_observed": "2026-06-25"},
+    {"insight_id": "glow_002", "tag": "ingredient_transparency_builds_trust", "category": "beauty_d2c", "observation": "Posts that broke down the full active-ingredient list drove visibly higher repeat-purchase rate than posts making benefit-only claims.", "date_observed": "2026-05-20"},
+    {"insight_id": "glow_003", "tag": "bundle_discount_drives_aov", "category": "beauty_d2c", "observation": "Multi-product routine bundles discounted as a set lifted average order value more than single-SKU percentage-off discounts.", "date_observed": "2026-04-10"}
+  ]
+}

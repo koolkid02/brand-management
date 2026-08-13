@@ -1,0 +1,20 @@
+{
+  "framework_id": "seven_ps",
+  "name": "7Ps Marketing Mix",
+  "role": "executional",
+  "purpose": "Always applied at the execution step, translating the positioning brief into concrete creative constraints (price posture, proof elements, promotional angle, hard rules) so generated creative stays consistent with the real marketing mix.",
+  "memory_inputs": [
+    "positioning_brief", "brand.semantic.identity.price_posture", "brand.semantic.tone",
+    "market_memory.patterns[category]"
+  ],
+  "output_schema": {
+    "product": "str",
+    "price": "str",
+    "place": "str",
+    "promotion": "str",
+    "people": "str",
+    "physical_evidence": "str",
+    "process": "str",
+    "hard_rules": "list[str]"
+  }
+}

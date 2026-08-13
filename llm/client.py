@@ -126,3 +126,20 @@ def call_json(
         f"Failed to get valid JSON after {config.max_retries + 1} attempts. "
         f"Last error: {last_error}. Last raw response: {last_raw!r}"
     )
+
+
+def embed_texts(config: ModelRoleConfig, texts: list[str]) -> list[list[float]]:
+    """Embed a batch of texts via the OpenAI-compatible /v1/embeddings endpoint.
+
+    Unlike call_json, there's no fence-stripping/JSON-extraction/retry here --
+    the embeddings endpoint returns structured floats directly, not
+    model-authored prose, so there's nothing to parse defensively. SDK-level
+    exceptions (connection refused, timeout) propagate immediately, same as
+    call_json's infra-failure-vs-quality-issue distinction.
+    """
+    client = OpenAI(base_url=config.base_url, api_key=config.api_key)
+    response = client.embeddings.create(
+        model=config.model, input=texts, timeout=config.request_timeout
+    )
+    ordered = sorted(response.data, key=lambda d: d.index)
+    return [d.embedding for d in ordered]

@@ -1,0 +1,16 @@
+[
+  {
+    "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
+    "tag": "size_fit_reassurance_reduces_abandonment",
+    "category": "fashion_d2c",
+    "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+    "supporting_brand_count": 2
+  },
+  {
+    "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
+    "tag": "ugc_video_outperforms_static",
+    "category": "fashion_d2c",
+    "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
+    "supporting_brand_count": 2
+  }
+]
