@@ -61,6 +61,7 @@ def resolve_memory_inputs(
     brand: dict,
     query: str,
     positioning_brief: dict | None = None,
+    mock: bool = False,
 ) -> dict:
     grounded: dict = {}
     for key in memory_inputs:
@@ -68,7 +69,7 @@ def resolve_memory_inputs(
             grounded[key] = positioning_brief
         elif key.startswith("market_memory.patterns"):
             grounded[key] = retrieve_market_patterns(
-                query=query, category=brand["semantic"]["category"], top_k=3
+                query=query, category=brand["semantic"]["category"], top_k=3, mock=mock
             )
         elif key in BRAND_PATH_RESOLVERS:
             grounded[key] = BRAND_PATH_RESOLVERS[key](brand)
@@ -236,7 +237,7 @@ def apply_analytical_framework(
     framework = load_framework(framework_id)
     brand = load_brand(working_brief["brand_id"])
     query = f"{working_brief['primary_goal']} {working_brief['core_message']}"
-    grounded = resolve_memory_inputs(framework["memory_inputs"], brand, query)
+    grounded = resolve_memory_inputs(framework["memory_inputs"], brand, query, mock=mock)
 
     if mock:
         if redirect_feedback:
@@ -361,7 +362,7 @@ def apply_seven_ps(
     brand = load_brand(working_brief["brand_id"])
     query = f"{positioning_brief['brief'].get('positioning_summary', '')} {working_brief['primary_goal']}"
     raw_inputs = resolve_memory_inputs(
-        framework["memory_inputs"], brand, query, positioning_brief=positioning_brief
+        framework["memory_inputs"], brand, query, positioning_brief=positioning_brief, mock=mock
     )
 
     grounded = {

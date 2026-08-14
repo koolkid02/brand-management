@@ -5,6 +5,10 @@ Semantic + time-decayed (PRD §4): retrieval combines embedding similarity
 with an exponential freshness decay, multiplicatively -- so a result must be
 BOTH topically relevant AND recent to rank highly. A topically-perfect but
 stale trend, or a fresh but irrelevant one, both score near zero.
+
+Under --mock, similarity comes from a keyword-overlap heuristic instead of
+embed_texts (same shared helper market_memory.py uses) -- retrieve() must
+make zero LLM calls in mock mode per PRD §12's invariant.
 """
 
 from __future__ import annotations
@@ -15,7 +19,7 @@ from datetime import date
 
 from config import get_role_config
 from llm.client import embed_texts
-from memory.embedding_utils import cosine_similarity
+from memory.embedding_utils import cosine_similarity, keyword_overlap
 
 DEFAULT_TREND_PATH = "memory/seed/trend_memory.json"
 DEFAULT_HALF_LIFE_DAYS = 30.0
@@ -55,6 +59,7 @@ def retrieve(
     half_life_days: float = DEFAULT_HALF_LIFE_DAYS,
     trends: list[dict] | None = None,
     config=None,
+    mock: bool = False,
 ) -> list[dict]:
     trends = trends if trends is not None else load_trends()
     if category is not None:
@@ -62,13 +67,16 @@ def retrieve(
     if not trends:
         return []
 
-    config = config or get_role_config("embedding")
-    vectors = embed_texts(config, [query] + [t["label"] for t in trends])
-    query_vec, trend_vecs = vectors[0], vectors[1:]
+    if mock:
+        similarities = [keyword_overlap(query, t["label"]) for t in trends]
+    else:
+        config = config or get_role_config("embedding")
+        vectors = embed_texts(config, [query] + [t["label"] for t in trends])
+        query_vec, trend_vecs = vectors[0], vectors[1:]
+        similarities = [cosine_similarity(query_vec, vec) for vec in trend_vecs]
 
     scored = []
-    for trend, vec in zip(trends, trend_vecs):
-        similarity = cosine_similarity(query_vec, vec)
+    for trend, similarity in zip(trends, similarities):
         decay_weight = compute_decay_weight(trend["date_observed"], as_of, half_life_days)
         scored.append({
             **trend,
@@ -86,10 +94,11 @@ def main() -> None:
     parser.add_argument("--category", type=str, default=None)
     parser.add_argument("--as-of", type=str, default=None, help="YYYY-MM-DD, defaults to today")
     parser.add_argument("--top-k", type=int, default=3)
+    parser.add_argument("--mock", action="store_true", help="Retrieve with zero LLM calls (keyword-overlap ranking)")
     args = parser.parse_args()
 
     as_of = date.fromisoformat(args.as_of) if args.as_of else None
-    results = retrieve(args.query, category=args.category, top_k=args.top_k, as_of=as_of)
+    results = retrieve(args.query, category=args.category, top_k=args.top_k, as_of=as_of, mock=args.mock)
     for r in results:
         print(f"[{r['score']:.3f}] (sim={r['similarity']:.3f} decay={r['decay_weight']:.3f}) {r['trend_id']}: {r['label']}")
 

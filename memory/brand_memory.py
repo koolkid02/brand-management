@@ -5,8 +5,9 @@ memory/seed/brands/, never merged into a single shared store. `semantic`
 holds standing facts (identity, tone, competitors, customers); `episodic`
 holds timestamped events (history), matching the "episodic + semantic"
 memory type in PRD §4's table. `insights` are the tagged, per-brand
-observations market_memory.py's aggregation reads -- see that module's
-TAG_LIBRARY for the controlled vocabulary insights must draw tags from.
+observations market_memory.py's aggregation reads -- see
+memory/seed/tag_library.json for the controlled vocabulary insights must
+draw tags from (market_memory.load_tag_library/register_new_tag).
 """
 
 from __future__ import annotations
@@ -97,6 +98,75 @@ def load_all_brands(seed_dir: str = SEED_BRANDS_DIR) -> dict[str, dict]:
 
 def get_insights(brand_id: str, seed_dir: str = SEED_BRANDS_DIR) -> list[dict]:
     return load_brand(brand_id, seed_dir)["insights"]
+
+
+def _atomic_write_json(path: str, obj) -> None:
+    tmp_path = f"{path}.tmp"
+    with open(tmp_path, "w") as f:
+        json.dump(obj, f, indent=2)
+        f.write("\n")  # matches the trailing newline every hand-authored brand seed file already has
+    os.replace(tmp_path, path)
+
+
+def _next_insight_id(brand_id: str, existing_insights: list[dict]) -> str:
+    """Matches the existing seed-data convention: vamp_streetwear -> vamp_00N,
+    loom_and_aster -> loom_00N, glowroot (no underscore) -> glow_00N."""
+    prefix = brand_id.split("_")[0] if "_" in brand_id else brand_id[:4]
+    max_suffix = 0
+    for insight in existing_insights:
+        insight_id = insight["insight_id"]
+        if insight_id.startswith(f"{prefix}_"):
+            suffix = insight_id[len(prefix) + 1 :]
+            if suffix.isdigit():
+                max_suffix = max(max_suffix, int(suffix))
+    return f"{prefix}_{max_suffix + 1:03d}"
+
+
+def append_insight(brand_id: str, insight: dict, seed_dir: str = SEED_BRANDS_DIR) -> dict:
+    missing = REQUIRED_INSIGHT_KEYS - set(insight.keys())
+    if missing:
+        raise ValueError(f"Insight missing required keys {sorted(missing)}: {insight!r}")
+    brand = load_brand(brand_id, seed_dir)
+    brand["insights"].append(insight)
+    validate_brand_schema(brand)
+    _atomic_write_json(os.path.join(seed_dir, f"{brand_id}.json"), brand)
+    return brand
+
+
+def append_history_entry(brand_id: str, history_entry: dict, seed_dir: str = SEED_BRANDS_DIR) -> dict:
+    missing = REQUIRED_HISTORY_ENTRY_KEYS - set(history_entry.keys())
+    if missing:
+        raise ValueError(f"History entry missing required keys {sorted(missing)}: {history_entry!r}")
+    brand = load_brand(brand_id, seed_dir)
+    brand["episodic"]["history"].append(history_entry)
+    validate_brand_schema(brand)
+    _atomic_write_json(os.path.join(seed_dir, f"{brand_id}.json"), brand)
+    return brand
+
+
+def append_insight_and_history(
+    brand_id: str, insight: dict, history_entry: dict, seed_dir: str = SEED_BRANDS_DIR
+) -> dict:
+    """The one write memory/outcome_memory.py's record_campaign_outcome
+    actually calls -- a single atomic write of both, since a real campaign
+    outcome always produces both together and a crash between two separate
+    writes must never leave one without the other. Re-validates the WHOLE
+    resulting brand before writing, same "never let a malformed write
+    corrupt a brand file" discipline load_brand's read-side validation
+    already established."""
+    missing_insight = REQUIRED_INSIGHT_KEYS - set(insight.keys())
+    if missing_insight:
+        raise ValueError(f"Insight missing required keys {sorted(missing_insight)}: {insight!r}")
+    missing_history = REQUIRED_HISTORY_ENTRY_KEYS - set(history_entry.keys())
+    if missing_history:
+        raise ValueError(f"History entry missing required keys {sorted(missing_history)}: {history_entry!r}")
+
+    brand = load_brand(brand_id, seed_dir)
+    brand["insights"].append(insight)
+    brand["episodic"]["history"].append(history_entry)
+    validate_brand_schema(brand)
+    _atomic_write_json(os.path.join(seed_dir, f"{brand_id}.json"), brand)
+    return brand
 
 
 def main() -> None:

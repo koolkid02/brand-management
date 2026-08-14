@@ -177,6 +177,39 @@ the generation prompt.
 
 ---
 
+## 4a. Memory write-back (this is how "compounds" actually happens)
+
+§2 promises this asset compounds — every brand and every campaign that runs
+through it makes the shared market intelligence richer — but §4 above only
+describes the *read* side. This section describes the write side: how a real
+campaign outcome turns back into new memory.
+
+**Trigger:** Checkpoint 2 approval, and only Checkpoint 2 approval. When a
+marketer signs off on a winning variant after evaluation, that outcome is
+recorded as two things in the *winning brand's own private memory*:
+- An **episodic** entry in `episodic.history` — a factual record ("ran this
+  campaign, on this date, this was the angle").
+- A **semantic** entry in `insights` — the same generalized, tagged pattern
+  shape every hand-seeded insight already uses, so it flows through the exact
+  same aggregation path (§5) as the insights the brands launched with.
+
+Only a human-approved outcome triggers this — not raw automated Traction
+Agent scoring. This mirrors why §7 has a human checkpoint there at all: an
+approval is a real signal about what actually mattered enough to ship, an
+automated score alone is not.
+
+The one structural difference from every other insight in this system: the
+tag vocabulary is no longer frozen at authoring time for this path. A new
+campaign outcome might not match any existing tag, so a new tag can be
+minted at runtime — but only after checking whether an existing tag already
+means the same thing (matched by meaning, via embedding similarity, not by
+exact string), so the vocabulary grows without silently fragmenting into
+near-duplicate tags. New tags are registered into the exact same vocabulary
+`market_memory.py`'s aggregation already depends on — there is no second,
+parallel tagging system.
+
+---
+
 ## 5. Trust & privacy constraint (why global memory is safe)
 
 Because this is a consulting/portfolio setup, one brand's data must never leak to
@@ -189,6 +222,14 @@ LLM to be careful:
 
 (Full aggregation mechanism is documented for the pitch; POC ships mock global
 memory that already looks post-abstraction.)
+
+Insights written back via Checkpoint 2 approval (§4a) go through this
+identical aggregation path as hand-seeded insights — same tag-gated
+grouping, same 2-brand recurrence rule before anything promotes to global
+memory, same category scoping. The abstraction into a brand-agnostic
+canonical pattern statement happens at write time, before the tag is ever
+registered, preserving "the link was severed at write time, not read time"
+even for machine-derived insights, not just hand-authored ones.
 
 ---
 
@@ -235,6 +276,8 @@ check, approval out:
    redirect re-runs framework/7Ps application, capped at 2 loop-backs.
 3. **Checkpoint 2 — Approval (after evaluation):** the Traction Agent ranks
    variants; a marketer signs off on the winner before any real ad spend.
+   This approval is also what triggers the memory write-back described in
+   §4a — an automated Traction Agent score alone never does.
 
 This matches the challenge brief's explicit ask for human-in-the-loop
 checkpoints, and mirrors how a real consulting engagement runs — now more
@@ -313,8 +356,11 @@ logic) and `agent_loop.py` (the orchestrator that ties phases and checkpoints to
 
 - Real Meta/Instagram API ingestion (POC uses synthetic Indian D2C audience data)
 - Live production multi-tenant infra, auth, access control enforcement
-- The full automated aggregation/abstraction pipeline (POC ships mock post-abstraction global memory)
+- The full automated aggregation/abstraction pipeline (POC ships mock post-abstraction global memory — note the §4a write-back's tag-matching is still a closed-vocabulary lookup extended by embedding similarity at write time, not free-text NLP clustering: new tags still require explicit registration and promotion still requires 2+ brand recurrence, so this stays out of scope, not partially built)
 - Fine-tuning (all agents run on prompted local base models)
+- Memory grounded in external case studies / marketing research papers, in addition to the self-generated campaign-outcome insights §4a produces
+- A budget estimation tool integrated into the campaign planning agent, with cost modeling that varies by campaign type (offline media costs have a different structure than online/social costs)
+- A shelved-campaign memory: lessons learned from rejected, not just approved, campaigns — a natural future extension of the §4a write-back mechanism, triggered by rejection instead of Checkpoint 2 approval
 
 ---
 
@@ -332,3 +378,4 @@ logic) and `agent_loop.py` (the orchestrator that ties phases and checkpoints to
 - [ ] Traction Agent outputs a ranked, actionable recommendation per variant
 - [ ] Checkpoint 2 approval step present in the dashboard
 - [ ] Clean module separation — A and B runnable independently, meeting only at evaluation
+- [ ] Checkpoint 2 approval writes the outcome back as a new tagged insight + history entry in the winning brand's memory, and a newly-recurring pattern promotes to market memory on the next aggregation run

@@ -566,7 +566,7 @@ def generate_variants(
 ) -> list[dict]:
     category = creative_constraints["grounded"]["category"]
     query = f"{working_brief['primary_goal']} {working_brief['core_message']}"
-    trends = retrieve_trends(query=query, category=category, top_k=3)
+    trends = retrieve_trends(query=query, category=category, top_k=3, mock=mock)
     print(f"Retrieved {len(trends)} trend(s) for category={category}:")
     for t in trends:
         print(f"  - {t['trend_id']}: {t['label']} (score={t['score']:.3f})")
