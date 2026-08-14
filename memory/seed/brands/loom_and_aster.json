@@ -10,34 +10,125 @@
       "one_liner": "Considered, small-batch fashion in natural fibres for people who buy less but buy better.",
       "target_customer": "28-45 year old urban professionals who value craftsmanship and provenance over trend cycles; low purchase frequency, high average order value, researches before buying.",
       "price_posture": "premium",
-      "value_props": ["Small-batch natural-fibre production", "Traceable maker/sourcing story", "Made-to-last construction, not seasonal trend cycles"]
+      "value_props": [
+        "Small-batch natural-fibre production",
+        "Traceable maker/sourcing story",
+        "Made-to-last construction, not seasonal trend cycles"
+      ]
     },
     "tone": {
-      "descriptors": ["understated", "editorial", "calm", "considered"],
+      "descriptors": [
+        "understated",
+        "editorial",
+        "calm",
+        "considered"
+      ],
       "voice_notes": "Reads like a design journal, not an ad. Leads with craft and material story before price or promotion."
     },
     "competitors": [
-      {"name": "Nicobar", "positioning_note": "Closest direct competitor, similar handloom/considered-design ethos."},
-      {"name": "Bombay Shirt Company", "positioning_note": "Premium made-to-measure, same affluent buyer."},
-      {"name": "Okhai", "positioning_note": "Artisanal/handloom, craft-cooperative positioning."}
+      {
+        "name": "Nicobar",
+        "positioning_note": "Closest direct competitor, similar handloom/considered-design ethos."
+      },
+      {
+        "name": "Bombay Shirt Company",
+        "positioning_note": "Premium made-to-measure, same affluent buyer."
+      },
+      {
+        "name": "Okhai",
+        "positioning_note": "Artisanal/handloom, craft-cooperative positioning."
+      }
     ],
     "customers": {
       "summary": "Skews premium and loyal-core: low discount-code usage, high AOV, low cart-abandonment, values exclusivity over price.",
-      "primary_segments": ["premium", "loyal-core"]
+      "primary_segments": [
+        "premium",
+        "loyal-core"
+      ]
     }
   },
   "episodic": {
     "history": [
-      {"date": "2020-01-15", "event_type": "founding", "title": "Loom & Aster founded", "summary": "Launched with a single natural-dye linen capsule sold via a waitlist."},
-      {"date": "2021-08-01", "event_type": "milestone", "title": "Featured in design press", "summary": "First editorial feature on the brand's handloom sourcing story."},
-      {"date": "2023-11-10", "event_type": "campaign", "title": "Restock-waitlist mechanic introduced", "summary": "Small-batch drops paired with a public waitlist to signal demand ahead of restock."},
-      {"date": "2025-09-05", "event_type": "milestone", "title": "First studio store opened", "summary": "Opened a single appointment-only studio store in a metro city."}
+      {
+        "date": "2020-01-15",
+        "event_type": "founding",
+        "title": "Loom & Aster founded",
+        "summary": "Launched with a single natural-dye linen capsule sold via a waitlist."
+      },
+      {
+        "date": "2021-08-01",
+        "event_type": "milestone",
+        "title": "Featured in design press",
+        "summary": "First editorial feature on the brand's handloom sourcing story."
+      },
+      {
+        "date": "2023-11-10",
+        "event_type": "campaign",
+        "title": "Restock-waitlist mechanic introduced",
+        "summary": "Small-batch drops paired with a public waitlist to signal demand ahead of restock."
+      },
+      {
+        "date": "2025-09-05",
+        "event_type": "milestone",
+        "title": "First studio store opened",
+        "summary": "Opened a single appointment-only studio store in a metro city."
+      },
+      {
+        "date": "2026-08-14",
+        "event_type": "campaign",
+        "title": "The Story Woven In Campaign",
+        "summary": "A campaign utilizing user-generated content focused on the craftsmanship and provenance of small-batch natural fiber pieces."
+      },
+      {
+        "date": "2026-08-14",
+        "event_type": "campaign",
+        "title": "Provenance of Craft Campaign",
+        "summary": "A UGC-led campaign focused on maker stories and tracing the journey of materials successfully engaged premium customers by emphasizing craftsmanship and authenticity."
+      }
     ]
   },
   "insights": [
-    {"insight_id": "loom_001", "tag": "ugc_video_outperforms_static", "category": "fashion_d2c", "observation": "Founder-narrated craft videos and real-customer styling clips outperformed polished studio lookbook images on engagement and dwell time across the last two seasonal launches.", "date_observed": "2026-06-20"},
-    {"insight_id": "loom_002", "tag": "size_fit_reassurance_reduces_abandonment", "category": "fashion_d2c", "observation": "A fit-guide video embedded on the PDP measurably reduced cart abandonment for first-time buyers unfamiliar with the brand's relaxed sizing.", "date_observed": "2026-05-15"},
-    {"insight_id": "loom_003", "tag": "provenance_story_drives_premium_justification", "category": "fashion_d2c", "observation": "Leading with fabric-sourcing/maker-story, not price, was the strongest lever converting price-sensitive browsers to premium buyers.", "date_observed": "2026-04-01"},
-    {"insight_id": "loom_004", "tag": "restock_waitlist_signals_demand", "category": "fashion_d2c", "observation": "Small-batch drops paired with a public restock waitlist reliably sold out and produced a visible demand signal for the next batch size.", "date_observed": "2026-02-10"}
+    {
+      "insight_id": "loom_001",
+      "tag": "ugc_video_outperforms_static",
+      "category": "fashion_d2c",
+      "observation": "Founder-narrated craft videos and real-customer styling clips outperformed polished studio lookbook images on engagement and dwell time across the last two seasonal launches.",
+      "date_observed": "2026-06-20"
+    },
+    {
+      "insight_id": "loom_002",
+      "tag": "size_fit_reassurance_reduces_abandonment",
+      "category": "fashion_d2c",
+      "observation": "A fit-guide video embedded on the PDP measurably reduced cart abandonment for first-time buyers unfamiliar with the brand's relaxed sizing.",
+      "date_observed": "2026-05-15"
+    },
+    {
+      "insight_id": "loom_003",
+      "tag": "provenance_story_drives_premium_justification",
+      "category": "fashion_d2c",
+      "observation": "Leading with fabric-sourcing/maker-story, not price, was the strongest lever converting price-sensitive browsers to premium buyers.",
+      "date_observed": "2026-04-01"
+    },
+    {
+      "insight_id": "loom_004",
+      "tag": "restock_waitlist_signals_demand",
+      "category": "fashion_d2c",
+      "observation": "Small-batch drops paired with a public restock waitlist reliably sold out and produced a visible demand signal for the next batch size.",
+      "date_observed": "2026-02-10"
+    },
+    {
+      "insight_id": "loom_005",
+      "tag": "ugc_provenance_drives_trust",
+      "category": "fashion_d2c",
+      "observation": "Loom & Aster's UGC-led campaign successfully resonated with segments prioritizing traceable craftsmanship and small-batch provenance, achieving high engagement among connoisseurs of artisan quality.",
+      "date_observed": "2026-08-14"
+    },
+    {
+      "insight_id": "loom_006",
+      "tag": "ugc_storytelling_provenance_drives_trust",
+      "category": "fashion_d2c",
+      "observation": "Loom & Aster's focus on tracing the journey and artisanal techniques successfully resonated with premium customers, driving high engagement scores related to craftsmanship and authenticity.",
+      "date_observed": "2026-08-14"
+    }
   ]
 }

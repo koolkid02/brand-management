@@ -1,29 +1,29 @@
 {
-  "brand_id": "vamp_streetwear",
+  "brand_id": "loom_and_aster",
   "raw_answers": {
-    "target_segment": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
-    "price_posture": "Budget / mass-market - we're sub-Rs 999 core pricing, that's central to who we are.",
-    "competitors": "Bewakoof mainly, they're the closest comp on price and meme/graphic-tee vibe. Also keep an eye on Snitch since they're chasing the same Gen-Z streetwear audience even though their AOV runs a bit higher. Not really worried about The Souled Store for this one, they're more fandom/pop-culture than us.",
-    "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
-    "hard_constraints": "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale. Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real. And keep it Instagram/Reels-native, not stiff catalog copy.",
-    "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing."
+    "target_segment": "Our premium and loyal-core segments - 28-45, urban professionals, low purchase frequency but high AOV, they research before they buy and care about the maker story, not the trend cycle.",
+    "price_posture": "Premium - we're a considered, small-batch brand and the price needs to reflect that. This is not a value play.",
+    "competitors": "Nicobar is the closest direct comp, similar handloom/considered-design ethos. Bombay Shirt Company too, same affluent buyer even though they're made-to-measure. Okhai is more of an artisanal/craft-cooperative comp than a head-to-head competitor.",
+    "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace - this is fashion you buy once and keep, not fashion you buy weekly and forget.",
+    "hard_constraints": "No discount language anywhere, this line never goes on sale. Nothing that reads like a catalog spec sheet either, keep it editorial. And the maker/sourcing story has to be front and center, not an afterthought.",
+    "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning."
   },
   "followup_qa": [],
-  "followup_generation_method": "mock",
-  "target_segment_summary": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
-  "price_posture": "budget",
+  "followup_generation_method": "llm_fallback",
+  "target_segment_summary": "Premium and loyal-core segments (28-45), urban professionals who research before buying and care about the maker story over trend cycles.",
+  "price_posture": "premium",
   "competitors_to_position_against": [
-    "Bewakoof",
-    "Snitch",
-    "The Souled Store"
+    "Nicobar",
+    "Bombay Shirt Company",
+    "Okhai"
   ],
-  "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
+  "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace; this is fashion you buy once and keep, not fashion you buy weekly and forget.",
   "hard_constraints": [
-    "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
-    "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
-    "And keep it Instagram/Reels-native, not stiff catalog copy."
+    "No discount language anywhere",
+    "Keep it editorial",
+    "Have the maker/sourcing story front and center"
   ],
-  "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing.",
-  "generation_method": "mock",
-  "model": null
+  "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning.",
+  "generation_method": "llm",
+  "model": "gemma4:e2b"
 }

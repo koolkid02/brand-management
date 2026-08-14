@@ -72,8 +72,12 @@ def build_variant_synthesis_prompt(variant: dict, persona_reactions: list[dict],
         "a concrete recommendation. Respond with ONLY a single JSON object containing "
         'exactly traction_tier (one of "strong", "moderate", "weak"), driving_factor '
         "(one sentence), targeting_implication (one sentence), recommendation (one of "
-        '"scale", "revise", "narrow", "kill") -- no markdown fences, no commentary, no '
-        "extra keys."
+        '"scale", "revise", "narrow", "kill"). Output the JSON object on a SINGLE LINE '
+        "with no line breaks and no indentation, in EXACTLY this shape (every key and "
+        "every string value in double quotes, like this real example -- do not omit any "
+        'quote marks): {"traction_tier": "strong", "driving_factor": "example here", '
+        '"targeting_implication": "example here", "recommendation": "scale"} -- no '
+        "markdown fences, no commentary, no extra keys."
     )
     # Deliberately the SAME format string outcome_memory.build_synthesis_prompt
     # already uses for this exact shape -- symmetry, since that function
@@ -191,8 +195,12 @@ def build_ranking_prompt(evaluation_results: list[dict], variants: list[dict], w
         "average persona score -- ground truth, do not re-score anything. Respond with "
         "ONLY a single JSON object containing exactly ranked_variant_ids (an array "
         "containing every variant_id given, ordered best to worst) and "
-        "ranking_rationale (one short paragraph explaining the ordering) -- no markdown "
-        "fences, no commentary, no extra keys."
+        "ranking_rationale (one short paragraph explaining the ordering). Output the "
+        "JSON object on a SINGLE LINE with no line breaks and no indentation, in "
+        "EXACTLY this shape (every key and every string value in double quotes, like "
+        'this real example -- do not omit any quote marks, do not output YAML or plain '
+        'key: value lines): {"ranked_variant_ids": ["v1", "v2"], "ranking_rationale": '
+        '"example here"} -- no markdown fences, no commentary, no extra keys.'
     )
     variant_by_id = {v["variant_id"]: v for v in variants}
     lines = []

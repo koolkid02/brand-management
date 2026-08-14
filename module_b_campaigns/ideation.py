@@ -336,7 +336,14 @@ def build_critique_prompt(
         "single JSON object containing exactly the key critiques (an array, "
         "one entry per concept, each with exactly concept_id, score, "
         "verdict, reason, hard_rule_violation) -- no markdown fences, no "
-        "commentary, no extra keys."
+        "commentary, no extra keys. Output compact JSON with no line breaks "
+        "and no indentation, every key and every string value in double "
+        "quotes. Example shape with 2 entries (yours must have exactly one "
+        'entry per concept listed below, in this exact format): '
+        '{"critiques": [{"concept_id": "c1", "score": 7, "verdict": '
+        '"advance", "reason": "example reason here", "hard_rule_violation": '
+        'false}, {"concept_id": "c2", "score": 2, "verdict": "cut", '
+        '"reason": "example reason here", "hard_rule_violation": true}]}'
     )
 
     concepts_block = "\n\n".join(

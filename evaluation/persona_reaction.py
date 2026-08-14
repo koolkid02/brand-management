@@ -72,8 +72,13 @@ def build_reaction_prompt(
         "a connection that is not there. Respond with ONLY a single JSON object containing "
         "exactly reaction_summary (1-2 sentences, first-person, in your own voice), "
         "adjustment_reason (one sentence), adjustment (a number) -- IN THAT ORDER, with "
-        "adjustment (the number) as the LAST field -- no markdown fences, no commentary, "
-        "no extra keys."
+        "adjustment (the number) as the LAST field. Output the JSON object on a SINGLE "
+        "LINE with no line breaks and no indentation, in EXACTLY this shape (every key "
+        'and every string value in double quotes, like this real example -- do not omit '
+        "any quote marks): "
+        '{"reaction_summary": "example reaction here", "adjustment_reason": "example '
+        'reason here", "adjustment": 0.5} -- no markdown fences, no commentary, no extra '
+        "keys."
     )
 
     trends = grounding.get("trends", [])
