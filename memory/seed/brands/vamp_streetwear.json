@@ -10,34 +10,114 @@
       "one_liner": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly.",
       "target_customer": "18-26 year olds in metro and tier-2 cities, price-sensitive, discovers styles through Reels and influencer hauls, shops in bursts around drops/sales/festive occasions.",
       "price_posture": "budget",
-      "value_props": ["Weekly trend drops", "Sub-Rs 999 core pricing", "3-5 day dispatch"]
+      "value_props": [
+        "Weekly trend drops",
+        "Sub-Rs 999 core pricing",
+        "3-5 day dispatch"
+      ]
     },
     "tone": {
-      "descriptors": ["loud", "playful", "meme-literate", "urgency-driven", "slang-friendly"],
+      "descriptors": [
+        "loud",
+        "playful",
+        "meme-literate",
+        "urgency-driven",
+        "slang-friendly"
+      ],
       "voice_notes": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions."
     },
     "competitors": [
-      {"name": "Bewakoof", "positioning_note": "Similar price band, meme/graphic-tee led."},
-      {"name": "Snitch", "positioning_note": "Similar Gen-Z streetwear category, slightly higher AOV."},
-      {"name": "The Souled Store", "positioning_note": "Pop-culture/fandom-led, broader catalog."}
+      {
+        "name": "Bewakoof",
+        "positioning_note": "Similar price band, meme/graphic-tee led."
+      },
+      {
+        "name": "Snitch",
+        "positioning_note": "Similar Gen-Z streetwear category, slightly higher AOV."
+      },
+      {
+        "name": "The Souled Store",
+        "positioning_note": "Pop-culture/fandom-led, broader catalog."
+      }
     ],
     "customers": {
       "summary": "Skews trend-chaser and discount-chaser: high social engagement, high discount-code usage, frequent but low-AOV purchases.",
-      "primary_segments": ["discount-chasers", "trend-chasers", "first-timers"]
+      "primary_segments": [
+        "discount-chasers",
+        "trend-chasers",
+        "first-timers"
+      ]
     }
   },
   "episodic": {
     "history": [
-      {"date": "2019-11-01", "event_type": "founding", "title": "Vamp Streetwear founded", "summary": "Launched with a single graphic-tee capsule sold direct via Instagram."},
-      {"date": "2022-03-10", "event_type": "milestone", "title": "500K Instagram followers", "summary": "Crossed 500K followers driven by creator collab drops."},
-      {"date": "2023-10-20", "event_type": "campaign", "title": "Diwali capsule sellout", "summary": "Festive ethnic-crossover capsule sold out within 72 hours."},
-      {"date": "2025-06-15", "event_type": "campaign", "title": "App-exclusive flash-sale mechanic", "summary": "Introduced countdown-timer app-exclusive drops."}
+      {
+        "date": "2019-11-01",
+        "event_type": "founding",
+        "title": "Vamp Streetwear founded",
+        "summary": "Launched with a single graphic-tee capsule sold direct via Instagram."
+      },
+      {
+        "date": "2022-03-10",
+        "event_type": "milestone",
+        "title": "500K Instagram followers",
+        "summary": "Crossed 500K followers driven by creator collab drops."
+      },
+      {
+        "date": "2023-10-20",
+        "event_type": "campaign",
+        "title": "Diwali capsule sellout",
+        "summary": "Festive ethnic-crossover capsule sold out within 72 hours."
+      },
+      {
+        "date": "2025-06-15",
+        "event_type": "campaign",
+        "title": "App-exclusive flash-sale mechanic",
+        "summary": "Introduced countdown-timer app-exclusive drops."
+      },
+      {
+        "date": "2026-08-14",
+        "event_type": "campaign",
+        "title": "Social proof / UGC-led campaign -- narrow recommendation",
+        "summary": "Ran a Social proof / UGC-led campaign (variant v2, headline: 'Real customers, real hauls'). Strongest reaction from cluster_3 (final=10.0): Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10. Recommendation: narrow."
+      }
     ]
   },
   "insights": [
-    {"insight_id": "vamp_001", "tag": "ugc_video_outperforms_static", "category": "fashion_d2c", "observation": "Reels of real customers styling drops outperformed static product-grid posts on save/share rate across the last quarter's drop campaigns.", "date_observed": "2026-06-10"},
-    {"insight_id": "vamp_002", "tag": "discount_led_urgency_drives_volume", "category": "fashion_d2c", "observation": "Flat percentage-off flash-sale codes with a 48-hour countdown produced the largest week-over-week order spike of any campaign type in the last 2 quarters.", "date_observed": "2026-05-02"},
-    {"insight_id": "vamp_003", "tag": "size_fit_reassurance_reduces_abandonment", "category": "fashion_d2c", "observation": "Adding a short try-on video plus a size-chart callout to the PDP visibly cut cart abandonment in the trend-chaser cohort versus product-photo-only pages.", "date_observed": "2026-04-18"},
-    {"insight_id": "vamp_004", "tag": "festive_occasion_spike", "category": "fashion_d2c", "observation": "Ethnic-crossover capsule drops reliably outsell the usual streetwear SKUs in the 3 weeks before Diwali/wedding season.", "date_observed": "2026-03-01"}
+    {
+      "insight_id": "vamp_001",
+      "tag": "ugc_video_outperforms_static",
+      "category": "fashion_d2c",
+      "observation": "Reels of real customers styling drops outperformed static product-grid posts on save/share rate across the last quarter's drop campaigns.",
+      "date_observed": "2026-06-10"
+    },
+    {
+      "insight_id": "vamp_002",
+      "tag": "discount_led_urgency_drives_volume",
+      "category": "fashion_d2c",
+      "observation": "Flat percentage-off flash-sale codes with a 48-hour countdown produced the largest week-over-week order spike of any campaign type in the last 2 quarters.",
+      "date_observed": "2026-05-02"
+    },
+    {
+      "insight_id": "vamp_003",
+      "tag": "size_fit_reassurance_reduces_abandonment",
+      "category": "fashion_d2c",
+      "observation": "Adding a short try-on video plus a size-chart callout to the PDP visibly cut cart abandonment in the trend-chaser cohort versus product-photo-only pages.",
+      "date_observed": "2026-04-18"
+    },
+    {
+      "insight_id": "vamp_004",
+      "tag": "festive_occasion_spike",
+      "category": "fashion_d2c",
+      "observation": "Ethnic-crossover capsule drops reliably outsell the usual streetwear SKUs in the 3 weeks before Diwali/wedding season.",
+      "date_observed": "2026-03-01"
+    },
+    {
+      "insight_id": "vamp_005",
+      "tag": "social_proof_ugc_needs_narrower_targeting",
+      "category": "fashion_d2c",
+      "observation": "The Social proof / UGC-led variant ('Real customers, real hauls') for Vamp Streetwear, targeting Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales., scored 4.7/10 average across persona reactions; evaluation recommended to narrow.",
+      "date_observed": "2026-08-14"
+    }
   ]
 }

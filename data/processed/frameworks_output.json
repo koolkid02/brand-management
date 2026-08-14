@@ -1,137 +1,135 @@
 {
   "positioning_brief": {
-    "framework_id": "swot",
-    "framework_name": "SWOT",
+    "framework_id": "perceptual_mapping",
+    "framework_name": "Perceptual Mapping",
     "grounded": {
-      "brand.semantic": {
-        "name": "GlowRoot",
-        "category": "beauty_d2c",
-        "sub_positioning": "clean_skincare",
-        "founded_year": 2021,
-        "identity": {
-          "one_liner": "Ingredient-transparent, dermat-reviewed skincare for India's climate and skin tones.",
-          "target_customer": "22-35 year olds researching ingredients before buying, motivated by transparency and dermat validation over influencer hype alone.",
-          "price_posture": "mid",
-          "value_props": [
-            "Full ingredient-list transparency",
-            "Dermat-reviewed formulations",
-            "Formulated for Indian climate/skin tones"
-          ]
-        },
-        "tone": {
-          "descriptors": [
-            "informative",
-            "reassuring",
-            "clinical-but-warm",
-            "myth-busting"
-          ],
-          "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
-        },
-        "competitors": [
-          {
-            "name": "Mamaearth",
-            "positioning_note": "Larger toxin-free personal-care brand, broader mass-market reach."
-          },
-          {
-            "name": "Sugar Cosmetics",
-            "positioning_note": "Color cosmetics-led, bolder Gen-Z-first brand voice."
-          },
-          {
-            "name": "Plum",
-            "positioning_note": "Vegan clean-beauty positioning, similar ingredient-conscious buyer."
-          }
-        ],
-        "customers": {
-          "summary": "This brand deliberately does not map onto Module A's fashion-derived audience archetypes -- it exists in this seed set to prove category-scoped memory isolation, not narrative continuity with the fashion D2C brands.",
-          "primary_segments": []
-        }
+      "brand.semantic.identity": {
+        "one_liner": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly.",
+        "target_customer": "18-26 year olds in metro and tier-2 cities, price-sensitive, discovers styles through Reels and influencer hauls, shops in bursts around drops/sales/festive occasions.",
+        "price_posture": "budget",
+        "value_props": [
+          "Weekly trend drops",
+          "Sub-Rs 999 core pricing",
+          "3-5 day dispatch"
+        ]
       },
-      "brand.insights": [
+      "brand.semantic.competitors": [
         {
-          "insight_id": "glow_001",
-          "tag": "ugc_video_outperforms_static",
-          "category": "beauty_d2c",
-          "observation": "Skincare-routine reels from real customers outperformed studio flatlay images on saves and comments across recent launches.",
-          "date_observed": "2026-06-25"
+          "name": "Bewakoof",
+          "positioning_note": "Similar price band, meme/graphic-tee led."
         },
         {
-          "insight_id": "glow_002",
-          "tag": "ingredient_transparency_builds_trust",
-          "category": "beauty_d2c",
-          "observation": "Posts that broke down the full active-ingredient list drove visibly higher repeat-purchase rate than posts making benefit-only claims.",
-          "date_observed": "2026-05-20"
+          "name": "Snitch",
+          "positioning_note": "Similar Gen-Z streetwear category, slightly higher AOV."
         },
         {
-          "insight_id": "glow_003",
-          "tag": "bundle_discount_drives_aov",
-          "category": "beauty_d2c",
-          "observation": "Multi-product routine bundles discounted as a set lifted average order value more than single-SKU percentage-off discounts.",
-          "date_observed": "2026-04-10"
+          "name": "The Souled Store",
+          "positioning_note": "Pop-culture/fandom-led, broader catalog."
         }
       ],
-      "market_memory.patterns": []
+      "market_memory.patterns": [
+        {
+          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
+          "tag": "size_fit_reassurance_reduces_abandonment",
+          "category": "fashion_d2c",
+          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+          "supporting_brand_count": 2,
+          "similarity": 0.0
+        },
+        {
+          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
+          "tag": "ugc_video_outperforms_static",
+          "category": "fashion_d2c",
+          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
+          "supporting_brand_count": 2,
+          "similarity": 0.0
+        }
+      ]
     },
     "brief": {
-      "strengths": [
-        "Strong foundation built on ingredient transparency and dermatological validation.",
-        "Informative, reassuring, and clinical tone establishes credibility among research-motivated consumers.",
-        "Leverages customer insights showing that detailed ingredient breakdowns build trust and drive repeat purchases."
+      "axes": {
+        "x_axis": "Price",
+        "y_axis": "Trend-forwardness"
+      },
+      "brand_position": {
+        "x": 0.2,
+        "y": 0.8
+      },
+      "competitor_positions": [
+        {
+          "name": "Bewakoof",
+          "x": 0.5,
+          "y": 0.5
+        },
+        {
+          "name": "Snitch",
+          "x": 0.5,
+          "y": 0.5
+        },
+        {
+          "name": "The Souled Store",
+          "x": 0.5,
+          "y": 0.5
+        }
       ],
-      "weaknesses": [
-        "The current positioning may not align with the narrative continuity sought by fashion-derived D2C audiences.",
-        "The clinical-but-warm tone might be perceived as too slow or academic for a fast-paced, trend-driven 18-24 segment seeking immediate aesthetic messaging.",
-        "Lack of explicit mapping to fashion-derived audience archetypes limits narrative resonance with the target demographic."
-      ],
-      "opportunities": [
-        "Leveraging UGC video formats (glow_001) to deliver the 'You look young' message in an authentic, relatable way.",
-        "Capitalizing on the desire for youthfulness by framing ingredient efficacy as a pathway to achieving that appearance.",
-        "Utilizing bundle discounts (glow_003) to encourage routine adoption among the segment."
-      ],
-      "threats": [
-        "Competitors like Sugar Cosmetics, with their bolder Gen-Z voice, pose a threat in capturing attention quickly.",
-        "Risk of the core message being perceived as superficial if it bypasses the brand's established focus on deep ingredient education.",
-        "Market saturation in the clean beauty space requires differentiation beyond simple aesthetic claims."
-      ],
-      "positioning_summary": "GlowRoot is positioned as a trustworthy, science-backed skincare option for ingredient-conscious consumers. The campaign must bridge this clinical trust with the aspirational desire for youthfulness within the 18-24 segment by utilizing authentic video content rather than purely declarative claims."
+      "whitespace_summary": "Placeholder estimate (fallback template) -- competitor coordinates are neutral defaults, not researched positions; pending real LLM reasoning for an actual whitespace read.",
+      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
     },
-    "generation_method": "llm",
-    "model": "gemma4:e2b"
+    "generation_method": "mock",
+    "model": null
   },
   "creative_constraints": {
     "framework_id": "seven_ps",
     "grounded": {
-      "brand_name": "GlowRoot",
-      "category": "beauty_d2c",
-      "price_posture": "mid",
+      "brand_name": "Vamp Streetwear",
+      "category": "fashion_d2c",
+      "price_posture": "budget",
       "tone": {
         "descriptors": [
-          "informative",
-          "reassuring",
-          "clinical-but-warm",
-          "myth-busting"
+          "loud",
+          "playful",
+          "meme-literate",
+          "urgency-driven",
+          "slang-friendly"
         ],
-        "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
+        "voice_notes": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions."
       },
-      "market_patterns": [],
-      "positioning_summary": "GlowRoot is positioned as a trustworthy, science-backed skincare option for ingredient-conscious consumers. The campaign must bridge this clinical trust with the aspirational desire for youthfulness within the 18-24 segment by utilizing authentic video content rather than purely declarative claims."
+      "market_patterns": [
+        {
+          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
+          "tag": "size_fit_reassurance_reduces_abandonment",
+          "category": "fashion_d2c",
+          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+          "supporting_brand_count": 2,
+          "similarity": 0.0
+        },
+        {
+          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
+          "tag": "ugc_video_outperforms_static",
+          "category": "fashion_d2c",
+          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
+          "supporting_brand_count": 2,
+          "similarity": 0.0
+        }
+      ],
+      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
     },
     "constraints": {
-      "product": "All copy must focus on ingredient transparency, scientific backing, and the 'why' behind formulation rather than purely declarative benefit claims.",
-      "price": "Promotional messaging should emphasize value derived from science and quality, avoiding discount-led urgency framing, consistent with a mid-range positioning.",
-      "place": "Distribution channels should support authentic video content that showcases the scientific process and ingredient sourcing to build trust.",
-      "promotion": "Promotions must frame education (myth-busting) as the primary driver. Avoid aggressive sales tactics; lead with material/craft/provenance and clinical insight.",
-      "people": "Content must feature voices or visuals that convey clinical trust, warmth, and expertise, referencing dermatological input where appropriate.",
-      "physical_evidence": "Visuals (video content) must be authentic and educational, demonstrating the science behind the ingredients rather than just showing end-results. Focus on process over pure outcome.",
-      "process": "The narrative structure must explain the 'why' behind each ingredient choice, explicitly citing scientific reasoning to bridge clinical trust with aspirational results.",
+      "product": "Weekly trend drops; Sub-Rs 999 core pricing; 3-5 day dispatch",
+      "price": "Reflects the brand's real budget price posture.",
+      "place": "Primarily direct-to-consumer via the brand's own site/app, discovered through Instagram/Reels-native content.",
+      "promotion": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+      "people": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions.",
+      "physical_evidence": "App-exclusive flash-sale mechanic",
+      "process": "3-5 day dispatch",
       "hard_rules": [
-        "Do not be racist",
-        "All claims must be supported by an informative, science-backed rationale.",
-        "Avoid purely declarative benefit claims; focus on explaining the mechanism ('the why').",
-        "The tone must remain clinical-but-warm and reassuring throughout all copy.",
-        "Promotional guidance must prioritize material/craft/provenance over discount-led urgency due to the mid-price posture."
+        "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
+        "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
+        "And keep it Instagram/Reels-native, not stiff catalog copy.",
+        "Urgency/discount mechanics are on-brand and may be used, but must not misrepresent stock levels (no fake scarcity)."
       ]
     },
-    "generation_method": "llm",
-    "model": "gemma4:e2b"
+    "generation_method": "mock",
+    "model": null
   }
 }

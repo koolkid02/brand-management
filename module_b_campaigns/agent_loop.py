@@ -25,12 +25,17 @@ import json
 from typing import TypedDict
 
 from config import ModelRoleConfig, get_role_config
+from evaluation import traction_agent
 from llm.client import call_json
+from memory import outcome_memory
 from memory.brand_memory import load_brand
 from memory.framework_memory import get_analytical_frameworks
 from module_b_campaigns import frameworks_apply, ideation, intake
 
-PHASES = ("baseline_intake", "followup", "strategy_review", "ideation_pending", "done")
+PHASES = (
+    "baseline_intake", "followup", "strategy_review", "ideation_pending", "done",
+    "evaluation_pending", "evaluation_done", "approved",
+)
 MAX_REDIRECTS = 2
 
 
@@ -49,6 +54,10 @@ class AgentState(TypedDict, total=False):
     redirect_count: int
     redirect_history: list[dict]
     variants: list[dict] | None
+    evaluation_results: list[dict] | None
+    ranking: dict | None
+    approved_variant_id: str | None
+    outcome_record: dict | None
     error: dict | None
 
 
@@ -73,6 +82,10 @@ def start_session(brand_id: str, mock: bool) -> AgentState:
         "redirect_count": 0,
         "redirect_history": [],
         "variants": None,
+        "evaluation_results": None,
+        "ranking": None,
+        "approved_variant_id": None,
+        "outcome_record": None,
         "error": None,
     }
     try:
@@ -293,4 +306,58 @@ def run_ideation(state: AgentState) -> AgentState:
     except Exception as exc:  # noqa: BLE001
         state["error"] = {"action": "run_ideation", "message": f"{type(exc).__name__}: {exc}"}
         # phase intentionally stays "ideation_pending" -- retry re-invokes run_ideation
+    return state
+
+
+def start_evaluation(state: AgentState) -> AgentState:
+    if state["phase"] != "done":
+        state["error"] = {"action": "start_evaluation", "message": f"Cannot evaluate from phase {state['phase']!r}."}
+        return state
+    state["phase"] = "evaluation_pending"
+    state["error"] = None
+    return state
+
+
+def run_evaluation(state: AgentState) -> AgentState:
+    if state["phase"] != "evaluation_pending":
+        state["error"] = {"action": "run_evaluation", "message": f"Cannot run evaluation from phase {state['phase']!r}."}
+        return state
+    try:
+        output = traction_agent.run_evaluation(
+            state["brand_id"],
+            working_brief_path=intake.DEFAULT_OUTPUT,
+            variants_path=ideation.DEFAULT_OUTPUT,
+            mock=state["mock"],
+        )
+        state["evaluation_results"] = output["evaluation_results"]
+        state["ranking"] = output["ranking"]
+        state["phase"] = "evaluation_done"
+        state["error"] = None
+    except Exception as exc:  # noqa: BLE001
+        state["error"] = {"action": "run_evaluation", "message": f"{type(exc).__name__}: {exc}"}
+        # phase intentionally stays "evaluation_pending" -- retry re-invokes run_evaluation
+    return state
+
+
+def approve_winner(state: AgentState, variant_id: str) -> AgentState:
+    """The ONLY call site for outcome_memory.record_campaign_outcome
+    anywhere in the agentic loop -- reachable only via this explicit,
+    human-triggered function (a dashboard button click), never from an
+    automated path. Preserves the standing rule that only a human
+    Checkpoint-2 approval ever writes back to memory."""
+    if state["phase"] != "evaluation_done":
+        state["error"] = {"action": "approve_winner", "message": f"Cannot approve from phase {state['phase']!r}."}
+        return state
+    try:
+        approved_variant = next(v for v in state["variants"] if v["variant_id"] == variant_id)
+        evaluation_result = next(r for r in state["evaluation_results"] if r["variant_id"] == variant_id)
+        outcome = outcome_memory.record_campaign_outcome(
+            state["brand_id"], state["working_brief"], approved_variant, evaluation_result, mock=state["mock"],
+        )
+        state["approved_variant_id"] = variant_id
+        state["outcome_record"] = outcome
+        state["phase"] = "approved"
+        state["error"] = None
+    except Exception as exc:  # noqa: BLE001
+        state["error"] = {"action": "approve_winner", "message": f"{type(exc).__name__}: {exc}"}
     return state

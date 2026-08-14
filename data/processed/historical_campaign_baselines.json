@@ -1,0 +1,443 @@
+[
+  {
+    "cluster_id": 0,
+    "angle_id": "discount_urgency",
+    "baseline_score": 10.0,
+    "sample_size": 206,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "social_proof",
+    "baseline_score": 5.77,
+    "sample_size": 148,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 0.0,
+    "sample_size": 84,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "problem_solution",
+    "baseline_score": 3.92,
+    "sample_size": 55,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "trend_fomo",
+    "baseline_score": 7.36,
+    "sample_size": 223,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "provenance_story",
+    "baseline_score": 0.04,
+    "sample_size": 242,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 6.0,
+    "sample_size": 165,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 5.29,
+    "sample_size": 130,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 0,
+    "angle_id": "community_belonging",
+    "baseline_score": 8.55,
+    "sample_size": 138,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "discount_urgency",
+    "baseline_score": 5.73,
+    "sample_size": 252,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "social_proof",
+    "baseline_score": 5.17,
+    "sample_size": 54,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 3.96,
+    "sample_size": 179,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "problem_solution",
+    "baseline_score": 7.47,
+    "sample_size": 104,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "trend_fomo",
+    "baseline_score": 3.97,
+    "sample_size": 200,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "provenance_story",
+    "baseline_score": 4.29,
+    "sample_size": 48,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 4.98,
+    "sample_size": 292,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 5.91,
+    "sample_size": 235,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 1,
+    "angle_id": "community_belonging",
+    "baseline_score": 3.83,
+    "sample_size": 82,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "discount_urgency",
+    "baseline_score": 2.52,
+    "sample_size": 177,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "social_proof",
+    "baseline_score": 1.87,
+    "sample_size": 71,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 8.47,
+    "sample_size": 128,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "problem_solution",
+    "baseline_score": 0.95,
+    "sample_size": 291,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "trend_fomo",
+    "baseline_score": 1.85,
+    "sample_size": 50,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "provenance_story",
+    "baseline_score": 7.02,
+    "sample_size": 156,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 1.44,
+    "sample_size": 215,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 2.26,
+    "sample_size": 158,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 2,
+    "angle_id": "community_belonging",
+    "baseline_score": 4.4,
+    "sample_size": 283,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "discount_urgency",
+    "baseline_score": 4.4,
+    "sample_size": 148,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "social_proof",
+    "baseline_score": 9.55,
+    "sample_size": 147,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 4.84,
+    "sample_size": 247,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "problem_solution",
+    "baseline_score": 3.8,
+    "sample_size": 94,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "trend_fomo",
+    "baseline_score": 10.0,
+    "sample_size": 214,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "provenance_story",
+    "baseline_score": 5.13,
+    "sample_size": 247,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 9.98,
+    "sample_size": 31,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 4.58,
+    "sample_size": 157,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 3,
+    "angle_id": "community_belonging",
+    "baseline_score": 9.59,
+    "sample_size": 220,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "discount_urgency",
+    "baseline_score": 0.0,
+    "sample_size": 166,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "social_proof",
+    "baseline_score": 0.0,
+    "sample_size": 183,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 10.0,
+    "sample_size": 148,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "problem_solution",
+    "baseline_score": 3.05,
+    "sample_size": 210,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "trend_fomo",
+    "baseline_score": 0.47,
+    "sample_size": 51,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "provenance_story",
+    "baseline_score": 10.0,
+    "sample_size": 236,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 0.72,
+    "sample_size": 54,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 3.96,
+    "sample_size": 180,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 4,
+    "angle_id": "community_belonging",
+    "baseline_score": 1.56,
+    "sample_size": 123,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "discount_urgency",
+    "baseline_score": 6.56,
+    "sample_size": 147,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "social_proof",
+    "baseline_score": 6.31,
+    "sample_size": 298,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 2.79,
+    "sample_size": 260,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "problem_solution",
+    "baseline_score": 7.42,
+    "sample_size": 261,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "trend_fomo",
+    "baseline_score": 4.96,
+    "sample_size": 105,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "provenance_story",
+    "baseline_score": 4.38,
+    "sample_size": 64,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 6.42,
+    "sample_size": 180,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 7.16,
+    "sample_size": 140,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 5,
+    "angle_id": "community_belonging",
+    "baseline_score": 4.07,
+    "sample_size": 139,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "discount_urgency",
+    "baseline_score": 5.05,
+    "sample_size": 120,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "social_proof",
+    "baseline_score": 5.64,
+    "sample_size": 36,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "aspirational_premium",
+    "baseline_score": 3.74,
+    "sample_size": 218,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "problem_solution",
+    "baseline_score": 7.69,
+    "sample_size": 154,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "trend_fomo",
+    "baseline_score": 4.17,
+    "sample_size": 283,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "provenance_story",
+    "baseline_score": 4.91,
+    "sample_size": 71,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "humor_irreverent",
+    "baseline_score": 5.81,
+    "sample_size": 74,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "educational_how_its_made",
+    "baseline_score": 6.53,
+    "sample_size": 132,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  },
+  {
+    "cluster_id": 6,
+    "angle_id": "community_belonging",
+    "baseline_score": 3.58,
+    "sample_size": 193,
+    "source_note": "Synthetic historical baseline (deterministic, seeded) -- no real historical campaign data exists for this POC."
+  }
+]

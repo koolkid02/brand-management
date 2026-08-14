@@ -1,0 +1,432 @@
+{
+  "brand_id": "vamp_streetwear",
+  "evaluation_results": [
+    {
+      "variant_id": "v1",
+      "persona_reactions": [
+        {
+          "persona_id": "cluster_0",
+          "baseline_score": 10.0,
+          "adjustment": -0.11,
+          "final_score": 9.89,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Ria Jain's buying triggers, 0.17 overlap with stated objections, against the Discount / urgency-led baseline of 10.0/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_1",
+          "baseline_score": 5.73,
+          "adjustment": -0.66,
+          "final_score": 5.07,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Discount / urgency-led baseline of 5.73/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_2",
+          "baseline_score": 2.52,
+          "adjustment": -0.8,
+          "final_score": 1.72,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.12 overlap with stated objections, against the Discount / urgency-led baseline of 2.52/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_3",
+          "baseline_score": 4.4,
+          "adjustment": -0.01,
+          "final_score": 4.39,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.14 overlap with stated objections, against the Discount / urgency-led baseline of 4.4/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_4",
+          "baseline_score": 0.0,
+          "adjustment": -0.16,
+          "final_score": 0.0,
+          "adjustment_reason": "Mock heuristic: 0.07 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Discount / urgency-led baseline of 0.0/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_5",
+          "baseline_score": 6.56,
+          "adjustment": -0.74,
+          "final_score": 5.82,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.11 overlap with stated objections, against the Discount / urgency-led baseline of 6.56/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_6",
+          "baseline_score": 5.05,
+          "adjustment": -1.44,
+          "final_score": 3.61,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.29 overlap with stated objections, against the Discount / urgency-led baseline of 5.05/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        }
+      ],
+      "synthesis": {
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from cluster_0 (final=9.89): Mock heuristic: 0.14 keyword overlap with Ria Jain's buying triggers, 0.17 overlap with stated objections, against the Discount / urgency-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from cluster_4 (final=0.0) suggests narrowing away from that segment if scaling the Discount / urgency-led angle.",
+        "recommendation": "narrow"
+      },
+      "evaluation_method": "mock",
+      "evaluation_model": null
+    },
+    {
+      "variant_id": "v2",
+      "persona_reactions": [
+        {
+          "persona_id": "cluster_0",
+          "baseline_score": 5.77,
+          "adjustment": 0.56,
+          "final_score": 6.33,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.77/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_1",
+          "baseline_score": 5.17,
+          "adjustment": -0.66,
+          "final_score": 4.51,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Social proof / UGC-led baseline of 5.17/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_2",
+          "baseline_score": 1.87,
+          "adjustment": -0.3,
+          "final_score": 1.57,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 1.87/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_3",
+          "baseline_score": 9.55,
+          "adjustment": 0.56,
+          "final_score": 10.0,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_4",
+          "baseline_score": 0.0,
+          "adjustment": -0.59,
+          "final_score": 0.0,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Social proof / UGC-led baseline of 0.0/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_5",
+          "baseline_score": 6.31,
+          "adjustment": 0.11,
+          "final_score": 6.42,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Isha's buying triggers, 0.11 overlap with stated objections, against the Social proof / UGC-led baseline of 6.31/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_6",
+          "baseline_score": 5.64,
+          "adjustment": -1.44,
+          "final_score": 4.2,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.29 overlap with stated objections, against the Social proof / UGC-led baseline of 5.64/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        }
+      ],
+      "synthesis": {
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from cluster_3 (final=10.0): Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10.",
+        "targeting_implication": "Weakest reaction from cluster_4 (final=0.0) suggests narrowing away from that segment if scaling the Social proof / UGC-led angle.",
+        "recommendation": "narrow"
+      },
+      "evaluation_method": "mock",
+      "evaluation_model": null
+    },
+    {
+      "variant_id": "v3",
+      "persona_reactions": [
+        {
+          "persona_id": "cluster_0",
+          "baseline_score": 0.0,
+          "adjustment": 0.56,
+          "final_score": 0.56,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 0.0/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_1",
+          "baseline_score": 3.96,
+          "adjustment": -0.66,
+          "final_score": 3.3,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Aspirational / premium-led baseline of 3.96/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_2",
+          "baseline_score": 8.47,
+          "adjustment": -0.3,
+          "final_score": 8.17,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 8.47/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_3",
+          "baseline_score": 4.84,
+          "adjustment": 0.56,
+          "final_score": 5.4,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 4.84/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_4",
+          "baseline_score": 10.0,
+          "adjustment": -0.59,
+          "final_score": 9.41,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Aspirational / premium-led baseline of 10.0/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_5",
+          "baseline_score": 2.79,
+          "adjustment": -0.74,
+          "final_score": 2.05,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.11 overlap with stated objections, against the Aspirational / premium-led baseline of 2.79/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_6",
+          "baseline_score": 3.74,
+          "adjustment": -1.44,
+          "final_score": 2.3,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.29 overlap with stated objections, against the Aspirational / premium-led baseline of 3.74/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        }
+      ],
+      "synthesis": {
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from cluster_4 (final=9.41): Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Aspirational / premium-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from cluster_0 (final=0.56) suggests narrowing away from that segment if scaling the Aspirational / premium-led angle.",
+        "recommendation": "narrow"
+      },
+      "evaluation_method": "mock",
+      "evaluation_model": null
+    },
+    {
+      "variant_id": "v4",
+      "persona_reactions": [
+        {
+          "persona_id": "cluster_0",
+          "baseline_score": 3.92,
+          "adjustment": 0.56,
+          "final_score": 4.48,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.92/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_1",
+          "baseline_score": 7.47,
+          "adjustment": -0.66,
+          "final_score": 6.81,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Problem-solution baseline of 7.47/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_2",
+          "baseline_score": 0.95,
+          "adjustment": -0.3,
+          "final_score": 0.65,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 0.95/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_3",
+          "baseline_score": 3.8,
+          "adjustment": 0.56,
+          "final_score": 4.36,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.8/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_4",
+          "baseline_score": 3.05,
+          "adjustment": -0.59,
+          "final_score": 2.46,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Problem-solution baseline of 3.05/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_5",
+          "baseline_score": 7.42,
+          "adjustment": -0.74,
+          "final_score": 6.68,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.11 overlap with stated objections, against the Problem-solution baseline of 7.42/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_6",
+          "baseline_score": 7.69,
+          "adjustment": -1.44,
+          "final_score": 6.25,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.29 overlap with stated objections, against the Problem-solution baseline of 7.69/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        }
+      ],
+      "synthesis": {
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from cluster_1 (final=6.81): Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Problem-solution baseline of 7.47/10.",
+        "targeting_implication": "Weakest reaction from cluster_2 (final=0.65) suggests narrowing away from that segment if scaling the Problem-solution angle.",
+        "recommendation": "narrow"
+      },
+      "evaluation_method": "mock",
+      "evaluation_model": null
+    },
+    {
+      "variant_id": "v5",
+      "persona_reactions": [
+        {
+          "persona_id": "cluster_0",
+          "baseline_score": 7.36,
+          "adjustment": 0.56,
+          "final_score": 7.92,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 7.36/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_1",
+          "baseline_score": 3.97,
+          "adjustment": -0.66,
+          "final_score": 3.31,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Trend / FOMO-led baseline of 3.97/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_2",
+          "baseline_score": 1.85,
+          "adjustment": -0.3,
+          "final_score": 1.55,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 1.85/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_3",
+          "baseline_score": 10.0,
+          "adjustment": 0.56,
+          "final_score": 10.0,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_4",
+          "baseline_score": 0.47,
+          "adjustment": -0.59,
+          "final_score": 0.0,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Trend / FOMO-led baseline of 0.47/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_5",
+          "baseline_score": 4.96,
+          "adjustment": -0.74,
+          "final_score": 4.22,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.11 overlap with stated objections, against the Trend / FOMO-led baseline of 4.96/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        },
+        {
+          "persona_id": "cluster_6",
+          "baseline_score": 4.17,
+          "adjustment": -1.44,
+          "final_score": 2.73,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.29 overlap with stated objections, against the Trend / FOMO-led baseline of 4.17/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
+        }
+      ],
+      "synthesis": {
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from cluster_3 (final=10.0): Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from cluster_4 (final=0.0) suggests narrowing away from that segment if scaling the Trend / FOMO-led angle.",
+        "recommendation": "narrow"
+      },
+      "evaluation_method": "mock",
+      "evaluation_model": null
+    }
+  ],
+  "ranking": {
+    "ranked_variant_ids": [
+      "v2",
+      "v4",
+      "v3",
+      "v1",
+      "v5"
+    ],
+    "ranking_rationale": "Ranked by average persona final_score (mock heuristic, no LLM). Top variant v2 led with avg=4.7/10 (tier=moderate, recommendation=narrow).",
+    "ranking_method": "mock",
+    "ranking_model": null
+  }
+}

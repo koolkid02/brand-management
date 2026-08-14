@@ -194,6 +194,19 @@ def _select_angles(
     return selected
 
 
+def normalize_angle_id(angle_id: str) -> str:
+    """Undo the "<id>_2", "<id>_3", ... suffixing _select_angles applies
+    when n_concepts exceeds the filtered angle pool size -- any code that
+    looks up a variant's angle in a table keyed by the canonical ANGLE_POOL
+    angle_id (e.g. evaluation/persona_reaction.py's baseline lookup) must
+    normalize first. Public since it's needed outside this module; the
+    origin of the suffixing lives here in _select_angles."""
+    parts = angle_id.rsplit("_", 1)
+    if len(parts) == 2 and parts[1].isdigit():
+        return parts[0]
+    return angle_id
+
+
 # --- Stage 1: Ideate (wide) ---------------------------------------------
 
 def build_raw_concept_prompt(

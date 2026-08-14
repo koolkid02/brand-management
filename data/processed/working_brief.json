@@ -1,41 +1,29 @@
 {
-  "brand_id": "glowroot",
+  "brand_id": "vamp_streetwear",
   "raw_answers": {
-    "target_segment": "18-24",
-    "price_posture": "Mid -Pricing ( 1000-2000 rupees)",
-    "competitors": "Mamaearth ...",
-    "core_message": "You look young",
-    "hard_constraints": "Yeah dont be racist",
-    "primary_goal": "Be racist"
+    "target_segment": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
+    "price_posture": "Budget / mass-market - we're sub-Rs 999 core pricing, that's central to who we are.",
+    "competitors": "Bewakoof mainly, they're the closest comp on price and meme/graphic-tee vibe. Also keep an eye on Snitch since they're chasing the same Gen-Z streetwear audience even though their AOV runs a bit higher. Not really worried about The Souled Store for this one, they're more fandom/pop-culture than us.",
+    "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
+    "hard_constraints": "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale. Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real. And keep it Instagram/Reels-native, not stiff catalog copy.",
+    "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing."
   },
-  "followup_qa": [
-    {
-      "question": "How should the campaign position itself against Mamaearth?",
-      "answer": "FDA approvals + being more safe",
-      "answer_method": "dashboard"
-    },
-    {
-      "question": "What specific product features or benefits support the core message 'You look young' for the 18-24 segment?",
-      "answer": "Collagen support",
-      "answer_method": "dashboard"
-    },
-    {
-      "question": "Please clarify the measurable business objective that aligns with the stated goal.",
-      "answer": "To gain more market share",
-      "answer_method": "dashboard"
-    }
-  ],
-  "followup_generation_method": "llm",
-  "target_segment_summary": "18-24",
-  "price_posture": "mid",
+  "followup_qa": [],
+  "followup_generation_method": "mock",
+  "target_segment_summary": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
+  "price_posture": "budget",
   "competitors_to_position_against": [
-    "Mamaearth"
+    "Bewakoof",
+    "Snitch",
+    "The Souled Store"
   ],
-  "core_message": "You look young",
+  "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
   "hard_constraints": [
-    "don't be racist"
+    "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
+    "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
+    "And keep it Instagram/Reels-native, not stiff catalog copy."
   ],
-  "primary_goal": "Be racist",
-  "generation_method": "llm",
-  "model": "gemma4:e2b"
+  "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing.",
+  "generation_method": "mock",
+  "model": null
 }

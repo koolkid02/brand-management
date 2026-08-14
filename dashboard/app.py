@@ -1,9 +1,12 @@
-"""Module B interactive consulting-session dashboard (Streamlit).
+"""Module B/C interactive consulting-session dashboard (Streamlit).
 
 The only file in this project that imports streamlit. Drives
 module_b_campaigns/agent_loop.py's bounded agentic state machine through
-the three PRD checkpoints: adaptive intake, strategy review (with a bounded
-redirect loop), and final variant presentation.
+all three PRD checkpoints: adaptive intake, strategy review (with a bounded
+redirect loop), and evaluation + approval (Module C's Traction Agent tests
+every variant against every persona, ranks them, and a human approves the
+winner -- the only action anywhere in this app that writes the outcome back
+into brand memory).
 
 Run from the repo root:
     streamlit run dashboard/app.py
@@ -227,12 +230,8 @@ def _render_ideation_pending(state: dict) -> None:
 
 
 def _render_done(state: dict) -> None:
-    st.header("Checkpoint 2: Ready for evaluation")
-    st.caption(
-        "These variants are ready for the evaluation layer (Module C, not yet "
-        "built) to test against personas. No approval action here -- that "
-        "happens after evaluation."
-    )
+    st.header("Ready for evaluation")
+    st.caption("These variants are ready to be tested against personas (Module C).")
 
     for variant in state["variants"]:
         with st.container(border=True):
@@ -242,6 +241,92 @@ def _render_done(state: dict) -> None:
             st.markdown(f"**CTA:** {variant['cta']}")
             st.markdown(f"*Visual direction: {variant['visual_direction']}*")
             st.caption(f"Critique score {variant['critique_score']}/10 -- {variant['critique_reason']}")
+
+    if st.button("Run evaluation", type="primary"):
+        st.session_state["agent_state"] = agent_loop.start_evaluation(state)
+        st.rerun()
+
+
+def _render_evaluation_pending(state: dict) -> None:
+    st.header("Evaluating variants against personas")
+    if state.get("error"):
+        _render_error(state)
+        if st.button("Retry evaluation", type="primary"):
+            with st.spinner("Testing each variant against every persona -- this can take a while in real mode."):
+                st.session_state["agent_state"] = agent_loop.run_evaluation(state)
+            st.rerun()
+    else:
+        with st.spinner("Testing each variant against every persona, then ranking them -- this can take a while in real mode."):
+            st.session_state["agent_state"] = agent_loop.run_evaluation(state)
+        st.rerun()
+
+
+def _render_evaluation_done(state: dict) -> None:
+    st.header("Checkpoint 2: Approve a winner")
+    _render_error(state)
+
+    ranking = state["ranking"]
+    results_by_id = {r["variant_id"]: r for r in state["evaluation_results"]}
+    variants_by_id = {v["variant_id"]: v for v in state["variants"]}
+    ranked_ids = ranking["ranked_variant_ids"]
+
+    st.info(f"**Ranking:** {' > '.join(ranked_ids)}\n\n{ranking['ranking_rationale']}")
+
+    for rank, variant_id in enumerate(ranked_ids, start=1):
+        variant = variants_by_id[variant_id]
+        result = results_by_id[variant_id]
+        synthesis = result["synthesis"]
+        reactions = result["persona_reactions"]
+        avg_score = sum(r["final_score"] for r in reactions) / len(reactions)
+
+        with st.container(border=True):
+            badge = "🏆 " if rank == 1 else ""
+            st.markdown(f"#### {badge}#{rank} -- {variant['headline']} ({variant['angle_label']})")
+            st.caption(f"variant_id: {variant_id} | avg persona score: {avg_score:.1f}/10")
+
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown(f"**Tier:** {synthesis['traction_tier']}")
+                st.markdown(f"**Recommendation:** {synthesis['recommendation']}")
+            with col2:
+                st.markdown(f"**Driving factor:** {synthesis['driving_factor']}")
+                st.markdown(f"**Targeting implication:** {synthesis['targeting_implication']}")
+
+            with st.expander(f"{len(reactions)} persona reaction(s)"):
+                for r in reactions:
+                    st.markdown(
+                        f"**{r['persona_id']}** (baseline {r['baseline_score']} "
+                        f"{'+' if r['adjustment'] >= 0 else ''}{r['adjustment']} = {r['final_score']}/10): "
+                        f"*{r['reaction_summary']}*"
+                    )
+                    st.caption(r["adjustment_reason"])
+
+    st.divider()
+    st.selectbox("Winning variant", options=ranked_ids, key="selected_winner_variant_id")
+    if st.button("Approve winner", type="primary"):
+        with st.spinner("Recording this outcome into brand memory..."):
+            st.session_state["agent_state"] = agent_loop.approve_winner(
+                state, st.session_state["selected_winner_variant_id"]
+            )
+        st.rerun()
+
+
+def _render_approved(state: dict) -> None:
+    st.header("Approved -- outcome recorded")
+    outcome = state["outcome_record"]
+    st.success(f"Variant **{state['approved_variant_id']}** approved and recorded into {state['brand_name']}'s memory.")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown(f"**New insight:** {outcome['insight']['insight_id']}")
+        st.write(outcome["insight"]["observation"])
+        st.caption(f"tag: {outcome['tag_id']} (newly created: {outcome['tag_newly_created']})")
+    with col2:
+        st.markdown(f"**History entry:** {outcome['history_entry']['title']}")
+        st.write(outcome["history_entry"]["summary"])
+
+    if outcome["aggregation_triggered"]:
+        st.caption(f"Market memory re-aggregated: {len(outcome['aggregation_result'])} pattern(s) now promoted.")
 
     if st.button("Start a new campaign", type="primary"):
         _reset()
@@ -272,6 +357,12 @@ def main() -> None:
         _render_ideation_pending(state)
     elif phase == "done":
         _render_done(state)
+    elif phase == "evaluation_pending":
+        _render_evaluation_pending(state)
+    elif phase == "evaluation_done":
+        _render_evaluation_done(state)
+    elif phase == "approved":
+        _render_approved(state)
     else:
         st.error(f"Unknown phase: {phase!r}")
 
