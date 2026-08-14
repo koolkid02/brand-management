@@ -134,6 +134,25 @@ def _render_followup(state: dict) -> None:
         st.rerun()
 
 
+def _render_fallback_notice(labeled_methods: dict[str, str | list[str]]) -> None:
+    """Surface which labeled parts of this phase silently fell back to a
+    deterministic template instead of a live LLM call. Found via real-mode
+    end-to-end testing: a transient retry failure is handled safely (the
+    fallback is always schema-valid), but was otherwise completely invisible
+    in the UI -- a reviewer had no way to tell degraded, generic template
+    content apart from real analysis for that run."""
+    fallback_labels = [
+        label for label, methods in labeled_methods.items()
+        if "llm_fallback" in (methods if isinstance(methods, list) else [methods])
+    ]
+    if fallback_labels:
+        st.warning(
+            f"{', '.join(fallback_labels)} used a fallback template this run (the live model "
+            "call didn't return usable output after retries) -- content is still schema-valid "
+            "but more generic than a live analysis would be."
+        )
+
+
 def _render_brief_value(value) -> None:
     if isinstance(value, list):
         for item in value:
@@ -153,6 +172,11 @@ def _render_strategy_review(state: dict) -> None:
 
     positioning_brief = state["positioning_brief"]
     creative_constraints = state["creative_constraints"]
+    _render_fallback_notice({
+        "Follow-up questions": state.get("followup_generation_method"),
+        "Positioning brief": positioning_brief["generation_method"],
+        "Creative constraints": creative_constraints["generation_method"],
+    })
 
     try:
         purpose = load_framework(positioning_brief["framework_id"])["purpose"]
@@ -232,6 +256,11 @@ def _render_ideation_pending(state: dict) -> None:
 def _render_done(state: dict) -> None:
     st.header("Ready for evaluation")
     st.caption("These variants are ready to be tested against personas (Module C).")
+    _render_fallback_notice({
+        "Ideation": [v["ideation_method"] for v in state["variants"]],
+        "Critique": [v["critique_method"] for v in state["variants"]],
+        "Refine": [v["refine_method"] for v in state["variants"]],
+    })
 
     for variant in state["variants"]:
         with st.container(border=True):
@@ -269,6 +298,13 @@ def _render_evaluation_done(state: dict) -> None:
     results_by_id = {r["variant_id"]: r for r in state["evaluation_results"]}
     variants_by_id = {v["variant_id"]: v for v in state["variants"]}
     ranked_ids = ranking["ranked_variant_ids"]
+    _render_fallback_notice({
+        "Persona reactions": [
+            r["generation_method"] for er in state["evaluation_results"] for r in er["persona_reactions"]
+        ],
+        "Variant synthesis": [er["evaluation_method"] for er in state["evaluation_results"]],
+        "Ranking": ranking["ranking_method"],
+    })
 
     st.info(f"**Ranking:** {' > '.join(ranked_ids)}\n\n{ranking['ranking_rationale']}")
 

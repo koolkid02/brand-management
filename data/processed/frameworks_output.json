@@ -1,66 +1,30 @@
 {
   "positioning_brief": {
-    "framework_id": "porters_five_forces",
-    "framework_name": "Porter's Five Forces",
+    "framework_id": "perceptual_mapping",
+    "framework_name": "Perceptual Mapping",
     "grounded": {
-      "brand.semantic": {
-        "name": "Loom & Aster",
-        "category": "fashion_d2c",
-        "sub_positioning": "premium_slow_fashion",
-        "founded_year": 2020,
-        "identity": {
-          "one_liner": "Considered, small-batch fashion in natural fibres for people who buy less but buy better.",
-          "target_customer": "28-45 year old urban professionals who value craftsmanship and provenance over trend cycles; low purchase frequency, high average order value, researches before buying.",
-          "price_posture": "premium",
-          "value_props": [
-            "Small-batch natural-fibre production",
-            "Traceable maker/sourcing story",
-            "Made-to-last construction, not seasonal trend cycles"
-          ]
-        },
-        "tone": {
-          "descriptors": [
-            "understated",
-            "editorial",
-            "calm",
-            "considered"
-          ],
-          "voice_notes": "Reads like a design journal, not an ad. Leads with craft and material story before price or promotion."
-        },
-        "competitors": [
-          {
-            "name": "Nicobar",
-            "positioning_note": "Closest direct competitor, similar handloom/considered-design ethos."
-          },
-          {
-            "name": "Bombay Shirt Company",
-            "positioning_note": "Premium made-to-measure, same affluent buyer."
-          },
-          {
-            "name": "Okhai",
-            "positioning_note": "Artisanal/handloom, craft-cooperative positioning."
-          }
-        ],
-        "customers": {
-          "summary": "Skews premium and loyal-core: low discount-code usage, high AOV, low cart-abandonment, values exclusivity over price.",
-          "primary_segments": [
-            "premium",
-            "loyal-core"
-          ]
-        }
+      "brand.semantic.identity": {
+        "one_liner": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly.",
+        "target_customer": "18-26 year olds in metro and tier-2 cities, price-sensitive, discovers styles through Reels and influencer hauls, shops in bursts around drops/sales/festive occasions.",
+        "price_posture": "budget",
+        "value_props": [
+          "Weekly trend drops",
+          "Sub-Rs 999 core pricing",
+          "3-5 day dispatch"
+        ]
       },
       "brand.semantic.competitors": [
         {
-          "name": "Nicobar",
-          "positioning_note": "Closest direct competitor, similar handloom/considered-design ethos."
+          "name": "Bewakoof",
+          "positioning_note": "Similar price band, meme/graphic-tee led."
         },
         {
-          "name": "Bombay Shirt Company",
-          "positioning_note": "Premium made-to-measure, same affluent buyer."
+          "name": "Snitch",
+          "positioning_note": "Similar Gen-Z streetwear category, slightly higher AOV."
         },
         {
-          "name": "Okhai",
-          "positioning_note": "Artisanal/handloom, craft-cooperative positioning."
+          "name": "The Souled Store",
+          "positioning_note": "Pop-culture/fandom-led, broader catalog."
         }
       ],
       "market_memory.patterns": [
@@ -70,7 +34,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.5341578889498311
+          "similarity": 0.0
         },
         {
           "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
@@ -78,35 +42,57 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.5097277256807525
+          "similarity": 0.0
         }
       ]
     },
     "brief": {
-      "buyer_power": "High; the target segment values craftsmanship and provenance highly, leading to low price sensitivity but high scrutiny over authenticity and story.",
-      "supplier_power": "Moderate to High; reliance on small-batch natural fibre production and specialized craft skills means suppliers/makers hold leverage over supply chain control and pricing.",
-      "competitive_rivalry": "High; competition exists among direct peers (Nicobar, Bombay Shirt Company, Okhai) who share an ethos of considered design and artisanal quality, leading to rivalry based on positioning rather than pure price.",
-      "threat_of_substitutes": "High; the primary threat is from cheaper handloom-style knockoffs that mimic the aesthetic without the provenance, and general fast fashion alternatives that offer lower entry prices.",
-      "threat_of_new_entrants": "Moderate; while the barrier to entry for genuine, traceable craft is high, new entrants could pose a threat if they successfully replicate the 'maker story' or use mass production techniques to undercut the premium positioning.",
-      "positioning_summary": "Loom & Aster operates in a highly competitive premium space where buyer power is strong due to demand for authenticity. Margin defense relies on maintaining the exclusivity of the traceable maker story, as substitutes (knockoffs) directly attack the core value proposition of craftsmanship and provenance."
+      "axes": {
+        "x_axis": "Price",
+        "y_axis": "Trend-forwardness"
+      },
+      "brand_position": {
+        "x": 0.2,
+        "y": 0.8
+      },
+      "competitor_positions": [
+        {
+          "name": "Bewakoof",
+          "x": 0.5,
+          "y": 0.5
+        },
+        {
+          "name": "Snitch",
+          "x": 0.5,
+          "y": 0.5
+        },
+        {
+          "name": "The Souled Store",
+          "x": 0.5,
+          "y": 0.5
+        }
+      ],
+      "whitespace_summary": "Placeholder estimate (fallback template) -- competitor coordinates are neutral defaults, not researched positions; pending real LLM reasoning for an actual whitespace read.",
+      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
     },
-    "generation_method": "llm",
-    "model": "gemma4:e2b"
+    "generation_method": "mock",
+    "model": null
   },
   "creative_constraints": {
     "framework_id": "seven_ps",
     "grounded": {
-      "brand_name": "Loom & Aster",
+      "brand_name": "Vamp Streetwear",
       "category": "fashion_d2c",
-      "price_posture": "premium",
+      "price_posture": "budget",
       "tone": {
         "descriptors": [
-          "understated",
-          "editorial",
-          "calm",
-          "considered"
+          "loud",
+          "playful",
+          "meme-literate",
+          "urgency-driven",
+          "slang-friendly"
         ],
-        "voice_notes": "Reads like a design journal, not an ad. Leads with craft and material story before price or promotion."
+        "voice_notes": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions."
       },
       "market_patterns": [
         {
@@ -115,7 +101,7 @@
           "category": "fashion_d2c",
           "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
           "supporting_brand_count": 2,
-          "similarity": 0.5224188908164618
+          "similarity": 0.0
         },
         {
           "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
@@ -123,26 +109,27 @@
           "category": "fashion_d2c",
           "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
           "supporting_brand_count": 2,
-          "similarity": 0.5093298812449748
+          "similarity": 0.0
         }
       ],
-      "positioning_summary": "Loom & Aster operates in a highly competitive premium space where buyer power is strong due to demand for authenticity. Margin defense relies on maintaining the exclusivity of the traceable maker story, as substitutes (knockoffs) directly attack the core value proposition of craftsmanship and provenance."
+      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
     },
     "constraints": {
-      "product": "Focus copy on material composition, artisanal techniques, and design philosophy rather than immediate utility or trend cycles.",
-      "price": "Price must be presented as an inherent value reflecting craftsmanship and provenance; promotional framing must focus on investment rather than savings.",
-      "place": "Presentation should mirror a curated gallery or design journal layout, emphasizing exclusivity over volume.",
-      "promotion": "Strictly avoid all discount language, urgency tactics, or sales framing. Promotions must be framed around the rarity of the maker story and the longevity of the craft.",
-      "people": "The maker/sourcing story must be front and center. Copy should feature the hands, the origin, and the intentionality behind each piece.",
-      "physical_evidence": "Visuals must prioritize high-quality, editorial photography or video (leveraging UGC video preference) showcasing texture, drape, and material quality. Explicit fit guides/size charts are required to reduce friction.",
-      "process": "Narratives should detail the slow, considered process of creation\u2014the sourcing, weaving, or design journey\u2014positioning the item as an artifact of time and skill.",
+      "product": "Weekly trend drops; Sub-Rs 999 core pricing; 3-5 day dispatch",
+      "price": "Reflects the brand's real budget price posture.",
+      "place": "Primarily direct-to-consumer via the brand's own site/app, discovered through Instagram/Reels-native content.",
+      "promotion": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
+      "people": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions.",
+      "physical_evidence": "Social proof / UGC-led campaign -- narrow recommendation",
+      "process": "3-5 day dispatch",
       "hard_rules": [
-        "No discount language anywhere",
-        "Keep it editorial",
-        "Have the maker/sourcing story front and center"
+        "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
+        "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
+        "And keep it Instagram/Reels-native, not stiff catalog copy.",
+        "Urgency/discount mechanics are on-brand and may be used, but must not misrepresent stock levels (no fake scarcity)."
       ]
     },
-    "generation_method": "llm",
-    "model": "gemma4:e2b"
+    "generation_method": "mock",
+    "model": null
   }
 }
