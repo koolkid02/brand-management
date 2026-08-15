@@ -164,6 +164,7 @@ def generate_one_reaction(
 
     return {
         "persona_id": persona["persona_id"],
+        "persona_name": persona["narrative"]["persona_name"],
         "baseline_score": baseline_record["baseline_score"],
         "adjustment": round(adjustment, 2),
         "final_score": round(final_score, 2),

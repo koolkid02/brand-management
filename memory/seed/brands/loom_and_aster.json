@@ -84,6 +84,12 @@
         "event_type": "campaign",
         "title": "Provenance of Craft Campaign",
         "summary": "A UGC-led campaign focused on maker stories and tracing the journey of materials successfully engaged premium customers by emphasizing craftsmanship and authenticity."
+      },
+      {
+        "date": "2026-08-15",
+        "event_type": "campaign",
+        "title": "Woven by Hand Provenance Campaign",
+        "summary": "A maker-story led campaign focusing on the provenance of hand-woven fabrics generated moderate traction by appealing to emotional values but lacked explicit reassurance on fit and value justification."
       }
     ]
   },
@@ -129,6 +135,13 @@
       "category": "fashion_d2c",
       "observation": "Loom & Aster's focus on tracing the journey and artisanal techniques successfully resonated with premium customers, driving high engagement scores related to craftsmanship and authenticity.",
       "date_observed": "2026-08-14"
+    },
+    {
+      "insight_id": "loom_007",
+      "tag": "provenance_story_drives_engagement",
+      "category": "fashion_d2c",
+      "observation": "The provenance messaging successfully engaged customers valuing craftsmanship, but the moderate traction indicated a gap between emotional connection and concrete justification regarding price and fit.",
+      "date_observed": "2026-08-15"
     }
   ]
 }

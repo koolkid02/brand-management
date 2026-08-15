@@ -81,10 +81,12 @@ def build_variant_synthesis_prompt(variant: dict, persona_reactions: list[dict],
     )
     # Deliberately the SAME format string outcome_memory.build_synthesis_prompt
     # already uses for this exact shape -- symmetry, since that function
-    # re-renders these same reactions downstream.
+    # re-renders these same reactions downstream. Leads with persona_name
+    # (not persona_id) so the LLM's own driving_factor/targeting_implication
+    # prose naturally reads "Ria Jain" rather than echoing "cluster_0".
     reactions_block = "\n".join(
-        f"- {r['persona_id']}: baseline={r['baseline_score']}, adjustment={r['adjustment']}, "
-        f"final={r['final_score']} -- {r['adjustment_reason']}"
+        f"- {r['persona_name']} ({r['persona_id']}): baseline={r['baseline_score']}, "
+        f"adjustment={r['adjustment']}, final={r['final_score']} -- {r['adjustment_reason']}"
         for r in persona_reactions
     )
     user_prompt = (
@@ -131,10 +133,10 @@ def generate_mock_variant_synthesis(variant: dict, persona_reactions: list[dict]
     else:
         tier, recommendation = "weak", "kill"
 
-    driving_factor = f"Strongest reaction from {best['persona_id']} (final={best['final_score']}): {best['adjustment_reason']}"
+    driving_factor = f"Strongest reaction from {best['persona_name']} (final={best['final_score']}): {best['adjustment_reason']}"
     if tier in ("weak", "moderate"):
         targeting_implication = (
-            f"Weakest reaction from {worst['persona_id']} (final={worst['final_score']}) suggests narrowing "
+            f"Weakest reaction from {worst['persona_name']} (final={worst['final_score']}) suggests narrowing "
             f"away from that segment if scaling the {variant['angle_label']} angle."
         )
     else:

@@ -80,6 +80,12 @@
         "event_type": "campaign",
         "title": "Social proof / UGC-led campaign -- narrow recommendation",
         "summary": "Ran a Social proof / UGC-led campaign (variant v2, headline: 'Real customers, real hauls'). Strongest reaction from cluster_3 (final=10.0): Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10. Recommendation: narrow."
+      },
+      {
+        "date": "2026-08-14",
+        "event_type": "campaign",
+        "title": "Problem-solution campaign -- narrow recommendation",
+        "summary": "Ran a Problem-solution campaign (variant v4, headline: 'Tired of choosing one or the other?'). Strongest reaction from cluster_1 (final=6.81): Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.09 overlap with stated objections, against the Problem-solution baseline of 7.47/10. Recommendation: narrow."
       }
     ]
   },
@@ -117,6 +123,13 @@
       "tag": "social_proof_ugc_needs_narrower_targeting",
       "category": "fashion_d2c",
       "observation": "The Social proof / UGC-led variant ('Real customers, real hauls') for Vamp Streetwear, targeting Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales., scored 4.7/10 average across persona reactions; evaluation recommended to narrow.",
+      "date_observed": "2026-08-14"
+    },
+    {
+      "insight_id": "vamp_006",
+      "tag": "social_proof_ugc_needs_narrower_targeting",
+      "category": "fashion_d2c",
+      "observation": "The Problem-solution variant ('Tired of choosing one or the other?') for Vamp Streetwear, targeting Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales., scored 4.5/10 average across persona reactions; evaluation recommended to narrow.",
       "date_observed": "2026-08-14"
     }
   ]

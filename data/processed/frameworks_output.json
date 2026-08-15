@@ -1,79 +1,99 @@
 {
   "positioning_brief": {
-    "framework_id": "perceptual_mapping",
-    "framework_name": "Perceptual Mapping",
+    "framework_id": "swot",
+    "framework_name": "SWOT",
     "grounded": {
-      "brand.semantic.identity": {
-        "one_liner": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly.",
-        "target_customer": "18-26 year olds in metro and tier-2 cities, price-sensitive, discovers styles through Reels and influencer hauls, shops in bursts around drops/sales/festive occasions.",
-        "price_posture": "budget",
-        "value_props": [
-          "Weekly trend drops",
-          "Sub-Rs 999 core pricing",
-          "3-5 day dispatch"
-        ]
+      "brand.semantic": {
+        "name": "GlowRoot",
+        "category": "beauty_d2c",
+        "sub_positioning": "clean_skincare",
+        "founded_year": 2021,
+        "identity": {
+          "one_liner": "Ingredient-transparent, dermat-reviewed skincare for India's climate and skin tones.",
+          "target_customer": "22-35 year olds researching ingredients before buying, motivated by transparency and dermat validation over influencer hype alone.",
+          "price_posture": "mid",
+          "value_props": [
+            "Full ingredient-list transparency",
+            "Dermat-reviewed formulations",
+            "Formulated for Indian climate/skin tones"
+          ]
+        },
+        "tone": {
+          "descriptors": [
+            "informative",
+            "reassuring",
+            "clinical-but-warm",
+            "myth-busting"
+          ],
+          "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
+        },
+        "competitors": [
+          {
+            "name": "Mamaearth",
+            "positioning_note": "Larger toxin-free personal-care brand, broader mass-market reach."
+          },
+          {
+            "name": "Sugar Cosmetics",
+            "positioning_note": "Color cosmetics-led, bolder Gen-Z-first brand voice."
+          },
+          {
+            "name": "Plum",
+            "positioning_note": "Vegan clean-beauty positioning, similar ingredient-conscious buyer."
+          }
+        ],
+        "customers": {
+          "summary": "This brand deliberately does not map onto Module A's fashion-derived audience archetypes -- it exists in this seed set to prove category-scoped memory isolation, not narrative continuity with the fashion D2C brands.",
+          "primary_segments": []
+        }
       },
-      "brand.semantic.competitors": [
+      "brand.insights": [
         {
-          "name": "Bewakoof",
-          "positioning_note": "Similar price band, meme/graphic-tee led."
+          "insight_id": "glow_001",
+          "tag": "ugc_video_outperforms_static",
+          "category": "beauty_d2c",
+          "observation": "Skincare-routine reels from real customers outperformed studio flatlay images on saves and comments across recent launches.",
+          "date_observed": "2026-06-25"
         },
         {
-          "name": "Snitch",
-          "positioning_note": "Similar Gen-Z streetwear category, slightly higher AOV."
+          "insight_id": "glow_002",
+          "tag": "ingredient_transparency_builds_trust",
+          "category": "beauty_d2c",
+          "observation": "Posts that broke down the full active-ingredient list drove visibly higher repeat-purchase rate than posts making benefit-only claims.",
+          "date_observed": "2026-05-20"
         },
         {
-          "name": "The Souled Store",
-          "positioning_note": "Pop-culture/fandom-led, broader catalog."
+          "insight_id": "glow_003",
+          "tag": "bundle_discount_drives_aov",
+          "category": "beauty_d2c",
+          "observation": "Multi-product routine bundles discounted as a set lifted average order value more than single-SKU percentage-off discounts.",
+          "date_observed": "2026-04-10"
+        },
+        {
+          "insight_id": "glow_004",
+          "tag": "science_aspiration_drives_quality",
+          "category": "beauty_d2c",
+          "observation": "GlowRoot successfully leveraged a science-backed, aspirational narrative to achieve strong resonance with quality-conscious consumers.",
+          "date_observed": "2026-08-14"
         }
       ],
-      "market_memory.patterns": [
-        {
-          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
-          "tag": "size_fit_reassurance_reduces_abandonment",
-          "category": "fashion_d2c",
-          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        },
-        {
-          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
-          "tag": "ugc_video_outperforms_static",
-          "category": "fashion_d2c",
-          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        }
-      ]
+      "market_memory.patterns": []
     },
     "brief": {
-      "axes": {
-        "x_axis": "Price",
-        "y_axis": "Trend-forwardness"
-      },
-      "brand_position": {
-        "x": 0.2,
-        "y": 0.8
-      },
-      "competitor_positions": [
-        {
-          "name": "Bewakoof",
-          "x": 0.5,
-          "y": 0.5
-        },
-        {
-          "name": "Snitch",
-          "x": 0.5,
-          "y": 0.5
-        },
-        {
-          "name": "The Souled Store",
-          "x": 0.5,
-          "y": 0.5
-        }
+      "strengths": [
+        "Full ingredient-list transparency",
+        "Dermat-reviewed formulations",
+        "Formulated for Indian climate/skin tones"
       ],
-      "whitespace_summary": "Placeholder estimate (fallback template) -- competitor coordinates are neutral defaults, not researched positions; pending real LLM reasoning for an actual whitespace read.",
-      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
+      "weaknesses": [
+        "Mid-market positioning risks being squeezed between budget and premium competitors on both price and prestige."
+      ],
+      "opportunities": [
+        "No cross-brand market patterns currently available for beauty_d2c."
+      ],
+      "threats": [
+        "Competitive pressure from Mamaearth, Sugar Cosmetics, Plum."
+      ],
+      "positioning_summary": "GlowRoot competes in beauty_d2c on: Ingredient-transparent, dermat-reviewed skincare for India's climate and skin tones."
     },
     "generation_method": "mock",
     "model": null
@@ -81,52 +101,33 @@
   "creative_constraints": {
     "framework_id": "seven_ps",
     "grounded": {
-      "brand_name": "Vamp Streetwear",
-      "category": "fashion_d2c",
-      "price_posture": "budget",
+      "brand_name": "GlowRoot",
+      "category": "beauty_d2c",
+      "price_posture": "mid",
       "tone": {
         "descriptors": [
-          "loud",
-          "playful",
-          "meme-literate",
-          "urgency-driven",
-          "slang-friendly"
+          "informative",
+          "reassuring",
+          "clinical-but-warm",
+          "myth-busting"
         ],
-        "voice_notes": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions."
+        "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
       },
-      "market_patterns": [
-        {
-          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
-          "tag": "size_fit_reassurance_reduces_abandonment",
-          "category": "fashion_d2c",
-          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        },
-        {
-          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
-          "tag": "ugc_video_outperforms_static",
-          "category": "fashion_d2c",
-          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        }
-      ],
-      "positioning_summary": "Affordable trend-led streetwear for India's Gen-Z, dropping new styles weekly."
+      "market_patterns": [],
+      "positioning_summary": "GlowRoot competes in beauty_d2c on: Ingredient-transparent, dermat-reviewed skincare for India's climate and skin tones."
     },
     "constraints": {
-      "product": "Weekly trend drops; Sub-Rs 999 core pricing; 3-5 day dispatch",
-      "price": "Reflects the brand's real budget price posture.",
+      "product": "Full ingredient-list transparency; Dermat-reviewed formulations; Formulated for Indian climate/skin tones",
+      "price": "Reflects the brand's real mid price posture.",
       "place": "Primarily direct-to-consumer via the brand's own site/app, discovered through Instagram/Reels-native content.",
-      "promotion": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
-      "people": "Talks like a friend hyping the next drop, not a catalog. Leans on countdowns, emoji, creator-style captions.",
-      "physical_evidence": "Social proof / UGC-led campaign -- narrow recommendation",
-      "process": "3-5 day dispatch",
+      "promotion": "Lead with the core message; no specific market pattern currently available.",
+      "people": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly.",
+      "physical_evidence": "Lasting Radiance Science Campaign",
+      "process": "Standard D2C order-to-delivery process.",
       "hard_rules": [
-        "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
-        "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
-        "And keep it Instagram/Reels-native, not stiff catalog copy.",
-        "Urgency/discount mechanics are on-brand and may be used, but must not misrepresent stock levels (no fake scarcity)."
+        "No benefit-only claims without backing them with the actual ingredient or mechanism - that's the one thing we can never compromise on",
+        "Keep the tone informative and warm, not preachy or clinical-cold",
+        "And don't overclaim against Plum specifically - we want to differentiate on transparency depth, not disparage them."
       ]
     },
     "generation_method": "mock",

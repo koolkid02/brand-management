@@ -193,9 +193,12 @@ def build_synthesis_prompt(
         "event_summary -- no markdown fences, no commentary, no extra keys."
     )
 
+    # persona_name isn't part of REQUIRED_PERSONA_REACTION_KEYS (an optional
+    # extra evaluation/persona_reaction.py happens to attach) -- fall back to
+    # persona_id so this still works against a hand-built evaluation_result.
     reactions_block = "\n".join(
-        f"- {r['persona_id']}: baseline={r['baseline_score']}, adjustment={r['adjustment']}, "
-        f"final={r['final_score']} -- {r['adjustment_reason']}"
+        f"- {r.get('persona_name', r['persona_id'])}: baseline={r['baseline_score']}, "
+        f"adjustment={r['adjustment']}, final={r['final_score']} -- {r['adjustment_reason']}"
         for r in evaluation_result["persona_reactions"]
     )
     synthesis = evaluation_result["synthesis"]

@@ -1,432 +1,467 @@
 {
-  "brand_id": "loom_and_aster",
+  "brand_id": "glowroot",
   "evaluation_results": [
     {
       "variant_id": "v1",
       "persona_reactions": [
         {
           "persona_id": "cluster_0",
-          "baseline_score": 5.77,
-          "adjustment": -1.0,
-          "final_score": 4.77,
-          "adjustment_reason": "This messaging angle doesn't directly address my buying triggers or alleviate my objections",
-          "reaction_summary": "I'm intrigued by the focus on quality and artisanal craftsmanship, but I need to see more about deals and discounts.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ria Jain",
+          "baseline_score": 10.0,
+          "adjustment": -0.97,
+          "final_score": 9.03,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.17 overlap with stated objections, against the Discount / urgency-led baseline of 10.0/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_1",
-          "baseline_score": 5.17,
-          "adjustment": 1.2,
-          "final_score": 6.37,
-          "adjustment_reason": "This messaging angle resonates with me, as I value quality and want to support artisans",
-          "reaction_summary": "I'm intrigued by the focus on quality and artisanal craftsmanship, but I need to see more about how it impacts my wardrobe",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ananya",
+          "baseline_score": 5.73,
+          "adjustment": -0.3,
+          "final_score": 5.43,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Discount / urgency-led baseline of 5.73/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_2",
-          "baseline_score": 1.87,
-          "adjustment": 1.2,
-          "final_score": 3.07,
-          "adjustment_reason": "This messaging angle resonates with my love for exclusive deals and early access, but it doesn't directly mention discounts or restocking",
-          "reaction_summary": "I'm intrigued by the craftsmanship behind Loom & Aster's garments, especially since I value quality over fast fashion.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Sneha",
+          "baseline_score": 2.52,
+          "adjustment": -0.8,
+          "final_score": 1.72,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.12 overlap with stated objections, against the Discount / urgency-led baseline of 2.52/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_3",
-          "baseline_score": 9.55,
-          "adjustment": 1.0,
-          "final_score": 10.0,
-          "adjustment_reason": "The messaging is resonating with my love for quality and community-driven content",
-          "reaction_summary": "I'm intrigued by the craftsmanship, but I need to see more about the price point",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Rohan Jain",
+          "baseline_score": 4.4,
+          "adjustment": -0.01,
+          "final_score": 4.39,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.14 overlap with stated objections, against the Discount / urgency-led baseline of 4.4/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_4",
+          "persona_name": "Riya",
           "baseline_score": 0.0,
-          "adjustment": 1.8,
-          "final_score": 1.8,
-          "adjustment_reason": "This messaging angle leverages social proof through user-generated content and emphasizes quality, aligning with my buying triggers and objections.",
-          "reaction_summary": "I'm intrigued by the focus on artisanal craftsmanship and community stories, which resonates with my appreciation for luxury and exclusivity.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "adjustment": 0.13,
+          "final_score": 0.13,
+          "adjustment_reason": "Mock heuristic: 0.07 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Discount / urgency-led baseline of 0.0/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_5",
-          "baseline_score": 6.31,
-          "adjustment": 0.75,
-          "final_score": 7.06,
-          "adjustment_reason": "this ad copy leverages social proof from customer testimonials effectively, aligning with my buying triggers for quality concerns and trust in community endorsements",
-          "reaction_summary": "I'm intrigued by the focus on quality and artisanal craftsmanship, but I still need to see more about sizing and pricing",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Isha",
+          "baseline_score": 6.56,
+          "adjustment": -0.3,
+          "final_score": 6.26,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Discount / urgency-led baseline of 6.56/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_6",
-          "baseline_score": 5.64,
-          "adjustment": -1.2,
-          "final_score": 4.44,
-          "adjustment_reason": "This messaging angle resonates with me as a fashion-conscious shopper who values quality, but it doesn't directly address my top priorities of fast delivery and fit reassurance.",
-          "reaction_summary": "I'm intrigued by the focus on quality and artisanal craftsmanship, but I'd like to know more about sizing and return policies.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Meera",
+          "baseline_score": 5.05,
+          "adjustment": -0.3,
+          "final_score": 4.75,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Discount / urgency-led baseline of 5.05/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         }
       ],
       "synthesis": {
         "traction_tier": "moderate",
-        "driving_factor": "The messaging successfully leverages social proof and craftsmanship to appeal to quality-focused segments.",
-        "targeting_implication": "We should target audiences highly motivated by authenticity and artisan support rather than pure price sensitivity.",
-        "recommendation": "scale"
+        "driving_factor": "Strongest reaction from Ria Jain (final=9.03): Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.17 overlap with stated objections, against the Discount / urgency-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from Riya (final=0.13) suggests narrowing away from that segment if scaling the Discount / urgency-led angle.",
+        "recommendation": "narrow"
       },
-      "evaluation_method": "llm",
-      "evaluation_model": "gemma4:e2b"
+      "evaluation_method": "mock",
+      "evaluation_model": null
     },
     {
       "variant_id": "v2",
       "persona_reactions": [
         {
           "persona_id": "cluster_0",
-          "baseline_score": 3.92,
-          "adjustment": -1.8,
-          "final_score": 2.12,
-          "adjustment_reason": "Lacks concrete price benefits to resonate with frugal fashionista",
-          "reaction_summary": "Too focused on luxury, lacks clear deal or discount info",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ria Jain",
+          "baseline_score": 5.77,
+          "adjustment": -0.3,
+          "final_score": 5.47,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.77/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_1",
-          "baseline_score": 7.47,
-          "adjustment": -1.0,
-          "final_score": 6.47,
-          "adjustment_reason": "The messaging resonates with my desire for timeless fashion, but lacks a clear solution to address my budget concerns",
-          "reaction_summary": "I appreciate the focus on quality and craftsmanship, but I'm still concerned about price point",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ananya",
+          "baseline_score": 5.17,
+          "adjustment": -0.3,
+          "final_score": 4.87,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.17/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_2",
-          "baseline_score": 0.95,
-          "adjustment": -1.2,
-          "final_score": 0.0,
-          "adjustment_reason": "This messaging resonates with my values as a loyal customer seeking exclusive deals and early access",
-          "reaction_summary": "I'm intrigued by the focus on provenance and craftsmanship, but I need to see how this impacts pricing and restocking",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Sneha",
+          "baseline_score": 1.87,
+          "adjustment": -0.3,
+          "final_score": 1.57,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 1.87/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_3",
-          "baseline_score": 3.8,
-          "adjustment": 1.2,
-          "final_score": 5.0,
-          "adjustment_reason": "The messaging resonates with my values as a sneakerhead who appreciates unique pieces",
-          "reaction_summary": "I'm intrigued by the focus on craftsmanship and provenance, but I need to know if it's worth the investment",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Rohan Jain",
+          "baseline_score": 9.55,
+          "adjustment": -0.3,
+          "final_score": 9.25,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_4",
-          "baseline_score": 3.05,
-          "adjustment": 1.2,
-          "final_score": 4.25,
-          "adjustment_reason": "Executes well on curated collections and limited edition pieces, aligning with my buying triggers",
-          "reaction_summary": "Resonates with my values of luxury and exclusivity, but may require more convincing on the 'true cost' angle",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Riya",
+          "baseline_score": 0.0,
+          "adjustment": -0.3,
+          "final_score": 0.0,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 0.0/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_5",
-          "baseline_score": 7.42,
-          "adjustment": 0.8,
-          "final_score": 8.22,
-          "adjustment_reason": "This messaging resonates with my desire for luxury fashion that's not just trendy, but also sustainable",
-          "reaction_summary": "I'm intrigued by the idea of investing in timeless craftsmanship, but I need to see more about sizing and quality",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Isha",
+          "baseline_score": 6.31,
+          "adjustment": 0.56,
+          "final_score": 6.87,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 6.31/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_6",
-          "baseline_score": 7.69,
-          "adjustment": -1.2,
-          "final_score": 6.49,
-          "adjustment_reason": "The messaging resonates with my concerns about quality, but doesn't directly address my top priorities of fast delivery and fit reassurance.",
-          "reaction_summary": "I'm intrigued by the focus on quality and craftsmanship, but I'd like to know more about sizing and return policies.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Meera",
+          "baseline_score": 5.64,
+          "adjustment": -0.3,
+          "final_score": 5.34,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.64/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         }
       ],
       "synthesis": {
         "traction_tier": "moderate",
-        "driving_factor": "The messaging strongly resonates with customers prioritizing luxury and sustainability values.",
-        "targeting_implication": "Targeting should focus on high-value segments that prioritize craftsmanship and ethical sourcing over immediate price sensitivity.",
-        "recommendation": "scale"
+        "driving_factor": "Strongest reaction from Rohan Jain (final=9.25): Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10.",
+        "targeting_implication": "Weakest reaction from Riya (final=0.0) suggests narrowing away from that segment if scaling the Social proof / UGC-led angle.",
+        "recommendation": "narrow"
       },
-      "evaluation_method": "llm",
-      "evaluation_model": "gemma4:e2b"
+      "evaluation_method": "mock",
+      "evaluation_model": null
     },
     {
       "variant_id": "v3",
       "persona_reactions": [
         {
           "persona_id": "cluster_0",
-          "baseline_score": 0.04,
-          "adjustment": -0.8,
+          "persona_name": "Ria Jain",
+          "baseline_score": 0.0,
+          "adjustment": -0.3,
           "final_score": 0.0,
-          "adjustment_reason": "historical baseline for Provenance/creator-story-led messaging is low engagement",
-          "reaction_summary": "I'm intrigued by the focus on craftsmanship and maker stories, but I need to see more concrete price benefits",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 0.0/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_1",
-          "baseline_score": 4.29,
-          "adjustment": -1.0,
-          "final_score": 3.29,
-          "adjustment_reason": "This messaging angle resonates with me, but falls short of addressing my concerns",
-          "reaction_summary": "I'm intrigued by the maker-story aspect, but I need to know more about quality and durability",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ananya",
+          "baseline_score": 3.96,
+          "adjustment": -0.3,
+          "final_score": 3.66,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 3.96/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_2",
-          "baseline_score": 7.02,
-          "adjustment": 0.8,
-          "final_score": 7.82,
-          "adjustment_reason": "This messaging angle resonates with my loyalty points enthusiasm but falls short on addressing my primary triggers",
-          "reaction_summary": "I'm intrigued by the maker-story aspect, but I'd love to see more on restocking and exclusive deals",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Sneha",
+          "baseline_score": 8.47,
+          "adjustment": -0.3,
+          "final_score": 8.17,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 8.47/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_3",
-          "baseline_score": 5.13,
-          "adjustment": 1.8,
-          "final_score": 6.93,
-          "adjustment_reason": "This messaging angle resonates with me since I've been drawn to similar stories behind streetwear brands before",
-          "reaction_summary": "I'm intrigued by the maker-story aspect, but I need to know if it's worth the hype and price tag",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Rohan Jain",
+          "baseline_score": 4.84,
+          "adjustment": -0.3,
+          "final_score": 4.54,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 4.84/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_4",
+          "persona_name": "Riya",
           "baseline_score": 10.0,
-          "adjustment": -1.0,
-          "final_score": 9.0,
-          "adjustment_reason": "This messaging resonates with my love for luxury and exclusivity, but lacks a clear value proposition.",
-          "reaction_summary": "I appreciate the emphasis on craftsmanship and maker-story, but I need to see more concrete assurance about quality and authenticity.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "adjustment": -0.3,
+          "final_score": 9.7,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 10.0/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_5",
-          "baseline_score": 4.38,
-          "adjustment": -0.8,
-          "final_score": 3.58,
-          "adjustment_reason": "This messaging angle resonates with me, as it speaks to my interest in provenance and craftsmanship",
-          "reaction_summary": "I'm intrigued by the maker-story aspect, but I still need to see more about sizing and quality",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Isha",
+          "baseline_score": 2.79,
+          "adjustment": -0.3,
+          "final_score": 2.49,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 2.79/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_6",
-          "baseline_score": 4.91,
-          "adjustment": -1.2,
-          "final_score": 3.71,
-          "adjustment_reason": "This messaging angle resonates with me since it taps into my interest in provenance and craftsmanship, but I still need reassurance on fit and returns.",
-          "reaction_summary": "I'm intrigued by the maker-story aspect, but I'd like to know more about sizing and return policies before making a decision.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Meera",
+          "baseline_score": 3.74,
+          "adjustment": -0.3,
+          "final_score": 3.44,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 3.74/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         }
       ],
       "synthesis": {
         "traction_tier": "moderate",
-        "driving_factor": "The messaging successfully taps into existing interests in provenance and craftsmanship among some segments.",
-        "targeting_implication": "Targeting should focus on segments that value narrative but requires adding explicit value propositions or risk mitigation to address financial concerns.",
-        "recommendation": "revise"
+        "driving_factor": "Strongest reaction from Riya (final=9.7): Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from Ria Jain (final=0.0) suggests narrowing away from that segment if scaling the Aspirational / premium-led angle.",
+        "recommendation": "narrow"
       },
-      "evaluation_method": "llm",
-      "evaluation_model": "gemma4:e2b"
+      "evaluation_method": "mock",
+      "evaluation_model": null
     },
     {
       "variant_id": "v4",
       "persona_reactions": [
         {
           "persona_id": "cluster_0",
-          "baseline_score": 5.77,
-          "adjustment": 1.2,
-          "final_score": 6.97,
-          "adjustment_reason": "The emphasis on natural fibres and artisanal techniques taps into my desire for sustainable and high-quality fashion options.",
-          "reaction_summary": "This messaging angle resonates with me as it highlights the craftsmanship and story behind each piece, which aligns with my values of smart shopping and supporting small makers.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ria Jain",
+          "baseline_score": 3.92,
+          "adjustment": -0.3,
+          "final_score": 3.62,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.92/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_1",
-          "baseline_score": 5.17,
-          "adjustment": -0.83,
-          "final_score": 4.34,
-          "adjustment_reason": "Historical baseline for customers like me reacting to Social proof / UGC-led messaging is 5.17/10",
-          "reaction_summary": "I'm intrigued by the storytelling aspect, but I need to see more about quality and durability",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ananya",
+          "baseline_score": 7.47,
+          "adjustment": -0.3,
+          "final_score": 7.17,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.47/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_2",
-          "baseline_score": 1.87,
-          "adjustment": 1.5,
-          "final_score": 3.37,
-          "adjustment_reason": "This messaging angle resonates with me as a loyal customer seeking exclusive deals and early access, but it doesn't directly address my buying triggers",
-          "reaction_summary": "I'm intrigued by the story behind each piece and would love to learn more about the makers",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Sneha",
+          "baseline_score": 0.95,
+          "adjustment": -0.3,
+          "final_score": 0.65,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 0.95/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_3",
-          "baseline_score": 9.55,
-          "adjustment": 1.0,
-          "final_score": 10.0,
-          "adjustment_reason": "This messaging angle resonates with me due to its focus on craftsmanship and customer connection",
-          "reaction_summary": "I'm intrigued by the storytelling aspect, but I need to know if it's worth the hype and price tag",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Rohan Jain",
+          "baseline_score": 3.8,
+          "adjustment": -0.3,
+          "final_score": 3.5,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.8/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_4",
-          "baseline_score": 0.0,
-          "adjustment": 1.8,
-          "final_score": 1.8,
-          "adjustment_reason": "This messaging leverages UGC and founder/customer duet-reaction videos to create a sense of authenticity and connection",
-          "reaction_summary": "I'm intrigued by the narrative behind each piece, it resonates with my appreciation for luxury craftsmanship",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Riya",
+          "baseline_score": 3.05,
+          "adjustment": -0.3,
+          "final_score": 2.75,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.05/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_5",
-          "baseline_score": 6.31,
-          "adjustment": 1.8,
-          "final_score": 8.11,
-          "adjustment_reason": "This messaging angle resonates with me because it speaks to my desire for authenticity and connection with a brand",
-          "reaction_summary": "I'm intrigued by the unique story behind each piece, but I still have doubts about quality and sizing",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Isha",
+          "baseline_score": 7.42,
+          "adjustment": -0.3,
+          "final_score": 7.12,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.42/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_6",
-          "baseline_score": 5.64,
-          "adjustment": -1.2,
-          "final_score": 4.44,
-          "adjustment_reason": "This copy resonates with my desire for authenticity and connection to the brand, but lacks concrete details on key concerns",
-          "reaction_summary": "I'm intrigued by the brand's story, but I need more info on sizing and return policy",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Meera",
+          "baseline_score": 7.69,
+          "adjustment": -0.3,
+          "final_score": 7.39,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.69/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         }
       ],
       "synthesis": {
-        "traction_tier": "strong",
-        "driving_factor": "The messaging successfully tapped into desires for craftsmanship, authenticity, and brand connection.",
-        "targeting_implication": "Marketing efforts should be focused on segments that prioritize quality narratives over pure price sensitivity to defend margin.",
-        "recommendation": "scale"
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from Meera (final=7.39): Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.69/10.",
+        "targeting_implication": "Weakest reaction from Sneha (final=0.65) suggests narrowing away from that segment if scaling the Problem-solution angle.",
+        "recommendation": "narrow"
       },
-      "evaluation_method": "llm",
-      "evaluation_model": "gemma4:e2b"
+      "evaluation_method": "mock",
+      "evaluation_model": null
     },
     {
       "variant_id": "v5",
       "persona_reactions": [
         {
           "persona_id": "cluster_0",
-          "baseline_score": 5.29,
-          "adjustment": 0.0,
-          "final_score": 5.29,
-          "adjustment_reason": "the messaging focuses on quality rather than pricing or value proposition",
-          "reaction_summary": "I'm intrigued by the craftsmanship aspect, but I need to see how it translates to price",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ria Jain",
+          "baseline_score": 7.36,
+          "adjustment": -0.3,
+          "final_score": 7.06,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 7.36/10.",
+          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_1",
-          "baseline_score": 5.91,
-          "adjustment": -1.2,
-          "final_score": 4.71,
-          "adjustment_reason": "The ad copy resonates with my concerns about quality and durability, but falls short on addressing my specific objections about returns and refunds.",
-          "reaction_summary": "I appreciate the emphasis on quality and craftsmanship, but I'd like to see more concrete details about sizing and fit.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Ananya",
+          "baseline_score": 3.97,
+          "adjustment": -0.3,
+          "final_score": 3.67,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 3.97/10.",
+          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_2",
-          "baseline_score": 2.26,
-          "adjustment": -1.8,
-          "final_score": 0.46,
-          "adjustment_reason": "This messaging angle doesn't directly speak to my buying triggers or alleviate my objections",
-          "reaction_summary": "I'm intrigued by the craftsmanship behind Loom & Aster pieces, but I'd love to see more product details and restocking info",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Sneha",
+          "baseline_score": 1.85,
+          "adjustment": -0.3,
+          "final_score": 1.55,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 1.85/10.",
+          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_3",
-          "baseline_score": 4.58,
-          "adjustment": 1.0,
-          "final_score": 5.58,
-          "adjustment_reason": "Historical baseline for educational content doesn't apply directly since this is more about brand storytelling",
-          "reaction_summary": "I'm intrigued by the craftsmanship aspect, but I need to know if it's worth the hype",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Rohan Jain",
+          "baseline_score": 10.0,
+          "adjustment": 0.56,
+          "final_score": 10.0,
+          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
+          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_4",
-          "baseline_score": 3.96,
-          "adjustment": 1.2,
-          "final_score": 5.16,
-          "adjustment_reason": "This messaging resonates with my concerns about authenticity and value for money",
-          "reaction_summary": "I appreciate the emphasis on quality and authenticity, but I'd like to see more concrete examples of this process.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Riya",
+          "baseline_score": 0.47,
+          "adjustment": -0.3,
+          "final_score": 0.17,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 0.47/10.",
+          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_5",
-          "baseline_score": 7.16,
-          "adjustment": -0.8,
-          "final_score": 6.36,
-          "adjustment_reason": "This messaging angle resonates with my love for educational content and desire to support sustainable fashion",
-          "reaction_summary": "I'm intrigued by the focus on quality and craftsmanship, but I still have doubts about sizing and price",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Isha",
+          "baseline_score": 4.96,
+          "adjustment": -0.3,
+          "final_score": 4.66,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 4.96/10.",
+          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         },
         {
           "persona_id": "cluster_6",
-          "baseline_score": 6.53,
-          "adjustment": -1.0,
-          "final_score": 5.53,
-          "adjustment_reason": "This messaging angle resonates with my cautious nature, but lacks concrete details on fit and returns.",
-          "reaction_summary": "I'm intrigued by the craftsmanship aspect, but I'd like to know more about sizing and return policies.",
-          "generation_method": "llm",
-          "model": "llama3.2:latest"
+          "persona_name": "Meera",
+          "baseline_score": 4.17,
+          "adjustment": -0.3,
+          "final_score": 3.87,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 4.17/10.",
+          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
+          "generation_method": "mock",
+          "model": null
         }
       ],
       "synthesis": {
-        "traction_tier": "strong",
-        "driving_factor": "The messaging successfully taps into customer desires for quality, authenticity, and educational storytelling.",
-        "targeting_implication": "Targeting should focus on segments highly motivated by sustainability and craftsmanship narratives.",
-        "recommendation": "revise"
+        "traction_tier": "moderate",
+        "driving_factor": "Strongest reaction from Rohan Jain (final=10.0): Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from Riya (final=0.17) suggests narrowing away from that segment if scaling the Trend / FOMO-led angle.",
+        "recommendation": "narrow"
       },
-      "evaluation_method": "llm",
-      "evaluation_model": "gemma4:e2b"
+      "evaluation_method": "mock",
+      "evaluation_model": null
     }
   ],
   "ranking": {
     "ranked_variant_ids": [
+      "v2",
       "v4",
-      "v1",
       "v3",
-      "v5",
-      "v2"
+      "v1",
+      "v5"
     ],
-    "ranking_rationale": "The variants are ranked based on their average persona scores, prioritizing messaging that directly appeals to quality, authenticity, and craftsmanship, which are essential for defending a premium craft positioning against cheaper knockoffs. Variant v4 scored highest as it explicitly tapped into desires for craftsmanship and authenticity, followed closely by social proof (v1) and provenance storytelling (v3).",
-    "ranking_method": "llm",
-    "ranking_model": "gemma4:e2b"
+    "ranking_rationale": "Ranked by average persona final_score (mock heuristic, no LLM). Top variant v2 led with avg=4.8/10 (tier=moderate, recommendation=narrow).",
+    "ranking_method": "mock",
+    "ranking_model": null
   }
 }

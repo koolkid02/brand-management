@@ -28,6 +28,7 @@ if str(REPO_ROOT) not in sys.path:
 
 import streamlit as st  # noqa: E402
 
+from evaluation.persona_reaction import load_personas_with_ids  # noqa: E402
 from memory.brand_memory import list_brands, load_brand  # noqa: E402
 from memory.framework_memory import load_framework  # noqa: E402
 from module_b_campaigns import agent_loop, intake  # noqa: E402
@@ -37,6 +38,7 @@ st.set_page_config(page_title="Module B -- Campaign Generation", layout="wide")
 SEED_PATHS = {
     "vamp_streetwear": intake.DEFAULT_ANSWERS_PATH,
     "loom_and_aster": "module_b_campaigns/seed/demo_intake_answers_loom_and_aster.json",
+    "glowroot": "module_b_campaigns/seed/demo_intake_answers_glowroot.json",
 }
 
 
@@ -68,6 +70,41 @@ def _render_sidebar() -> None:
         st.sidebar.caption(
             f"Phase: {state['phase']} | Redirects used: {state['redirect_count']}/{agent_loop.MAX_REDIRECTS}"
         )
+
+    st.sidebar.divider()
+    st.sidebar.radio("View", options=["Campaign", "Personas"], key="view_mode", horizontal=True)
+
+
+def _render_personas_view() -> None:
+    st.header("Personas")
+    st.caption(
+        "Module A's data-derived synthetic audience -- built once from real segment "
+        "statistics, reused across every brand's evaluation (Module C)."
+    )
+
+    for persona in load_personas_with_ids():
+        narrative = persona["narrative"]
+        grounded = persona["grounded"]
+        with st.container(border=True):
+            st.markdown(f"### {narrative['persona_name']} -- {narrative['tagline']}")
+            st.caption(
+                f"{persona['persona_id']} | {grounded['age_mean']:.0f}yo, {grounded['dominant_gender']}, "
+                f"{grounded['dominant_city_tier']} | {grounded['segment_pct_of_total']}% of the audience"
+            )
+            st.write(narrative["lifestyle_snapshot"])
+
+            col1, col2 = st.columns(2)
+            with col1:
+                st.markdown("**Buying triggers**")
+                for trigger in narrative["buying_triggers"]:
+                    st.markdown(f"- {trigger}")
+            with col2:
+                st.markdown("**Objections**")
+                for objection in narrative["objections"]:
+                    st.markdown(f"- {objection}")
+
+            st.markdown(f"*\"{narrative['sample_quote']}\"*")
+            st.caption(f"Top interests: {', '.join(grounded['top_interests'][:5])}")
 
 
 def _render_error(state: dict) -> None:
@@ -331,7 +368,7 @@ def _render_evaluation_done(state: dict) -> None:
             with st.expander(f"{len(reactions)} persona reaction(s)"):
                 for r in reactions:
                     st.markdown(
-                        f"**{r['persona_id']}** (baseline {r['baseline_score']} "
+                        f"**{r.get('persona_name', r['persona_id'])}** (baseline {r['baseline_score']} "
                         f"{'+' if r['adjustment'] >= 0 else ''}{r['adjustment']} = {r['final_score']}/10): "
                         f"*{r['reaction_summary']}*"
                     )
@@ -374,8 +411,13 @@ def main() -> None:
     brand_ids = list_brands()
     st.session_state.setdefault("selected_brand_id", brand_ids[0])
     st.session_state.setdefault("mock_mode", True)
+    st.session_state.setdefault("view_mode", "Campaign")
 
     _render_sidebar()
+
+    if st.session_state["view_mode"] == "Personas":
+        _render_personas_view()
+        return
 
     state = st.session_state["agent_state"]
     if state is None:

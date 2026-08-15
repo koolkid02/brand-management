@@ -1,29 +1,29 @@
 {
-  "brand_id": "vamp_streetwear",
+  "brand_id": "glowroot",
   "raw_answers": {
-    "target_segment": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
-    "price_posture": "Budget / mass-market - we're sub-Rs 999 core pricing, that's central to who we are.",
-    "competitors": "Bewakoof mainly, they're the closest comp on price and meme/graphic-tee vibe. Also keep an eye on Snitch since they're chasing the same Gen-Z streetwear audience even though their AOV runs a bit higher. Not really worried about The Souled Store for this one, they're more fandom/pop-culture than us.",
-    "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
-    "hard_constraints": "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale. Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real. And keep it Instagram/Reels-native, not stiff catalog copy.",
-    "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing."
+    "target_segment": "Our core research-driven 25-35 segment - the ones who read the full ingredient list before buying and care about formulation science, not just packaging or influencer hype.",
+    "price_posture": "Mid-market - not premium, not budget. The price needs to reflect real dermat-reviewed formulation quality without pricing out mid-market Indian buyers.",
+    "competitors": "Mamaearth is the closest comp in scale and 'toxin-free' positioning, but they're much more mass-market. Sugar Cosmetics is color-cosmetics and Gen-Z voice, not really a direct skincare comp for this one. Plum is probably our real head-to-head - similar ingredient-conscious, clean-beauty buyer - so we need to differentiate clearly against them specifically.",
+    "core_message": "GlowRoot doesn't just claim clean ingredients - we show you the full formulation and the dermat sign-off behind it, so you can actually verify what you're putting on your skin instead of taking our word for it.",
+    "hard_constraints": "No benefit-only claims without backing them with the actual ingredient or mechanism - that's the one thing we can never compromise on. Keep the tone informative and warm, not preachy or clinical-cold. And don't overclaim against Plum specifically - we want to differentiate on transparency depth, not disparage them.",
+    "primary_goal": "We want to convert ingredient-label-readers who are currently loyal to Plum or still comparison-shopping, by proving we go deeper on formulation transparency than anyone else in this price band."
   },
   "followup_qa": [],
   "followup_generation_method": "mock",
-  "target_segment_summary": "Mainly our trend-chasers and discount-chasers segments - Gen Z, 18-25, metro and tier-2, the ones who follow drops on Instagram Reels and buy in bursts around sales.",
-  "price_posture": "budget",
+  "target_segment_summary": "Our core research-driven 25-35 segment - the ones who read the full ingredient list before buying and care about formulation science, not just packaging or influencer hype.",
+  "price_posture": "premium",
   "competitors_to_position_against": [
-    "Bewakoof",
-    "Snitch",
-    "The Souled Store"
+    "Mamaearth",
+    "Sugar Cosmetics",
+    "Plum"
   ],
-  "core_message": "This capsule proves you don't have to choose between being first to a trend and not breaking the bank - Vamp gets you the drop before it's everywhere else, at a price you don't have to think twice about.",
+  "core_message": "GlowRoot doesn't just claim clean ingredients - we show you the full formulation and the dermat sign-off behind it, so you can actually verify what you're putting on your skin instead of taking our word for it.",
   "hard_constraints": [
-    "No discount code call-outs in the headline, we want this capsule to feel like a drop not a sale",
-    "Also nothing that implies limited stock we can't actually back - sizes run out but don't want a fake scarcity vibe if it's not real",
-    "And keep it Instagram/Reels-native, not stiff catalog copy."
+    "No benefit-only claims without backing them with the actual ingredient or mechanism - that's the one thing we can never compromise on",
+    "Keep the tone informative and warm, not preachy or clinical-cold",
+    "And don't overclaim against Plum specifically - we want to differentiate on transparency depth, not disparage them."
   ],
-  "primary_goal": "We want this to stand out and differentiate ourselves in a pretty crowded streetwear category right now, feels like everyone's doing the same countdown flash-sale thing.",
+  "primary_goal": "We want to convert ingredient-label-readers who are currently loyal to Plum or still comparison-shopping, by proving we go deeper on formulation transparency than anyone else in this price band.",
   "generation_method": "mock",
   "model": null
 }
