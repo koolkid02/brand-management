@@ -7,6 +7,13 @@
     "supporting_brand_count": 2
   },
   {
+    "pattern_id": "fashion_d2c__social_proof_ugc_needs_narrower_targeting",
+    "tag": "social_proof_ugc_needs_narrower_targeting",
+    "category": "fashion_d2c",
+    "pattern_statement": "Social-proof/UGC-led creative only resonates with a narrower slice of the target segment than expected, worth narrowing targeting rather than a broad rollout.",
+    "supporting_brand_count": 2
+  },
+  {
     "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
     "tag": "ugc_video_outperforms_static",
     "category": "fashion_d2c",

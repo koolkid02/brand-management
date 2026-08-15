@@ -1,29 +1,29 @@
 {
-  "brand_id": "glowroot",
+  "brand_id": "loom_and_aster",
   "raw_answers": {
-    "target_segment": "Our core research-driven 25-35 segment - the ones who read the full ingredient list before buying and care about formulation science, not just packaging or influencer hype.",
-    "price_posture": "Mid-market - not premium, not budget. The price needs to reflect real dermat-reviewed formulation quality without pricing out mid-market Indian buyers.",
-    "competitors": "Mamaearth is the closest comp in scale and 'toxin-free' positioning, but they're much more mass-market. Sugar Cosmetics is color-cosmetics and Gen-Z voice, not really a direct skincare comp for this one. Plum is probably our real head-to-head - similar ingredient-conscious, clean-beauty buyer - so we need to differentiate clearly against them specifically.",
-    "core_message": "GlowRoot doesn't just claim clean ingredients - we show you the full formulation and the dermat sign-off behind it, so you can actually verify what you're putting on your skin instead of taking our word for it.",
-    "hard_constraints": "No benefit-only claims without backing them with the actual ingredient or mechanism - that's the one thing we can never compromise on. Keep the tone informative and warm, not preachy or clinical-cold. And don't overclaim against Plum specifically - we want to differentiate on transparency depth, not disparage them.",
-    "primary_goal": "We want to convert ingredient-label-readers who are currently loyal to Plum or still comparison-shopping, by proving we go deeper on formulation transparency than anyone else in this price band."
+    "target_segment": "Our premium and loyal-core segments - 28-45, urban professionals, low purchase frequency but high AOV, they research before they buy and care about the maker story, not the trend cycle.",
+    "price_posture": "Premium - we're a considered, small-batch brand and the price needs to reflect that. This is not a value play.",
+    "competitors": "Nicobar is the closest direct comp, similar handloom/considered-design ethos. Bombay Shirt Company too, same affluent buyer even though they're made-to-measure. Okhai is more of an artisanal/craft-cooperative comp than a head-to-head competitor.",
+    "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace - this is fashion you buy once and keep, not fashion you buy weekly and forget.",
+    "hard_constraints": "No discount language anywhere, this line never goes on sale. Nothing that reads like a catalog spec sheet either, keep it editorial. And the maker/sourcing story has to be front and center, not an afterthought.",
+    "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning."
   },
   "followup_qa": [],
   "followup_generation_method": "mock",
-  "target_segment_summary": "Our core research-driven 25-35 segment - the ones who read the full ingredient list before buying and care about formulation science, not just packaging or influencer hype.",
+  "target_segment_summary": "Our premium and loyal-core segments - 28-45, urban professionals, low purchase frequency but high AOV, they research before they buy and care about the maker story, not the trend cycle.",
   "price_posture": "premium",
   "competitors_to_position_against": [
-    "Mamaearth",
-    "Sugar Cosmetics",
-    "Plum"
+    "Nicobar",
+    "Bombay Shirt Company",
+    "Okhai"
   ],
-  "core_message": "GlowRoot doesn't just claim clean ingredients - we show you the full formulation and the dermat sign-off behind it, so you can actually verify what you're putting on your skin instead of taking our word for it.",
+  "core_message": "Every Loom & Aster piece is made in small batches from natural fibres, with a maker story you can actually trace - this is fashion you buy once and keep, not fashion you buy weekly and forget.",
   "hard_constraints": [
-    "No benefit-only claims without backing them with the actual ingredient or mechanism - that's the one thing we can never compromise on",
-    "Keep the tone informative and warm, not preachy or clinical-cold",
-    "And don't overclaim against Plum specifically - we want to differentiate on transparency depth, not disparage them."
+    "No discount language anywhere, this line never goes on sale",
+    "Nothing that reads like a catalog spec sheet either, keep it editorial",
+    "And the maker/sourcing story has to be front and center, not an afterthought."
   ],
-  "primary_goal": "We want to convert ingredient-label-readers who are currently loyal to Plum or still comparison-shopping, by proving we go deeper on formulation transparency than anyone else in this price band.",
+  "primary_goal": "We're worried about defending our margin against new entrants undercutting us with cheaper handloom-style knockoffs, and we don't want this to turn into a price war on craft positioning.",
   "generation_method": "mock",
   "model": null
 }
