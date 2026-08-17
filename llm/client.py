@@ -4,12 +4,26 @@ Small local models emit messier JSON than hosted APIs -- prose around the
 object, markdown code fences, occasionally truncated output. call_json()
 strips fences, extracts the first balanced {...} object, and retries with
 the parse error fed back to the model before giving up.
+
+Every LLM/embedding call in this codebase funnels through call_json() or
+embed_texts() below, so this is the one place tracing is wired: the
+underlying OpenAI client is wrapped with langsmith.wrap_openai (captures
+each raw completion/embedding call, including retries, as a child run with
+prompt/response/latency/token usage), and call_json/embed_texts themselves
+are @traceable so retries group under one parent span per logical call.
+Tracing is a no-op unless LANGSMITH_TRACING=true and LANGSMITH_API_KEY are
+set (see .env.example) -- safe to leave wrapped even when tracing is off.
+Callers add a module-identifying @traceable(tags=[...]) one level up (see
+e.g. module_a_personas/persona_simulation.py's call_llm_for_persona) so a
+failure in LangSmith is filterable by module, not just by role/model.
 """
 
 from __future__ import annotations
 
 import json
 
+from langsmith import traceable
+from langsmith.wrappers import wrap_openai
 from openai import OpenAI
 
 from config import ModelRoleConfig
@@ -107,6 +121,7 @@ def parse_json_response(raw_text: str) -> dict:
     return json.loads(json_str)
 
 
+@traceable(run_type="chain", name="call_json")
 def call_json(
     config: ModelRoleConfig,
     system_prompt: str,
@@ -125,8 +140,14 @@ def call_json(
     timeouts, and other OpenAI SDK exceptions propagate immediately, since
     those indicate infra failure (e.g. Ollama not running), not an
     LLM-quality issue that a retry could fix.
+
+    Wrapped end-to-end with LangSmith (see module docstring): this function
+    is one "call_json" trace per logical call (all retries nested inside as
+    child LLM runs), and callers add their own @traceable tag (module_a,
+    module_b, evaluation, memory) one level up so failures are filterable by
+    module in the LangSmith UI, not just by role/model.
     """
-    client = OpenAI(base_url=config.base_url, api_key=config.api_key)
+    client = wrap_openai(OpenAI(base_url=config.base_url, api_key=config.api_key))
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
@@ -169,6 +190,7 @@ def call_json(
     )
 
 
+@traceable(run_type="chain", name="embed_texts")
 def embed_texts(config: ModelRoleConfig, texts: list[str]) -> list[list[float]]:
     """Embed a batch of texts via the OpenAI-compatible /v1/embeddings endpoint.
 
@@ -178,7 +200,7 @@ def embed_texts(config: ModelRoleConfig, texts: list[str]) -> list[list[float]]:
     exceptions (connection refused, timeout) propagate immediately, same as
     call_json's infra-failure-vs-quality-issue distinction.
     """
-    client = OpenAI(base_url=config.base_url, api_key=config.api_key)
+    client = wrap_openai(OpenAI(base_url=config.base_url, api_key=config.api_key))
     response = client.embeddings.create(
         model=config.model, input=texts, timeout=config.request_timeout
     )

@@ -31,6 +31,8 @@ import argparse
 import json
 import os
 
+from langsmith import traceable
+
 from config import get_role_config
 from llm.client import embed_texts
 from memory.brand_memory import load_all_brands
@@ -70,6 +72,7 @@ def register_new_tag(tag_id: str, pattern_statement: str, path: str = DEFAULT_TA
     print(f"Registered new tag {tag_id!r} in {path}")
 
 
+@traceable(tags=["memory", "market_memory"])
 def resolve_or_create_tag(
     pattern_statement_candidate: str,
     suggested_tag_id: str,
@@ -190,6 +193,7 @@ def promote_patterns(
     return sorted(patterns, key=lambda p: p["pattern_id"])
 
 
+@traceable(tags=["memory", "market_memory"])
 def run_aggregation(
     seed_brands_dir: str | None = None,
     output_path: str = DEFAULT_MARKET_MEMORY_PATH,
@@ -218,12 +222,13 @@ def load_market_memory(path: str = DEFAULT_MARKET_MEMORY_PATH) -> list[dict]:
         return json.load(f)
 
 
+@traceable(tags=["memory", "market_memory"])
 def retrieve(
     query: str,
     category: str | None = None,
     top_k: int = 3,
     patterns: list[dict] | None = None,
-    config=None,
+    embedding_config=None,
     mock: bool = False,
 ) -> list[dict]:
     patterns = patterns if patterns is not None else load_market_memory()
@@ -238,8 +243,8 @@ def retrieve(
             for p in patterns
         ]
     else:
-        config = config or get_role_config("embedding")
-        vectors = embed_texts(config, [query] + [p["pattern_statement"] for p in patterns])
+        embedding_config = embedding_config or get_role_config("embedding")
+        vectors = embed_texts(embedding_config, [query] + [p["pattern_statement"] for p in patterns])
         query_vec, pattern_vecs = vectors[0], vectors[1:]
         scored = [
             {**p, "similarity": cosine_similarity(query_vec, v)}

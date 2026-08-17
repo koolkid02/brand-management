@@ -17,6 +17,8 @@ import argparse
 import json
 from datetime import date
 
+from langsmith import traceable
+
 from config import get_role_config
 from llm.client import embed_texts
 from memory.embedding_utils import cosine_similarity, keyword_overlap
@@ -51,6 +53,7 @@ def compute_decay_weight(
     return 0.5 ** (age_days / half_life_days)
 
 
+@traceable(tags=["memory", "trend_memory"])
 def retrieve(
     query: str,
     category: str | None = None,
@@ -58,7 +61,7 @@ def retrieve(
     as_of: date | None = None,
     half_life_days: float = DEFAULT_HALF_LIFE_DAYS,
     trends: list[dict] | None = None,
-    config=None,
+    embedding_config=None,
     mock: bool = False,
 ) -> list[dict]:
     trends = trends if trends is not None else load_trends()
@@ -70,8 +73,8 @@ def retrieve(
     if mock:
         similarities = [keyword_overlap(query, t["label"]) for t in trends]
     else:
-        config = config or get_role_config("embedding")
-        vectors = embed_texts(config, [query] + [t["label"] for t in trends])
+        embedding_config = embedding_config or get_role_config("embedding")
+        vectors = embed_texts(embedding_config, [query] + [t["label"] for t in trends])
         query_vec, trend_vecs = vectors[0], vectors[1:]
         similarities = [cosine_similarity(query_vec, vec) for vec in trend_vecs]
 

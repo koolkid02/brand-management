@@ -25,6 +25,8 @@ import json
 
 import pandas as pd
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from llm.client import call_json
 
@@ -146,9 +148,10 @@ def build_prompt(grounded: dict) -> tuple[str, str]:
     return system_prompt, user_prompt
 
 
-def call_llm_for_persona(grounded: dict, config: ModelRoleConfig) -> dict:
+@traceable(tags=["module_a", "persona_simulation"])
+def call_llm_for_persona(grounded: dict, role_config: ModelRoleConfig) -> dict:
     system_prompt, user_prompt = build_prompt(grounded)
-    return call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_NARRATIVE_KEYS)
+    return call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_NARRATIVE_KEYS)
 
 
 def generate_mock_persona(grounded: dict, cluster_id: int) -> dict:

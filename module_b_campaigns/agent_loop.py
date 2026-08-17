@@ -24,6 +24,8 @@ from __future__ import annotations
 import json
 from typing import TypedDict
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from evaluation import traction_agent
 from llm.client import call_json
@@ -181,8 +183,9 @@ def can_redirect(state: AgentState) -> bool:
     return state["phase"] == "strategy_review" and state["redirect_count"] < MAX_REDIRECTS
 
 
+@traceable(tags=["module_b", "agent_loop"])
 def decide_redirect_framework(
-    feedback: str, current_framework_id: str, working_brief: dict, config: ModelRoleConfig, mock: bool
+    feedback: str, current_framework_id: str, working_brief: dict, role_config: ModelRoleConfig, mock: bool
 ) -> str:
     """Decide whether human redirect feedback implies the analytical
     framework CHOICE itself is wrong (not just its content). Never raises --
@@ -225,7 +228,7 @@ def decide_redirect_framework(
             f"framework_id ({current_framework_id}) unchanged. Return "
             'exactly: {"framework_id": "<one of the ids listed above>"}'
         )
-        parsed = call_json(config, system_prompt, user_prompt, required_keys={"framework_id"})
+        parsed = call_json(role_config, system_prompt, user_prompt, required_keys={"framework_id"})
         framework_id = parsed["framework_id"]
         if framework_id not in valid_ids:
             raise ValueError(f"framework_id {framework_id!r} is not one of {sorted(valid_ids)}")

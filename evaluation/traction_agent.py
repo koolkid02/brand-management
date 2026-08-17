@@ -28,6 +28,8 @@ from __future__ import annotations
 import argparse
 import json
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from data.generate_historical_campaigns import DEFAULT_OUTPUT as DEFAULT_BASELINES
 from data.generate_historical_campaigns import index_baselines, load_historical_baselines
@@ -108,11 +110,12 @@ def _validate_variant_synthesis_response(parsed: dict) -> dict:
     return parsed
 
 
+@traceable(tags=["evaluation", "traction_agent"])
 def call_llm_for_variant_synthesis(
-    variant: dict, persona_reactions: list[dict], working_brief: dict, config: ModelRoleConfig
+    variant: dict, persona_reactions: list[dict], working_brief: dict, role_config: ModelRoleConfig
 ) -> dict:
     system_prompt, user_prompt = build_variant_synthesis_prompt(variant, persona_reactions, working_brief)
-    parsed = call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_SYNTHESIS_LLM_KEYS)
+    parsed = call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_SYNTHESIS_LLM_KEYS)
     return _validate_variant_synthesis_response(parsed)
 
 
@@ -229,12 +232,13 @@ def _validate_ranking_response(parsed: dict, expected_ids: set[str]) -> dict:
     return parsed
 
 
+@traceable(tags=["evaluation", "traction_agent"])
 def call_llm_for_ranking(
-    evaluation_results: list[dict], variants: list[dict], working_brief: dict, config: ModelRoleConfig
+    evaluation_results: list[dict], variants: list[dict], working_brief: dict, role_config: ModelRoleConfig
 ) -> dict:
     system_prompt, user_prompt = build_ranking_prompt(evaluation_results, variants, working_brief)
     expected_ids = {r["variant_id"] for r in evaluation_results}
-    parsed = call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_RANKING_LLM_KEYS)
+    parsed = call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_RANKING_LLM_KEYS)
     return _validate_ranking_response(parsed, expected_ids)
 
 

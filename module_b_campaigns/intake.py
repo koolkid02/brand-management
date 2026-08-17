@@ -29,6 +29,8 @@ import dataclasses
 import json
 import re
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from llm.client import call_json
 
@@ -97,7 +99,8 @@ def _format_baseline_qa_block(raw_answers: dict[str, str]) -> str:
     return "\n".join(f"Q: {prompt}\nA: {raw_answers[key]}" for key, prompt in QUESTIONS)
 
 
-def generate_followup_questions(raw_answers: dict[str, str], config: ModelRoleConfig) -> list[str]:
+@traceable(tags=["module_b", "intake"])
+def generate_followup_questions(raw_answers: dict[str, str], role_config: ModelRoleConfig) -> list[str]:
     """0-3 dynamic follow-up questions, only where a genuine gap exists."""
     system_prompt = (
         "You are reviewing a marketing brief's baseline answers for genuine "
@@ -117,7 +120,7 @@ def generate_followup_questions(raw_answers: dict[str, str], config: ModelRoleCo
         "Return a JSON object with exactly one key: follow_up_questions "
         "(array of 0-3 strings)."
     )
-    parsed = call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_FOLLOWUP_QUESTIONS_KEYS)
+    parsed = call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_FOLLOWUP_QUESTIONS_KEYS)
 
     questions = parsed["follow_up_questions"]
     if not isinstance(questions, list) or not (0 <= len(questions) <= MAX_FOLLOWUPS):
@@ -128,12 +131,14 @@ def generate_followup_questions(raw_answers: dict[str, str], config: ModelRoleCo
     return questions
 
 
+@traceable(tags=["module_b", "intake"])
 def get_followup_answer(
-    question: str, raw_answers: dict[str, str], mode: str, config: ModelRoleConfig
+    question: str, raw_answers: dict[str, str], mode: str, role_config: ModelRoleConfig
 ) -> dict:
-    """Returns {"answer": str, "answer_method": str}. config is unused when
-    mode="interactive" but always required -- run_intake always constructs a
-    real simulation-role config before calling this, regardless of mode."""
+    """Returns {"answer": str, "answer_method": str}. role_config is unused
+    when mode="interactive" but always required -- run_intake always
+    constructs a real simulation-role config before calling this, regardless
+    of mode."""
     if mode == "interactive":
         answer = input(f"{question}\n> ").strip() or "(no answer provided)"
         return {"answer": answer, "answer_method": "interactive"}
@@ -160,7 +165,7 @@ def get_followup_answer(
         '{"answer": "<your 1-3 sentence answer>"}'
     )
     try:
-        parsed = call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_FOLLOWUP_ANSWER_KEYS)
+        parsed = call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_FOLLOWUP_ANSWER_KEYS)
         return {"answer": parsed["answer"], "answer_method": "llm"}
     except Exception as exc:  # noqa: BLE001 -- broad by design, see persona_simulation.py
         print(f"Simulated follow-up answer failed ({type(exc).__name__}: {exc}); using fallback answer")
@@ -207,11 +212,12 @@ def build_prompt(raw_answers: dict[str, str], followup_qa: list[dict]) -> tuple[
     return system_prompt, user_prompt
 
 
+@traceable(tags=["module_b", "intake"])
 def call_llm_for_working_brief(
-    raw_answers: dict[str, str], followup_qa: list[dict], config: ModelRoleConfig
+    raw_answers: dict[str, str], followup_qa: list[dict], role_config: ModelRoleConfig
 ) -> dict:
     system_prompt, user_prompt = build_prompt(raw_answers, followup_qa)
-    return call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_STRUCTURED_KEYS)
+    return call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_STRUCTURED_KEYS)
 
 
 def generate_mock_structured_fields(raw_answers: dict[str, str]) -> dict:

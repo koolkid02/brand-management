@@ -34,6 +34,8 @@ import argparse
 import json
 from datetime import date
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from llm.client import call_json
 from memory import market_memory
@@ -219,11 +221,12 @@ def build_synthesis_prompt(
     return system_prompt, user_prompt
 
 
+@traceable(tags=["memory", "outcome_memory"])
 def call_llm_for_synthesis(
-    brand: dict, working_brief: dict, approved_variant: dict, evaluation_result: dict, config: ModelRoleConfig
+    brand: dict, working_brief: dict, approved_variant: dict, evaluation_result: dict, role_config: ModelRoleConfig
 ) -> dict:
     system_prompt, user_prompt = build_synthesis_prompt(brand, working_brief, approved_variant, evaluation_result)
-    return call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_OUTCOME_SYNTHESIS_KEYS)
+    return call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_OUTCOME_SYNTHESIS_KEYS)
 
 
 def _violates_privacy(pattern_statement: str, brand: dict) -> bool:

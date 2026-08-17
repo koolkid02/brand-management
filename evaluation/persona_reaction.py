@@ -28,6 +28,8 @@ from __future__ import annotations
 import argparse
 import json
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from data.generate_historical_campaigns import DEFAULT_OUTPUT as DEFAULT_BASELINES
 from data.generate_historical_campaigns import get_baseline_record, index_baselines, load_historical_baselines
@@ -106,11 +108,13 @@ def build_reaction_prompt(
     return system_prompt, user_prompt
 
 
+@traceable(tags=["evaluation", "persona_reaction"])
 def call_llm_for_reaction(
-    persona: dict, variant: dict, baseline_record: dict, grounding: dict, working_brief: dict, config: ModelRoleConfig
+    persona: dict, variant: dict, baseline_record: dict, grounding: dict, working_brief: dict,
+    role_config: ModelRoleConfig,
 ) -> dict:
     system_prompt, user_prompt = build_reaction_prompt(persona, variant, baseline_record, grounding, working_brief)
-    return call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_LLM_REACTION_KEYS)
+    return call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_LLM_REACTION_KEYS)
 
 
 def generate_mock_reaction(persona: dict, variant: dict, baseline_record: dict) -> dict:

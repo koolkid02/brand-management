@@ -37,6 +37,8 @@ import argparse
 import dataclasses
 import json
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from llm.client import call_json
 from memory.trend_memory import retrieve as retrieve_trends
@@ -248,14 +250,15 @@ def build_raw_concept_prompt(
     return system_prompt, user_prompt
 
 
+@traceable(tags=["module_b", "ideation"])
 def call_llm_for_raw_concept(
     angle: dict, working_brief: dict, positioning_brief: dict, creative_constraints: dict,
-    trends: list[dict], config: ModelRoleConfig,
+    trends: list[dict], role_config: ModelRoleConfig,
 ) -> dict:
     system_prompt, user_prompt = build_raw_concept_prompt(
         angle, working_brief, positioning_brief, creative_constraints, trends
     )
-    return call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_CONCEPT_KEYS)
+    return call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_CONCEPT_KEYS)
 
 
 def generate_mock_concept(angle: dict, working_brief: dict, creative_constraints: dict) -> dict:
@@ -446,9 +449,10 @@ def generate_mock_critique(concepts: list[dict], creative_constraints: dict) -> 
     return critiques
 
 
+@traceable(tags=["module_b", "ideation"])
 def critique_concepts(
     concepts: list[dict], working_brief: dict, positioning_brief: dict, creative_constraints: dict,
-    config: ModelRoleConfig, mock: bool,
+    role_config: ModelRoleConfig, mock: bool,
 ) -> tuple[list[dict], str, str | None]:
     if mock:
         return generate_mock_critique(concepts, creative_constraints), "mock", None
@@ -456,12 +460,12 @@ def critique_concepts(
     expected_ids = {c["concept_id"] for c in concepts}
     try:
         system_prompt, user_prompt = build_critique_prompt(concepts, working_brief, positioning_brief, creative_constraints)
-        parsed = call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_CRITIQUE_TOP_KEYS)
+        parsed = call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_CRITIQUE_TOP_KEYS)
         critiques = _validate_critique_response(parsed, expected_ids)
-        return critiques, "llm", config.model
+        return critiques, "llm", role_config.model
     except Exception as exc:  # noqa: BLE001
         print(f"Critique failed ({type(exc).__name__}: {exc}); using fallback heuristic critique")
-        return generate_mock_critique(concepts, creative_constraints), "llm_fallback", config.model
+        return generate_mock_critique(concepts, creative_constraints), "llm_fallback", role_config.model
 
 
 def select_survivors(
@@ -530,12 +534,13 @@ def build_refine_prompt(
     return system_prompt, user_prompt
 
 
+@traceable(tags=["module_b", "ideation"])
 def call_llm_for_refinement(
     concept: dict, critique: dict, working_brief: dict, positioning_brief: dict,
-    creative_constraints: dict, config: ModelRoleConfig,
+    creative_constraints: dict, role_config: ModelRoleConfig,
 ) -> dict:
     system_prompt, user_prompt = build_refine_prompt(concept, critique, working_brief, positioning_brief, creative_constraints)
-    return call_json(config, system_prompt, user_prompt, required_keys=REQUIRED_REFINE_KEYS)
+    return call_json(role_config, system_prompt, user_prompt, required_keys=REQUIRED_REFINE_KEYS)
 
 
 def generate_mock_refinement(concept: dict) -> dict:

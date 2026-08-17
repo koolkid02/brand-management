@@ -33,6 +33,8 @@ import argparse
 import dataclasses
 import json
 
+from langsmith import traceable
+
 from config import ModelRoleConfig, get_role_config
 from llm.client import call_json
 from memory.brand_memory import load_brand
@@ -139,12 +141,13 @@ def build_framework_prompt(
     return system_prompt, user_prompt
 
 
+@traceable(tags=["module_b", "frameworks_apply"])
 def call_llm_for_framework(
-    framework: dict, grounded: dict, working_brief: dict, config: ModelRoleConfig,
+    framework: dict, grounded: dict, working_brief: dict, role_config: ModelRoleConfig,
     redirect_feedback: str | None = None,
 ) -> dict:
     system_prompt, user_prompt = build_framework_prompt(framework, grounded, working_brief, redirect_feedback)
-    return call_json(config, system_prompt, user_prompt, required_keys=set(framework["output_schema"].keys()))
+    return call_json(role_config, system_prompt, user_prompt, required_keys=set(framework["output_schema"].keys()))
 
 
 def generate_mock_swot(grounded: dict, working_brief: dict, brand: dict) -> dict:
@@ -310,12 +313,13 @@ def build_seven_ps_prompt(
     return system_prompt, user_prompt
 
 
+@traceable(tags=["module_b", "frameworks_apply"])
 def call_llm_for_seven_ps(
-    framework: dict, grounded: dict, working_brief: dict, config: ModelRoleConfig,
+    framework: dict, grounded: dict, working_brief: dict, role_config: ModelRoleConfig,
     redirect_feedback: str | None = None,
 ) -> dict:
     system_prompt, user_prompt = build_seven_ps_prompt(framework, grounded, working_brief, redirect_feedback)
-    return call_json(config, system_prompt, user_prompt, required_keys=set(framework["output_schema"].keys()))
+    return call_json(role_config, system_prompt, user_prompt, required_keys=set(framework["output_schema"].keys()))
 
 
 def generate_mock_seven_ps(grounded: dict, working_brief: dict, brand: dict) -> dict:
