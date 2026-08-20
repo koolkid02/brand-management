@@ -114,6 +114,12 @@
         "event_type": "campaign",
         "title": "Provenance / maker-story-led campaign -- narrow recommendation",
         "summary": "Ran a Provenance / maker-story-led campaign (variant v5, headline: 'Every piece has a story'). Strongest reaction from Riya (final=9.7): Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 10.0/10. Recommendation: narrow."
+      },
+      {
+        "date": "2026-08-16",
+        "event_type": "campaign",
+        "title": "Beyond The Trend Campaign",
+        "summary": "The campaign used a problem-solution angle to connect material sourcing and craftsmanship with the value of lasting quality."
       }
     ]
   },
@@ -194,6 +200,13 @@
       "category": "fashion_d2c",
       "observation": "The Provenance / maker-story-led variant ('Every piece has a story') for Loom & Aster, targeting Our premium and loyal-core segments - 28-45, urban professionals, low purchase frequency but high AOV, they research before they buy and care about the maker story, not the trend cycle., scored 4.9/10 average across persona reactions; evaluation recommended to narrow.",
       "date_observed": "2026-08-15"
+    },
+    {
+      "insight_id": "loom_012",
+      "tag": "provenance_quality_drives_trust",
+      "category": "fashion_d2c",
+      "observation": "Loom & Aster's emphasis on material provenance and enduring quality successfully resonated with premium consumers concerned about product longevity and value.",
+      "date_observed": "2026-08-16"
     }
   ]
 }

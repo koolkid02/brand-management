@@ -19,7 +19,7 @@ from datetime import date
 
 from langsmith import traceable
 
-from config import get_role_config
+from config import get_memory_backend, get_role_config
 from llm.client import embed_texts
 from memory.embedding_utils import cosine_similarity, keyword_overlap
 
@@ -64,6 +64,39 @@ def retrieve(
     embedding_config=None,
     mock: bool = False,
 ) -> list[dict]:
+    # `trends` explicitly supplied by the caller bypasses storage entirely
+    # (used by tests to inject fixture data) -- falls through to the same
+    # local in-memory ranking logic regardless of backend.
+    if get_memory_backend() == "supabase" and trends is None:
+        from memory.backends import supabase_pg
+
+        if mock:
+            candidates = supabase_pg.load_trends(category=category)
+            similarities = [keyword_overlap(query, t["label"]) for t in candidates]
+        else:
+            embedding_config = embedding_config or get_role_config("embedding")
+            query_vec = embed_texts(embedding_config, [query])[0]
+            # NO SQL-side LIMIT here (see retrieve_trend_candidates docstring):
+            # decay is a function of "today" and can't be indexed, so the
+            # final top_k truncation below (after combining similarity*decay)
+            # must see every candidate, not a pre-truncated top-N by raw
+            # similarity alone.
+            candidates = supabase_pg.retrieve_trend_candidates(query_vec, category=category)
+            similarities = [c["similarity"] for c in candidates]
+        if not candidates:
+            return []
+        scored = []
+        for trend, similarity in zip(candidates, similarities):
+            decay_weight = compute_decay_weight(trend["date_observed"], as_of, half_life_days)
+            scored.append({
+                **trend,
+                "similarity": similarity,
+                "decay_weight": decay_weight,
+                "score": similarity * decay_weight,
+            })
+        scored.sort(key=lambda t: -t["score"])
+        return scored[:top_k]
+
     trends = trends if trends is not None else load_trends()
     if category is not None:
         trends = [t for t in trends if t["category"] == category]

@@ -204,5 +204,13 @@ def embed_texts(config: ModelRoleConfig, texts: list[str]) -> list[list[float]]:
     response = client.embeddings.create(
         model=config.model, input=texts, timeout=config.request_timeout
     )
-    ordered = sorted(response.data, key=lambda d: d.index)
-    return [d.embedding for d in ordered]
+    # Gemini's OpenAI-compatible embeddings endpoint has been observed (live
+    # testing) to omit `index` (returns None) on the first item of a batch --
+    # unlike OpenAI/Ollama's APIs, which always populate it. Response order
+    # otherwise reliably matches input order, so fall back to each item's
+    # position in the raw list rather than trusting `index` unconditionally.
+    ordered = sorted(
+        enumerate(response.data),
+        key=lambda pair: pair[1].index if pair[1].index is not None else pair[0],
+    )
+    return [d.embedding for _, d in ordered]

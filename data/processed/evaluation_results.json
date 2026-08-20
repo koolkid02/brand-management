@@ -1,5 +1,5 @@
 {
-  "brand_id": "loom_and_aster",
+  "brand_id": "glowroot",
   "evaluation_results": [
     {
       "variant_id": "v1",
@@ -7,89 +7,89 @@
         {
           "persona_id": "cluster_0",
           "persona_name": "Ria Jain",
-          "baseline_score": 5.77,
-          "adjustment": -0.3,
-          "final_score": 5.47,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.77/10.",
-          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 3.92,
+          "adjustment": -1.8,
+          "final_score": 2.12,
+          "adjustment_reason": "The copy focuses entirely on ingredient transparency and science rather than my core buying triggers of discounts, best price guarantees, or promo codes, which makes it an easy pass.",
+          "reaction_summary": "I don't care about ingredient breakdowns or dermatologists when there's not a single discount, clearance sale, or coupon code in sight.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_1",
           "persona_name": "Ananya",
-          "baseline_score": 5.17,
-          "adjustment": 0.08,
-          "final_score": 5.25,
-          "adjustment_reason": "Mock heuristic: 0.06 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.17/10.",
-          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 7.47,
+          "adjustment": -2.5,
+          "final_score": 4.97,
+          "adjustment_reason": "I am looking for fashion, milestone outfits, and gifts rather than skincare formulations, making this messaging angle a complete mismatch for my buying triggers.",
+          "reaction_summary": "As a busy professional focused on curated style and wardrobe upgrades, skincare ingredient breakdowns like this feel totally detached from what I'm shopping for.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_2",
           "persona_name": "Sneha",
-          "baseline_score": 1.87,
-          "adjustment": -0.3,
-          "final_score": 1.57,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 1.87/10.",
-          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 0.95,
+          "adjustment": -0.75,
+          "final_score": 0.2,
+          "adjustment_reason": "While the ingredient transparency matches current seasonal trends, it misses my primary buying triggers of exclusive discounts and early access.",
+          "reaction_summary": "I really appreciate transparency in skincare, but as a loyal customer who lives for early access and loyalty perks, this science-heavy pitch doesn't give me any exclusive deals or excitement about my usual restocks.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_3",
           "persona_name": "Rohan Jain",
-          "baseline_score": 9.55,
-          "adjustment": -0.3,
-          "final_score": 9.25,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10.",
-          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 3.8,
+          "adjustment": -1.5,
+          "final_score": 2.3,
+          "adjustment_reason": "The copy focuses on clinical science and transparency rather than a hyped drop or restock alert, which completely misses my primary buying triggers.",
+          "reaction_summary": "Look, ingredient transparency is cool and all, but where is the actual drop or limited-edition collab I can chase right now?",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_4",
           "persona_name": "Riya",
-          "baseline_score": 0.0,
-          "adjustment": -0.3,
-          "final_score": 0.0,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 0.0/10.",
-          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 3.05,
+          "adjustment": -0.05,
+          "final_score": 3.0,
+          "adjustment_reason": "The precise formulation details and clinical transparency appeal to my discerning standards, even if it falls slightly outside my core fashion interests.",
+          "reaction_summary": "As someone who expects absolute transparency and refined curation, I appreciate the scientific breakdown, though skincare isn't my primary luxury focus.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_5",
           "persona_name": "Isha",
-          "baseline_score": 6.31,
-          "adjustment": 0.56,
-          "final_score": 6.87,
-          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 6.31/10.",
-          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 7.42,
+          "adjustment": -1.2,
+          "final_score": 6.22,
+          "adjustment_reason": "While the ingredient deep-dive matches current trends, the lack of new-customer discounts or sizing/fit details leaves me hesitant.",
+          "reaction_summary": "I really like seeing the exact breakdown of what's in the formula, but I'm still trying to figure out what fits best for me.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_6",
           "persona_name": "Meera",
-          "baseline_score": 5.64,
-          "adjustment": -0.3,
-          "final_score": 5.34,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 5.64/10.",
-          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 7.69,
+          "adjustment": -1.5,
+          "final_score": 6.19,
+          "adjustment_reason": "While the ingredient transparency aligns with current trends, the copy fails to address my key purchasing triggers like delivery speed, sizing, and return policies.",
+          "reaction_summary": "I appreciate the transparency about the active ingredients and formulation, but since I'm mostly focused on delivery times and easy returns when shopping online, this doesn't fully address my main concerns.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         }
       ],
       "synthesis": {
-        "traction_tier": "moderate",
-        "driving_factor": "Strongest reaction from Rohan Jain (final=9.25): Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Social proof / UGC-led baseline of 9.55/10.",
-        "targeting_implication": "Weakest reaction from Riya (final=0.0) suggests narrowing away from that segment if scaling the Social proof / UGC-led angle.",
-        "recommendation": "narrow"
+        "traction_tier": "weak",
+        "driving_factor": "The problem-solution angle focused on formulation transparency fails to resonate with broader shoppers and misses critical commercial triggers like discounts, promotions, and return policies.",
+        "targeting_implication": "Even among skincare-conscious segments, targeting must incorporate commercial incentives and value offers rather than relying purely on technical transparency.",
+        "recommendation": "revise"
       },
-      "evaluation_method": "mock",
-      "evaluation_model": null
+      "evaluation_method": "llm",
+      "evaluation_model": "gemini-flash-lite-latest"
     },
     {
       "variant_id": "v2",
@@ -97,182 +97,92 @@
         {
           "persona_id": "cluster_0",
           "persona_name": "Ria Jain",
-          "baseline_score": 0.0,
-          "adjustment": -0.3,
-          "final_score": 0.0,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 0.0/10.",
-          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 5.77,
+          "adjustment": -0.77,
+          "final_score": 5.0,
+          "adjustment_reason": "The focus on mid-tier pricing and formulation science appeals to my smart shopping mindset, but the lack of a clear discount or coupon holds me back.",
+          "reaction_summary": "I appreciate the transparency about active percentages and accessible pricing, but without a direct discount code or clearance sale, I'm just looking at science I can't afford.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_1",
           "persona_name": "Ananya",
-          "baseline_score": 3.96,
-          "adjustment": 0.08,
-          "final_score": 4.04,
-          "adjustment_reason": "Mock heuristic: 0.06 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 3.96/10.",
-          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 5.17,
+          "adjustment": -1.5,
+          "final_score": 3.67,
+          "adjustment_reason": "Since my buying triggers center on fashion, milestone outfits, and elegant gifting rather than active ingredient percentages, this skincare-focused copy doesn't resonate with my lifestyle.",
+          "reaction_summary": "As a busy professional focused on curated style rather than skincare formulation science, this lab-heavy messaging feels a bit too clinical and misses my personal fashion and gifting triggers.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_2",
           "persona_name": "Sneha",
-          "baseline_score": 8.47,
-          "adjustment": -0.3,
-          "final_score": 8.17,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 8.47/10.",
-          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 1.87,
+          "adjustment": -1.5,
+          "final_score": 0.37,
+          "adjustment_reason": "The focus on clinical lab data and active percentages feels too clinical and cold, ignoring my primary triggers of loyalty perks, discounts, and early access.",
+          "reaction_summary": "I love checking my loyalty points and getting early access, but this lab-data heavy copy completely misses my excitement for perks and restock alerts.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_3",
           "persona_name": "Rohan Jain",
-          "baseline_score": 4.84,
-          "adjustment": -0.3,
-          "final_score": 4.54,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 4.84/10.",
-          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 9.55,
+          "adjustment": -2.5,
+          "final_score": 7.05,
+          "adjustment_reason": "The ad focuses on clinical data and skincare ingredients rather than hype, restock alerts, or streetwear drops, which misses my core buying triggers entirely.",
+          "reaction_summary": "Hold on, this copy is talking about lab sheets and niacinamide instead of hyping up a fresh streetwear drop or a sick sneaker collab. I'm all about the rush of copping rare gear ASAP, not reading clinical trial summaries for skincare.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_4",
           "persona_name": "Riya",
-          "baseline_score": 10.0,
-          "adjustment": -0.3,
-          "final_score": 9.7,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 10.0/10.",
-          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 0.0,
+          "adjustment": -1.5,
+          "final_score": 0.0,
+          "adjustment_reason": "Active-ingredient deep dives and lab sheet proof do not trigger my luxury fashion buying habits or desire for exclusive designer pieces.",
+          "reaction_summary": "As a fashion enthusiast who values refined luxury, reading clinical trial summaries and niacinamide percentages feels far too clinical and uninspiring for my taste. I prefer curated collections and aesthetic storytelling over lab sheets.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_5",
           "persona_name": "Isha",
-          "baseline_score": 2.79,
-          "adjustment": -0.3,
-          "final_score": 2.49,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 2.79/10.",
-          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 6.31,
+          "adjustment": -1.5,
+          "final_score": 4.81,
+          "adjustment_reason": "The heavy focus on lab sheets and clinical percentages misses my main buying triggers like discounts or easy returns while leaning too hard into an analytical angle.",
+          "reaction_summary": "I mean, I love knowing what's in my skincare, but this ad feels a bit too technical and clinical when I'm just trying to figure out what works for my skin.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_6",
           "persona_name": "Meera",
-          "baseline_score": 3.74,
-          "adjustment": -0.3,
-          "final_score": 3.44,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 3.74/10.",
-          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 5.64,
+          "adjustment": -1.2,
+          "final_score": 4.44,
+          "adjustment_reason": "While the focus on active ingredient percentages and lab data appeals to the current trend of ingredient-deep-dives, it misses my key priorities of delivery time, detailed size/fit info, and clear return policies.",
+          "reaction_summary": "I really appreciate seeing actual lab percentages and clinical trial summaries instead of just marketing hype, though as someone who likes to be cautious, I'd still want to double-check the return policy before trying it.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         }
       ],
       "synthesis": {
-        "traction_tier": "moderate",
-        "driving_factor": "Strongest reaction from Riya (final=9.7): Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Aspirational / premium-led baseline of 10.0/10.",
-        "targeting_implication": "Weakest reaction from Ria Jain (final=0.0) suggests narrowing away from that segment if scaling the Aspirational / premium-led angle.",
-        "recommendation": "narrow"
+        "traction_tier": "weak",
+        "driving_factor": "The heavy focus on lab sheets and clinical data fails to resonate with broader shoppers while alienating the intended label-reading audience through a lack of tangible value offers like discounts.",
+        "targeting_implication": "Even among analytical shoppers, the angle falls flat without commercial incentives, while completely missing lifestyle and fashion-oriented segments.",
+        "recommendation": "revise"
       },
-      "evaluation_method": "mock",
-      "evaluation_model": null
+      "evaluation_method": "llm",
+      "evaluation_model": "gemini-flash-lite-latest"
     },
     {
       "variant_id": "v3",
-      "persona_reactions": [
-        {
-          "persona_id": "cluster_0",
-          "persona_name": "Ria Jain",
-          "baseline_score": 3.92,
-          "adjustment": -0.3,
-          "final_score": 3.62,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.92/10.",
-          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        },
-        {
-          "persona_id": "cluster_1",
-          "persona_name": "Ananya",
-          "baseline_score": 7.47,
-          "adjustment": 0.08,
-          "final_score": 7.55,
-          "adjustment_reason": "Mock heuristic: 0.06 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.47/10.",
-          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        },
-        {
-          "persona_id": "cluster_2",
-          "persona_name": "Sneha",
-          "baseline_score": 0.95,
-          "adjustment": -0.3,
-          "final_score": 0.65,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 0.95/10.",
-          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        },
-        {
-          "persona_id": "cluster_3",
-          "persona_name": "Rohan Jain",
-          "baseline_score": 3.8,
-          "adjustment": -0.3,
-          "final_score": 3.5,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.8/10.",
-          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        },
-        {
-          "persona_id": "cluster_4",
-          "persona_name": "Riya",
-          "baseline_score": 3.05,
-          "adjustment": -0.3,
-          "final_score": 2.75,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 3.05/10.",
-          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        },
-        {
-          "persona_id": "cluster_5",
-          "persona_name": "Isha",
-          "baseline_score": 7.42,
-          "adjustment": -0.3,
-          "final_score": 7.12,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.42/10.",
-          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        },
-        {
-          "persona_id": "cluster_6",
-          "persona_name": "Meera",
-          "baseline_score": 7.69,
-          "adjustment": -0.3,
-          "final_score": 7.39,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.69/10.",
-          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
-        }
-      ],
-      "synthesis": {
-        "traction_tier": "moderate",
-        "driving_factor": "Strongest reaction from Ananya (final=7.55): Mock heuristic: 0.06 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Problem-solution baseline of 7.47/10.",
-        "targeting_implication": "Weakest reaction from Sneha (final=0.65) suggests narrowing away from that segment if scaling the Problem-solution angle.",
-        "recommendation": "narrow"
-      },
-      "evaluation_method": "mock",
-      "evaluation_model": null
-    },
-    {
-      "variant_id": "v4",
       "persona_reactions": [
         {
           "persona_id": "cluster_0",
@@ -282,19 +192,19 @@
           "final_score": 7.06,
           "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 7.36/10.",
           "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "generation_method": "llm_fallback",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_1",
           "persona_name": "Ananya",
           "baseline_score": 3.97,
-          "adjustment": 0.08,
-          "final_score": 4.05,
-          "adjustment_reason": "Mock heuristic: 0.06 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 3.97/10.",
-          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "adjustment": 1.5,
+          "final_score": 5.47,
+          "adjustment_reason": "The copy strongly addresses my need for ingredient-level detail and expert vetting, which helps overcome my quality concerns.",
+          "reaction_summary": "As a busy professional who loves digging into details and reviews before buying, I really appreciate seeing the exact formulation and clinical transparency rather than just vague claims.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_2",
@@ -304,41 +214,41 @@
           "final_score": 1.55,
           "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 1.85/10.",
           "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "generation_method": "llm_fallback",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_3",
           "persona_name": "Rohan Jain",
           "baseline_score": 10.0,
-          "adjustment": 0.56,
-          "final_score": 10.0,
-          "adjustment_reason": "Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
+          "adjustment": -0.3,
+          "final_score": 9.7,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
           "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "generation_method": "llm_fallback",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_4",
           "persona_name": "Riya",
           "baseline_score": 0.47,
-          "adjustment": -0.3,
-          "final_score": 0.17,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 0.47/10.",
+          "adjustment": -0.59,
+          "final_score": 0.0,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.07 overlap with stated objections, against the Trend / FOMO-led baseline of 0.47/10.",
           "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "generation_method": "llm_fallback",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_5",
           "persona_name": "Isha",
           "baseline_score": 4.96,
-          "adjustment": -0.3,
-          "final_score": 4.66,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 4.96/10.",
+          "adjustment": -0.74,
+          "final_score": 4.22,
+          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.11 overlap with stated objections, against the Trend / FOMO-led baseline of 4.96/10.",
           "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "generation_method": "llm_fallback",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_6",
@@ -348,18 +258,108 @@
           "final_score": 3.87,
           "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 4.17/10.",
           "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "generation_method": "llm_fallback",
+          "model": "gemini-flash-lite-latest"
         }
       ],
       "synthesis": {
         "traction_tier": "moderate",
-        "driving_factor": "Strongest reaction from Rohan Jain (final=10.0): Mock heuristic: 0.14 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
-        "targeting_implication": "Weakest reaction from Riya (final=0.17) suggests narrowing away from that segment if scaling the Trend / FOMO-led angle.",
+        "driving_factor": "Strongest reaction from Rohan Jain (final=9.7): Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Trend / FOMO-led baseline of 10.0/10.",
+        "targeting_implication": "Weakest reaction from Riya (final=0.0) suggests narrowing away from that segment if scaling the Trend / FOMO-led angle.",
         "recommendation": "narrow"
       },
-      "evaluation_method": "mock",
-      "evaluation_model": null
+      "evaluation_method": "llm_fallback",
+      "evaluation_model": "gemini-flash-lite-latest"
+    },
+    {
+      "variant_id": "v4",
+      "persona_reactions": [
+        {
+          "persona_id": "cluster_0",
+          "persona_name": "Ria Jain",
+          "baseline_score": 0.04,
+          "adjustment": -1.5,
+          "final_score": 0.0,
+          "adjustment_reason": "The copy focuses entirely on maker origin and clinical formulation without mentioning any price breaks, deals, or coupons.",
+          "reaction_summary": "I don't care who made it in a lab or where they sourced the ingredients if there is no discount code or clearance sale attached to the price.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        },
+        {
+          "persona_id": "cluster_1",
+          "persona_name": "Ananya",
+          "baseline_score": 4.29,
+          "adjustment": -1.5,
+          "final_score": 2.79,
+          "adjustment_reason": "While the scientific provenance and monsoon relevance align with current seasonal trends, the skincare product category is entirely misaligned with my primary interest in fashion and apparel.",
+          "reaction_summary": "As a busy professional managing a packed schedule, reading about dermatologists formulating specifically for Indian humidity catches my eye, but skincare isn't quite what I'm looking for when I'm trying to curate a stylish wardrobe or shop for festive sherwanis.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        },
+        {
+          "persona_id": "cluster_2",
+          "persona_name": "Sneha",
+          "baseline_score": 7.02,
+          "adjustment": -1.0,
+          "final_score": 6.02,
+          "adjustment_reason": "While I love the ingredient deep dive and seasonal relevance, the lack of a loyalty perk, discount, or early access offer holds back a higher score.",
+          "reaction_summary": "I really love hearing about the dermatologists behind these formulas and the exact percentages, especially since skin-barrier repair for the monsoon is so timely right now!",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        },
+        {
+          "persona_id": "cluster_3",
+          "persona_name": "Rohan Jain",
+          "baseline_score": 5.13,
+          "adjustment": -1.8,
+          "final_score": 3.33,
+          "adjustment_reason": "The maker-story and clinical formulation angle completely misses my sneaker-head buying triggers of drops, restocks, and hype.",
+          "reaction_summary": "I don't care about lab makers or monsoon history, I just want to know if there's an actual drop I can cop right now before it sells out. Give me a restock alert or a collab, not a science lecture.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        },
+        {
+          "persona_id": "cluster_4",
+          "persona_name": "Riya",
+          "baseline_score": 10.0,
+          "adjustment": -2.0,
+          "final_score": 8.0,
+          "adjustment_reason": "While the provenance-led messaging and exact-percentage ingredient transparency are executed brilliantly, my core buying triggers are centered on luxury fashion rather than skincare.",
+          "reaction_summary": "As someone who appreciates meticulous craftsmanship and transparency, I am deeply impressed by a brand that leads with scientific provenance and exact active percentages. However, my primary passion lies in luxury fashion and exclusive designer collections rather than clinical skincare.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        },
+        {
+          "persona_id": "cluster_5",
+          "persona_name": "Isha",
+          "baseline_score": 4.38,
+          "adjustment": -0.8,
+          "final_score": 3.58,
+          "adjustment_reason": "The ingredient-deep-dive and dermatologist angle match current seasonal skincare trends well, but the lack of new customer discount or shipping info leaves me undecided.",
+          "reaction_summary": "I really like seeing the exact active ingredients and knowing dermatologists made this for our climate, but I'm still trying to figure out my skin type and whether there's any discount for my first order.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        },
+        {
+          "persona_id": "cluster_6",
+          "persona_name": "Meera",
+          "baseline_score": 4.91,
+          "adjustment": -0.81,
+          "final_score": 4.1,
+          "adjustment_reason": "The ingredient transparency and dermatologist backing appeal to my cautious nature, but the copy misses my key practical needs regarding delivery and returns.",
+          "reaction_summary": "I really appreciate seeing the exact ingredient percentages like that, but I'm still wondering about how it fits into my routine and if the price is right for me.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
+        }
+      ],
+      "synthesis": {
+        "traction_tier": "weak",
+        "driving_factor": "The provenance and dermatologist-backed formulation angle strongly appeals to ingredient-conscious skincare shoppers, but fails due to severe vertical mismatch with apparel/sneaker personas and an absence of pricing or promotional incentives.",
+        "targeting_implication": "Campaign must be strictly restricted to beauty and skincare enthusiast segments while filtering out fashion and sneaker audiences.",
+        "recommendation": "narrow"
+      },
+      "evaluation_method": "llm",
+      "evaluation_model": "gemini-flash-lite-latest"
     },
     {
       "variant_id": "v5",
@@ -367,101 +367,101 @@
         {
           "persona_id": "cluster_0",
           "persona_name": "Ria Jain",
-          "baseline_score": 0.04,
-          "adjustment": -0.3,
-          "final_score": 0.0,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Ria Jain's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 0.04/10.",
-          "reaction_summary": "I'll take the sale over full price any day! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 6.0,
+          "adjustment": -0.5,
+          "final_score": 5.5,
+          "adjustment_reason": "The copy speaks to ingredient transparency and avoiding markups which aligns with smart shopping, but without a direct price cut or clearance deal it doesn't fully trigger my bargain-hunting instincts.",
+          "reaction_summary": "I appreciate the transparency about active percentages and no markup, but as a bargain hunter, I'm missing a clear discount or promo code.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_1",
           "persona_name": "Ananya",
-          "baseline_score": 4.29,
-          "adjustment": 0.08,
-          "final_score": 4.37,
-          "adjustment_reason": "Mock heuristic: 0.06 keyword overlap with Ananya's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 4.29/10.",
-          "reaction_summary": "I want to look and feel great, without breaking the bank or sacrificing style. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 4.98,
+          "adjustment": 1.2,
+          "final_score": 6.18,
+          "adjustment_reason": "The transparent, ingredient-deep-dive approach directly addresses my discerning style and need for factual quality details.",
+          "reaction_summary": "As a busy professional who loves reading reviews to ensure the best fit, I really appreciate how this copy cuts through the marketing fluff to give me the exact ingredient percentages.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_2",
           "persona_name": "Sneha",
-          "baseline_score": 7.02,
-          "adjustment": -0.3,
-          "final_score": 6.72,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Sneha's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 7.02/10.",
-          "reaction_summary": "I love that I can get 10% off on my next order with my loyalty points - it's the best feeling! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 1.44,
+          "adjustment": 0.8,
+          "final_score": 2.24,
+          "adjustment_reason": "While I normally look for loyalty perks and early access, this brilliant ingredient-deep-dive copy hits the exact seasonal trend for humidity-smart skincare with refreshing honesty.",
+          "reaction_summary": "I love how transparent they are about the ingredients and percentages instead of just using fluffy marketing language! It totally satisfies my inner skincare nerd.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_3",
           "persona_name": "Rohan Jain",
-          "baseline_score": 5.13,
-          "adjustment": -0.3,
-          "final_score": 4.83,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Rohan Jain's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 5.13/10.",
-          "reaction_summary": "I need that drop in my hands ASAP, can't let the hype pass me by! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 9.98,
+          "adjustment": -0.48,
+          "final_score": 9.5,
+          "adjustment_reason": "The explicit focus on exact percentages and formulation transparency hits my analytical side, making this a strong fit even though it's skincare rather than streetwear.",
+          "reaction_summary": "I love the transparent approach here\u2014calling out the actual percentages and cutting the influencer fluff makes me want to inspect these formulations right now.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_4",
           "persona_name": "Riya",
-          "baseline_score": 10.0,
-          "adjustment": -0.3,
-          "final_score": 9.7,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 10.0/10.",
-          "reaction_summary": "I only shop with brands that understand my taste for luxury and exclusivity. (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 0.72,
+          "adjustment": 1.5,
+          "final_score": 2.22,
+          "adjustment_reason": "While my historical baseline for irreverent humor is low, the sharp focus on scientific formulation and ingredient transparency directly addresses my demand for high craftsmanship and quality.",
+          "reaction_summary": "I appreciate the transparency of exact percentages and ingredient-first formulations, especially since I need skincare that stands up to Indian humidity without resorting to marketing fluff.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_5",
           "persona_name": "Isha",
-          "baseline_score": 4.38,
-          "adjustment": -0.3,
-          "final_score": 4.08,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Isha's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 4.38/10.",
-          "reaction_summary": "I'm not sure if I should buy this, but the size chart looks really accurate and I love the color! (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 6.42,
+          "adjustment": -0.42,
+          "final_score": 6.0,
+          "adjustment_reason": "The detailed ingredient-list transparency directly addresses my interest in deep-dive formulation info, but the lack of a new customer discount or shipping detail keeps my indecision intact.",
+          "reaction_summary": "I really like seeing the exact ingredient percentages instead of just vague marketing claims, though I'm still a bit hesitant about whether it'll work for my skin.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         },
         {
           "persona_id": "cluster_6",
           "persona_name": "Meera",
-          "baseline_score": 4.91,
-          "adjustment": -0.3,
-          "final_score": 4.61,
-          "adjustment_reason": "Mock heuristic: 0.00 keyword overlap with Meera's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 4.91/10.",
-          "reaction_summary": "I'm still deciding between these two options, can you tell me more about the fit? (mock heuristic reaction, not a live model call)",
-          "generation_method": "mock",
-          "model": null
+          "baseline_score": 5.81,
+          "adjustment": 1.2,
+          "final_score": 7.01,
+          "adjustment_reason": "The focus on exact percentages and transparent ingredient lists strongly appeals to my need for clear, factual details before trying a new product.",
+          "reaction_summary": "I really appreciate how direct this is about the ingredient list, even though I'm usually so cautious about buying skincare online without checking every detail first.",
+          "generation_method": "llm",
+          "model": "gemini-flash-lite-latest"
         }
       ],
       "synthesis": {
         "traction_tier": "moderate",
-        "driving_factor": "Strongest reaction from Riya (final=9.7): Mock heuristic: 0.00 keyword overlap with Riya's buying triggers, 0.00 overlap with stated objections, against the Provenance / maker-story-led baseline of 10.0/10.",
-        "targeting_implication": "Weakest reaction from Ria Jain (final=0.0) suggests narrowing away from that segment if scaling the Provenance / maker-story-led angle.",
-        "recommendation": "narrow"
+        "driving_factor": "The emphasis on exact percentages and transparent ingredient-list deep dives strongly resonates with analytical and detail-oriented shoppers, though it lacks pricing incentives for bargain-hunters.",
+        "targeting_implication": "Best targeted at ingredient-conscious beauty consumers and analytical researchers who prioritize formulation facts over discounts.",
+        "recommendation": "revise"
       },
-      "evaluation_method": "mock",
-      "evaluation_model": null
+      "evaluation_method": "llm",
+      "evaluation_model": "gemini-flash-lite-latest"
     }
   ],
   "ranking": {
     "ranked_variant_ids": [
       "v5",
-      "v1",
       "v3",
-      "v2",
-      "v4"
+      "v4",
+      "v1",
+      "v2"
     ],
-    "ranking_rationale": "Ranked by average persona final_score (mock heuristic, no LLM). Top variant v5 led with avg=4.9/10 (tier=moderate, recommendation=narrow).",
-    "ranking_method": "mock",
-    "ranking_model": null
+    "ranking_rationale": "Variants are ordered from best to worst based on their average persona scores and alignment with the campaign goal of converting ingredient-label-readers through deep formulation transparency. Variant 5 leads with a score of 5.5 due to its strong resonance with analytical shoppers, followed by Variant 3 (4.6) and Variant 4 (4.0). Variants 1 and 2 tie at the bottom with scores of 3.6, failing to effectively engage the target audience or provide necessary commercial triggers.",
+    "ranking_method": "llm",
+    "ranking_model": "gemini-flash-lite-latest"
   }
 }

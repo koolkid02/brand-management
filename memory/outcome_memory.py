@@ -36,7 +36,7 @@ from datetime import date
 
 from langsmith import traceable
 
-from config import ModelRoleConfig, get_role_config
+from config import ModelRoleConfig, get_memory_backend, get_role_config
 from llm.client import call_json
 from memory import market_memory
 from memory.brand_memory import SEED_BRANDS_DIR, _next_insight_id, append_insight_and_history, load_brand
@@ -306,36 +306,67 @@ def record_campaign_outcome(
     brand = load_brand(brand_id, seed_dir)
 
     synthesis, synthesis_method = synthesize_outcome(brand, working_brief, approved_variant, evaluation_result, config, mock)
-
-    # Tag resolution/registration MUST complete before the brand file write
-    # below -- if reversed and a crash happened in between, a brand file
-    # could reference a tag not yet in tag_library.json, and the next
-    # run_aggregation() call (across ALL brands) would hard-fail.
-    tag_id, tag_newly_created = market_memory.resolve_or_create_tag(
-        pattern_statement_candidate=synthesis["pattern_statement"],
-        suggested_tag_id=synthesis["suggested_tag_id"],
-        embedding_config=embedding_config,
-        mock=mock,
-        similarity_threshold=similarity_threshold,
-        tag_library_path=tag_library_path,
-    )
-
     observed_date = (as_of or date.today()).isoformat()
-    insight = {
-        "insight_id": _next_insight_id(brand_id, brand["insights"]),
-        "tag": tag_id,
-        "category": brand["semantic"]["category"],
-        "observation": synthesis["observation"],
-        "date_observed": observed_date,
-    }
-    history_entry = {
-        "date": observed_date,
-        "event_type": "campaign",
-        "title": synthesis["event_title"],
-        "summary": synthesis["event_summary"],
-    }
 
-    append_insight_and_history(brand_id, insight, history_entry, seed_dir=seed_dir)
+    if get_memory_backend() == "supabase":
+        # Real transaction, not just write-ordering: tag resolution/creation
+        # and the insight+history write commit together or not at all --
+        # strengthens the local-JSON guarantee below (which only prevents a
+        # *dangling reference*, not a partial write) into true atomicity.
+        from memory import db as memory_db
+
+        with memory_db.get_connection() as conn:
+            tag_id, tag_newly_created = market_memory.resolve_or_create_tag(
+                pattern_statement_candidate=synthesis["pattern_statement"],
+                suggested_tag_id=synthesis["suggested_tag_id"],
+                embedding_config=embedding_config,
+                mock=mock,
+                similarity_threshold=similarity_threshold,
+                tag_library_path=tag_library_path,
+                conn=conn,
+            )
+            insight = {
+                "insight_id": _next_insight_id(brand_id, brand["insights"]),
+                "tag": tag_id,
+                "category": brand["semantic"]["category"],
+                "observation": synthesis["observation"],
+                "date_observed": observed_date,
+            }
+            history_entry = {
+                "date": observed_date,
+                "event_type": "campaign",
+                "title": synthesis["event_title"],
+                "summary": synthesis["event_summary"],
+            }
+            append_insight_and_history(brand_id, insight, history_entry, conn=conn)
+            conn.commit()
+    else:
+        # Tag resolution/registration MUST complete before the brand file write
+        # below -- if reversed and a crash happened in between, a brand file
+        # could reference a tag not yet in tag_library.json, and the next
+        # run_aggregation() call (across ALL brands) would hard-fail.
+        tag_id, tag_newly_created = market_memory.resolve_or_create_tag(
+            pattern_statement_candidate=synthesis["pattern_statement"],
+            suggested_tag_id=synthesis["suggested_tag_id"],
+            embedding_config=embedding_config,
+            mock=mock,
+            similarity_threshold=similarity_threshold,
+            tag_library_path=tag_library_path,
+        )
+        insight = {
+            "insight_id": _next_insight_id(brand_id, brand["insights"]),
+            "tag": tag_id,
+            "category": brand["semantic"]["category"],
+            "observation": synthesis["observation"],
+            "date_observed": observed_date,
+        }
+        history_entry = {
+            "date": observed_date,
+            "event_type": "campaign",
+            "title": synthesis["event_title"],
+            "summary": synthesis["event_summary"],
+        }
+        append_insight_and_history(brand_id, insight, history_entry, seed_dir=seed_dir)
 
     aggregation_triggered = False
     aggregation_result = None
@@ -343,7 +374,7 @@ def record_campaign_outcome(
         try:
             aggregation_result = market_memory.run_aggregation(
                 seed_brands_dir=seed_dir, output_path=market_memory_output_path,
-                tag_library_path=tag_library_path,
+                tag_library_path=tag_library_path, mock=mock, embedding_config=embedding_config,
             )
             aggregation_triggered = True
         except Exception as exc:  # noqa: BLE001 -- the brand write already succeeded; never roll it back

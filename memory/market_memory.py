@@ -33,7 +33,7 @@ import os
 
 from langsmith import traceable
 
-from config import get_role_config
+from config import get_memory_backend, get_role_config
 from llm.client import embed_texts
 from memory.brand_memory import load_all_brands
 from memory.embedding_utils import cosine_similarity, keyword_overlap
@@ -51,6 +51,9 @@ def _atomic_write_json(path: str, obj) -> None:
 
 
 def load_tag_library(path: str = DEFAULT_TAG_LIBRARY_PATH) -> dict[str, str]:
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        return supabase_pg.load_tag_library()
     with open(path) as f:
         tag_library = json.load(f)
     if not isinstance(tag_library, dict) or not all(isinstance(v, str) for v in tag_library.values()):
@@ -58,12 +61,21 @@ def load_tag_library(path: str = DEFAULT_TAG_LIBRARY_PATH) -> dict[str, str]:
     return tag_library
 
 
-def register_new_tag(tag_id: str, pattern_statement: str, path: str = DEFAULT_TAG_LIBRARY_PATH) -> None:
-    """The only writer of tag_library.json. Raises if tag_id already exists
+def register_new_tag(
+    tag_id: str, pattern_statement: str, path: str = DEFAULT_TAG_LIBRARY_PATH,
+    embedding: list[float] | None = None, conn=None,
+) -> None:
+    """The only writer of the tag vocabulary. Raises if tag_id already exists
     (defense-in-depth -- callers should have already checked via
-    resolve_or_create_tag). Atomic write so a crash can never leave the file
-    truncated -- every run_aggregation() call across every brand depends on
-    it parsing cleanly."""
+    resolve_or_create_tag). Local backend: atomic file write so a crash can
+    never leave tag_library.json truncated. Supabase backend: relies on the
+    tag_library table's PK constraint for the same guarantee (see
+    memory/backends/supabase_pg.register_new_tag)."""
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        supabase_pg.register_new_tag(tag_id, pattern_statement, embedding=embedding, conn=conn)
+        print(f"Registered new tag {tag_id!r} in Postgres tag_library")
+        return
     tag_library = load_tag_library(path)
     if tag_id in tag_library:
         raise ValueError(f"Tag {tag_id!r} is already registered in {path}")
@@ -82,6 +94,7 @@ def resolve_or_create_tag(
     similarity_threshold: float = 0.85,
     keyword_overlap_threshold: float = 0.30,
     tag_library_path: str = DEFAULT_TAG_LIBRARY_PATH,
+    conn=None,
 ) -> tuple[str, bool]:
     """Find an existing tag that already means the same thing as the
     candidate pattern statement, or register suggested_tag_id as a new one.
@@ -100,30 +113,53 @@ def resolve_or_create_tag(
     keyword-overlap heuristic, threshold 0.30 -- much lower than the
     embedding threshold since raw token overlap on short sentences is a
     weaker signal and would otherwise under-match.
+
+    Under the supabase backend in real mode, only the candidate is embedded
+    (1 API call, not 1 + len(vocabulary)) -- a single indexed
+    `ORDER BY embedding <=> candidate LIMIT 1` query replaces the Python
+    max()-over-cosine-similarity loop; `conn`, when passed, shares this read
+    and the eventual register_new_tag write with the caller's transaction
+    (outcome_memory.record_campaign_outcome's atomic insight+history+tag write).
     """
-    tag_library = tag_library if tag_library is not None else load_tag_library(tag_library_path)
+    supabase = get_memory_backend() == "supabase"
+    if supabase:
+        from memory.backends import supabase_pg
+        tag_library = tag_library if tag_library is not None else supabase_pg.load_tag_library(conn=conn)
+    else:
+        tag_library = tag_library if tag_library is not None else load_tag_library(tag_library_path)
+
     match_id = None
+    candidate_vec = None  # reused below to seed a newly-registered tag's embedding without a second API call
 
     if tag_library:
-        existing_ids = list(tag_library.keys())
-        existing_statements = [tag_library[tid] for tid in existing_ids]
         embedding_succeeded = False
 
         if not mock:
             try:
-                vectors = embed_texts(embedding_config, [pattern_statement_candidate] + existing_statements)
-                candidate_vec, existing_vecs = vectors[0], vectors[1:]
-                best_id, best_score = max(
-                    ((tid, cosine_similarity(candidate_vec, v)) for tid, v in zip(existing_ids, existing_vecs)),
-                    key=lambda pair: pair[1],
-                )
-                embedding_succeeded = True
-                if best_score >= similarity_threshold:
-                    match_id = best_id
+                if supabase:
+                    candidate_vec = embed_texts(embedding_config, [pattern_statement_candidate])[0]
+                    match = supabase_pg.match_tag_by_embedding(candidate_vec, similarity_threshold, conn=conn)
+                    embedding_succeeded = True
+                    if match is not None:
+                        match_id = match[0]
+                else:
+                    existing_ids = list(tag_library.keys())
+                    existing_statements = [tag_library[tid] for tid in existing_ids]
+                    vectors = embed_texts(embedding_config, [pattern_statement_candidate] + existing_statements)
+                    candidate_vec, existing_vecs = vectors[0], vectors[1:]
+                    best_id, best_score = max(
+                        ((tid, cosine_similarity(candidate_vec, v)) for tid, v in zip(existing_ids, existing_vecs)),
+                        key=lambda pair: pair[1],
+                    )
+                    embedding_succeeded = True
+                    if best_score >= similarity_threshold:
+                        match_id = best_id
             except Exception as exc:  # noqa: BLE001 -- infra failure, fall back to keyword overlap
                 print(f"Tag embedding match failed ({type(exc).__name__}: {exc}); falling back to keyword-overlap matching")
 
         if not embedding_succeeded:
+            existing_ids = list(tag_library.keys())
+            existing_statements = [tag_library[tid] for tid in existing_ids]
             best_id, best_score = max(
                 ((tid, keyword_overlap(pattern_statement_candidate, stmt)) for tid, stmt in zip(existing_ids, existing_statements)),
                 key=lambda pair: pair[1],
@@ -149,7 +185,7 @@ def resolve_or_create_tag(
             i += 1
         final_tag_id = f"{suggested_tag_id}_{i}"
 
-    register_new_tag(final_tag_id, pattern_statement_candidate, tag_library_path)
+    register_new_tag(final_tag_id, pattern_statement_candidate, tag_library_path, embedding=candidate_vec, conn=conn)
     return final_tag_id, True
 
 
@@ -200,7 +236,34 @@ def run_aggregation(
     min_brands: int = 2,
     tag_library: dict[str, str] | None = None,
     tag_library_path: str = DEFAULT_TAG_LIBRARY_PATH,
+    mock: bool = False,
+    embedding_config=None,
 ) -> list[dict]:
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+
+        patterns = supabase_pg.compute_promoted_patterns(min_brands)
+        vec_by_id: dict[str, list[float]] = {}
+        if not mock and patterns:
+            # Embeddings computed once, persisted, reused: only embed
+            # patterns that don't already have a stored vector -- upsert's
+            # COALESCE preserves the rest untouched.
+            already_embedded = supabase_pg.market_pattern_ids_with_embedding(
+                [p["pattern_id"] for p in patterns]
+            )
+            to_embed = [p for p in patterns if p["pattern_id"] not in already_embedded]
+            if to_embed:
+                cfg = embedding_config or get_role_config("embedding")
+                vectors = embed_texts(cfg, [p["pattern_statement"] for p in to_embed])
+                vec_by_id = {p["pattern_id"]: v for p, v in zip(to_embed, vectors)}
+        for p in patterns:
+            supabase_pg.upsert_market_pattern(p, embedding=vec_by_id.get(p["pattern_id"]))
+
+        print(f"Promoted {len(patterns)} pattern(s) into Postgres market_memory_patterns")
+        for p in patterns:
+            print(f"  - [{p['category']}] {p['tag']} (supported by {p['supporting_brand_count']} brands)")
+        return patterns
+
     from memory.brand_memory import SEED_BRANDS_DIR
 
     tag_library = tag_library if tag_library is not None else load_tag_library(tag_library_path)
@@ -231,6 +294,24 @@ def retrieve(
     embedding_config=None,
     mock: bool = False,
 ) -> list[dict]:
+    # `patterns` explicitly supplied by the caller bypasses storage entirely
+    # (used by tests to inject fixture data) -- falls through to the same
+    # local in-memory ranking logic regardless of backend.
+    if get_memory_backend() == "supabase" and patterns is None:
+        from memory.backends import supabase_pg
+
+        if mock:
+            candidates = supabase_pg.load_market_patterns(category=category)
+            if not candidates:
+                return []
+            scored = [{**p, "similarity": keyword_overlap(query, p["pattern_statement"])} for p in candidates]
+            scored.sort(key=lambda p: -p["similarity"])
+            return scored[:top_k]
+
+        embedding_config = embedding_config or get_role_config("embedding")
+        query_vec = embed_texts(embedding_config, [query])[0]
+        return supabase_pg.retrieve_market_patterns(query_vec, category=category, top_k=top_k)
+
     patterns = patterns if patterns is not None else load_market_memory()
     if category is not None:
         patterns = [p for p in patterns if p["category"] == category]
@@ -268,7 +349,7 @@ def main() -> None:
         for r in results:
             print(f"[{r['similarity']:.3f}] {r['pattern_id']}: {r['pattern_statement']}")
     else:
-        run_aggregation()
+        run_aggregation(mock=args.mock)
 
 
 if __name__ == "__main__":

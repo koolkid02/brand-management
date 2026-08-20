@@ -16,6 +16,8 @@ import argparse
 import json
 import os
 
+from config import get_memory_backend
+
 SEED_BRANDS_DIR = "memory/seed/brands"
 
 REQUIRED_TOP_KEYS = {"brand_id", "schema_version", "semantic", "episodic", "insights"}
@@ -77,6 +79,9 @@ def validate_brand_schema(brand: dict) -> None:
 
 
 def list_brands(seed_dir: str = SEED_BRANDS_DIR) -> list[str]:
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        return supabase_pg.list_brands()
     return sorted(
         fname[: -len(".json")]
         for fname in os.listdir(seed_dir)
@@ -84,7 +89,12 @@ def list_brands(seed_dir: str = SEED_BRANDS_DIR) -> list[str]:
     )
 
 
-def load_brand(brand_id: str, seed_dir: str = SEED_BRANDS_DIR) -> dict:
+def load_brand(brand_id: str, seed_dir: str = SEED_BRANDS_DIR, conn=None) -> dict:
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        brand = supabase_pg.load_brand(brand_id, conn=conn)
+        validate_brand_schema(brand)
+        return brand
     path = os.path.join(seed_dir, f"{brand_id}.json")
     with open(path) as f:
         brand = json.load(f)
@@ -93,6 +103,12 @@ def load_brand(brand_id: str, seed_dir: str = SEED_BRANDS_DIR) -> dict:
 
 
 def load_all_brands(seed_dir: str = SEED_BRANDS_DIR) -> dict[str, dict]:
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        brands = supabase_pg.load_all_brands()
+        for brand in brands.values():
+            validate_brand_schema(brand)
+        return brands
     return {brand_id: load_brand(brand_id, seed_dir) for brand_id in list_brands(seed_dir)}
 
 
@@ -122,10 +138,16 @@ def _next_insight_id(brand_id: str, existing_insights: list[dict]) -> str:
     return f"{prefix}_{max_suffix + 1:03d}"
 
 
-def append_insight(brand_id: str, insight: dict, seed_dir: str = SEED_BRANDS_DIR) -> dict:
+def append_insight(brand_id: str, insight: dict, seed_dir: str = SEED_BRANDS_DIR, conn=None) -> dict:
     missing = REQUIRED_INSIGHT_KEYS - set(insight.keys())
     if missing:
         raise ValueError(f"Insight missing required keys {sorted(missing)}: {insight!r}")
+
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        supabase_pg.append_insight(brand_id, insight, conn=conn)
+        return supabase_pg.load_brand(brand_id, conn=conn)
+
     brand = load_brand(brand_id, seed_dir)
     brand["insights"].append(insight)
     validate_brand_schema(brand)
@@ -133,10 +155,16 @@ def append_insight(brand_id: str, insight: dict, seed_dir: str = SEED_BRANDS_DIR
     return brand
 
 
-def append_history_entry(brand_id: str, history_entry: dict, seed_dir: str = SEED_BRANDS_DIR) -> dict:
+def append_history_entry(brand_id: str, history_entry: dict, seed_dir: str = SEED_BRANDS_DIR, conn=None) -> dict:
     missing = REQUIRED_HISTORY_ENTRY_KEYS - set(history_entry.keys())
     if missing:
         raise ValueError(f"History entry missing required keys {sorted(missing)}: {history_entry!r}")
+
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        supabase_pg.append_history_entry(brand_id, history_entry, conn=conn)
+        return supabase_pg.load_brand(brand_id, conn=conn)
+
     brand = load_brand(brand_id, seed_dir)
     brand["episodic"]["history"].append(history_entry)
     validate_brand_schema(brand)
@@ -145,7 +173,7 @@ def append_history_entry(brand_id: str, history_entry: dict, seed_dir: str = SEE
 
 
 def append_insight_and_history(
-    brand_id: str, insight: dict, history_entry: dict, seed_dir: str = SEED_BRANDS_DIR
+    brand_id: str, insight: dict, history_entry: dict, seed_dir: str = SEED_BRANDS_DIR, conn=None
 ) -> dict:
     """The one write memory/outcome_memory.py's record_campaign_outcome
     actually calls -- a single atomic write of both, since a real campaign
@@ -153,13 +181,23 @@ def append_insight_and_history(
     writes must never leave one without the other. Re-validates the WHOLE
     resulting brand before writing, same "never let a malformed write
     corrupt a brand file" discipline load_brand's read-side validation
-    already established."""
+    already established.
+
+    `conn`, when passed, lets the caller (outcome_memory.record_campaign_outcome)
+    share this write with the tag-resolution write in one real Postgres
+    transaction under the supabase backend -- see memory/backends/supabase_pg.py.
+    """
     missing_insight = REQUIRED_INSIGHT_KEYS - set(insight.keys())
     if missing_insight:
         raise ValueError(f"Insight missing required keys {sorted(missing_insight)}: {insight!r}")
     missing_history = REQUIRED_HISTORY_ENTRY_KEYS - set(history_entry.keys())
     if missing_history:
         raise ValueError(f"History entry missing required keys {sorted(missing_history)}: {history_entry!r}")
+
+    if get_memory_backend() == "supabase":
+        from memory.backends import supabase_pg
+        supabase_pg.append_insight_and_history(brand_id, insight, history_entry, conn=conn)
+        return supabase_pg.load_brand(brand_id, conn=conn)
 
     brand = load_brand(brand_id, seed_dir)
     brand["insights"].append(insight)

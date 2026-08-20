@@ -1,165 +1,150 @@
 {
   "positioning_brief": {
-    "framework_id": "porters_five_forces",
-    "framework_name": "Porter's Five Forces",
+    "framework_id": "swot",
+    "framework_name": "SWOT",
     "grounded": {
       "brand.semantic": {
-        "name": "Loom & Aster",
-        "category": "fashion_d2c",
-        "sub_positioning": "premium_slow_fashion",
-        "founded_year": 2020,
-        "identity": {
-          "one_liner": "Considered, small-batch fashion in natural fibres for people who buy less but buy better.",
-          "target_customer": "28-45 year old urban professionals who value craftsmanship and provenance over trend cycles; low purchase frequency, high average order value, researches before buying.",
-          "price_posture": "premium",
-          "value_props": [
-            "Small-batch natural-fibre production",
-            "Traceable maker/sourcing story",
-            "Made-to-last construction, not seasonal trend cycles"
-          ]
-        },
+        "name": "GlowRoot",
         "tone": {
           "descriptors": [
-            "understated",
-            "editorial",
-            "calm",
-            "considered"
+            "informative",
+            "reassuring",
+            "clinical-but-warm",
+            "myth-busting"
           ],
-          "voice_notes": "Reads like a design journal, not an ad. Leads with craft and material story before price or promotion."
+          "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
+        },
+        "category": "beauty_d2c",
+        "identity": {
+          "one_liner": "Ingredient-transparent, dermat-reviewed skincare for India's climate and skin tones.",
+          "value_props": [
+            "Full ingredient-list transparency",
+            "Dermat-reviewed formulations",
+            "Formulated for Indian climate/skin tones"
+          ],
+          "price_posture": "mid",
+          "target_customer": "22-35 year olds researching ingredients before buying, motivated by transparency and dermat validation over influencer hype alone."
+        },
+        "customers": {
+          "summary": "This brand deliberately does not map onto Module A's fashion-derived audience archetypes -- it exists in this seed set to prove category-scoped memory isolation, not narrative continuity with the fashion D2C brands.",
+          "primary_segments": []
         },
         "competitors": [
           {
-            "name": "Nicobar",
-            "positioning_note": "Closest direct competitor, similar handloom/considered-design ethos."
+            "name": "Mamaearth",
+            "positioning_note": "Larger toxin-free personal-care brand, broader mass-market reach."
           },
           {
-            "name": "Bombay Shirt Company",
-            "positioning_note": "Premium made-to-measure, same affluent buyer."
+            "name": "Sugar Cosmetics",
+            "positioning_note": "Color cosmetics-led, bolder Gen-Z-first brand voice."
           },
           {
-            "name": "Okhai",
-            "positioning_note": "Artisanal/handloom, craft-cooperative positioning."
+            "name": "Plum",
+            "positioning_note": "Vegan clean-beauty positioning, similar ingredient-conscious buyer."
           }
         ],
-        "customers": {
-          "summary": "Skews premium and loyal-core: low discount-code usage, high AOV, low cart-abandonment, values exclusivity over price.",
-          "primary_segments": [
-            "premium",
-            "loyal-core"
-          ]
-        }
+        "founded_year": 2021,
+        "sub_positioning": "clean_skincare"
       },
-      "brand.semantic.competitors": [
+      "brand.insights": [
         {
-          "name": "Nicobar",
-          "positioning_note": "Closest direct competitor, similar handloom/considered-design ethos."
+          "insight_id": "glow_001",
+          "tag": "ugc_video_outperforms_static",
+          "category": "beauty_d2c",
+          "observation": "Skincare-routine reels from real customers outperformed studio flatlay images on saves and comments across recent launches.",
+          "date_observed": "2026-06-25"
         },
         {
-          "name": "Bombay Shirt Company",
-          "positioning_note": "Premium made-to-measure, same affluent buyer."
+          "insight_id": "glow_002",
+          "tag": "ingredient_transparency_builds_trust",
+          "category": "beauty_d2c",
+          "observation": "Posts that broke down the full active-ingredient list drove visibly higher repeat-purchase rate than posts making benefit-only claims.",
+          "date_observed": "2026-05-20"
         },
         {
-          "name": "Okhai",
-          "positioning_note": "Artisanal/handloom, craft-cooperative positioning."
+          "insight_id": "glow_003",
+          "tag": "bundle_discount_drives_aov",
+          "category": "beauty_d2c",
+          "observation": "Multi-product routine bundles discounted as a set lifted average order value more than single-SKU percentage-off discounts.",
+          "date_observed": "2026-04-10"
+        },
+        {
+          "insight_id": "glow_004",
+          "tag": "science_aspiration_drives_quality",
+          "category": "beauty_d2c",
+          "observation": "GlowRoot successfully leveraged a science-backed, aspirational narrative to achieve strong resonance with quality-conscious consumers.",
+          "date_observed": "2026-08-14"
+        },
+        {
+          "insight_id": "glow_005",
+          "tag": "social_proof_ugc_needs_narrower_targeting",
+          "category": "beauty_d2c",
+          "observation": "The Social proof / UGC-led variant ('Real customers, real hauls') for GlowRoot, targeting Our core research-driven 25-35 segment - the ones who read the full ingredient list before buying and care about formulation science, not just packaging or influencer hype., scored 4.8/10 average across persona reactions; evaluation recommended to narrow.",
+          "date_observed": "2026-08-15"
         }
       ],
-      "market_memory.patterns": [
-        {
-          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
-          "tag": "ugc_video_outperforms_static",
-          "category": "fashion_d2c",
-          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
-          "supporting_brand_count": 2,
-          "similarity": 0.07692307692307693
-        },
-        {
-          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
-          "tag": "size_fit_reassurance_reduces_abandonment",
-          "category": "fashion_d2c",
-          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        },
-        {
-          "pattern_id": "fashion_d2c__social_proof_ugc_needs_narrower_targeting",
-          "tag": "social_proof_ugc_needs_narrower_targeting",
-          "category": "fashion_d2c",
-          "pattern_statement": "Social-proof/UGC-led creative only resonates with a narrower slice of the target segment than expected, worth narrowing targeting rather than a broad rollout.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        }
-      ]
+      "market_memory.patterns": []
     },
     "brief": {
-      "buyer_power": "Buyer power is moderate given 3 named direct competitors offering close substitutes in fashion_d2c.",
-      "supplier_power": "Supplier power is not directly assessed from available brand memory for fashion_d2c.",
-      "competitive_rivalry": "Competitive rivalry is elevated with 3 named competitors actively contesting fashion_d2c.",
-      "threat_of_substitutes": "Substitute threat exists from adjacent fashion_d2c brands and marketplace private labels.",
-      "threat_of_new_entrants": "New-entrant threat is present given generally low barriers to entry in fashion_d2c D2C.",
-      "positioning_summary": "Considered, small-batch fashion in natural fibres for people who buy less but buy better."
+      "strengths": [
+        "Full ingredient-list transparency and dermat-reviewed formulations tailored for Indian climate and skin tones",
+        "Proven high repeat-purchase rate driven by active-ingredient breakdown posts",
+        "Science-backed, aspirational narrative that strongly resonates with quality-conscious consumers",
+        "Mid price posture offering accessibility while maintaining a clinical-but-warm, informative tone"
+      ],
+      "weaknesses": [
+        "Broad social proof and UGC-led variants require much narrower targeting to appeal to the core research-driven 25-35 segment",
+        "Lower brand scale compared to established mass-market or larger clean-beauty competitors"
+      ],
+      "opportunities": [
+        "Convert ingredient-label-readers currently loyal to Plum or comparison-shopping by demonstrating deeper formulation transparency",
+        "Leverage multi-product routine bundles to lift average order value (AOV) based on historical sales insights",
+        "Scale skincare-routine reels from real customers that outperform studio flatlays on saves and comments"
+      ],
+      "threats": [
+        "Competition from Plum in the vegan clean-beauty and ingredient-conscious buyer space",
+        "Presence of larger toxin-free personal-care brands like Mamaearth with broad mass-market reach",
+        "Noise from color cosmetics-led or influencer-hype-driven brands like Sugar Cosmetics"
+      ],
+      "positioning_summary": "GlowRoot occupies a clinical-but-warm, mid-tier D2C position focused on full formulation transparency and dermat sign-offs tailored for Indian climate and skin tones, directly serving research-driven 25-35 year olds who prioritize verified science over influencer hype."
     },
-    "generation_method": "mock",
-    "model": null
+    "generation_method": "llm",
+    "model": "gemini-flash-lite-latest"
   },
   "creative_constraints": {
     "framework_id": "seven_ps",
     "grounded": {
-      "brand_name": "Loom & Aster",
-      "category": "fashion_d2c",
-      "price_posture": "premium",
+      "brand_name": "GlowRoot",
+      "category": "beauty_d2c",
+      "price_posture": "mid",
       "tone": {
         "descriptors": [
-          "understated",
-          "editorial",
-          "calm",
-          "considered"
+          "informative",
+          "reassuring",
+          "clinical-but-warm",
+          "myth-busting"
         ],
-        "voice_notes": "Reads like a design journal, not an ad. Leads with craft and material story before price or promotion."
+        "voice_notes": "Explains the 'why' behind each ingredient rather than making benefit-only claims. Cites dermat input directly."
       },
-      "market_patterns": [
-        {
-          "pattern_id": "fashion_d2c__ugc_video_outperforms_static",
-          "tag": "ugc_video_outperforms_static",
-          "category": "fashion_d2c",
-          "pattern_statement": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
-          "supporting_brand_count": 2,
-          "similarity": 0.07692307692307693
-        },
-        {
-          "pattern_id": "fashion_d2c__size_fit_reassurance_reduces_abandonment",
-          "tag": "size_fit_reassurance_reduces_abandonment",
-          "category": "fashion_d2c",
-          "pattern_statement": "Adding explicit size/fit reassurance (try-on video, size-chart callout, fit guide) to the product page tends to reduce cart abandonment.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        },
-        {
-          "pattern_id": "fashion_d2c__social_proof_ugc_needs_narrower_targeting",
-          "tag": "social_proof_ugc_needs_narrower_targeting",
-          "category": "fashion_d2c",
-          "pattern_statement": "Social-proof/UGC-led creative only resonates with a narrower slice of the target segment than expected, worth narrowing targeting rather than a broad rollout.",
-          "supporting_brand_count": 2,
-          "similarity": 0.0
-        }
-      ],
-      "positioning_summary": "Considered, small-batch fashion in natural fibres for people who buy less but buy better."
+      "market_patterns": [],
+      "positioning_summary": "GlowRoot occupies a clinical-but-warm, mid-tier D2C position focused on full formulation transparency and dermat sign-offs tailored for Indian climate and skin tones, directly serving research-driven 25-35 year olds who prioritize verified science over influencer hype."
     },
     "constraints": {
-      "product": "Small-batch natural-fibre production; Traceable maker/sourcing story; Made-to-last construction, not seasonal trend cycles",
-      "price": "Reflects the brand's real premium price posture.",
-      "place": "Primarily direct-to-consumer via the brand's own site/app, discovered through Instagram/Reels-native content.",
-      "promotion": "Creator/customer-style short-form video content tends to outperform polished static product imagery on engagement.",
-      "people": "Reads like a design journal, not an ad. Leads with craft and material story before price or promotion.",
-      "physical_evidence": "Provenance / maker-story-led campaign -- narrow recommendation",
-      "process": "Standard D2C order-to-delivery process.",
+      "product": "Formulation-transparent skincare tailored specifically for Indian climates and skin tones, backed by rigorous dermatological sign-offs and clear scientific mechanisms.",
+      "price": "Mid-tier accessible pricing delivering high-efficacy clinical active ingredients without luxury markup, balancing cost with formulation integrity.",
+      "place": "Direct-to-consumer (D2C) online ecosystem optimized for research-driven buyers across India, featuring detailed ingredient breakdowns on digital storefronts.",
+      "promotion": "Educational campaigns, myth-busting content, and transparent ingredient spotlights that lead with the 'why' rather than empty benefit-only claims or influencer hype.",
+      "people": "Dermatologists who formulate and vet the products, paired with research-driven consumers aged 25-35 seeking verified science for their skin.",
+      "physical_evidence": "Clinical trial summaries, clear dermatological credentials, transparent percentage disclosures on labels, and detailed mechanism-of-action explanations.",
+      "process": "Rigorous scientific formulation and testing tailored for regional skin needs, followed by transparent public sharing of ingredient origins and clinical testing rationale.",
       "hard_rules": [
-        "No discount language anywhere, this line never goes on sale",
-        "Nothing that reads like a catalog spec sheet either, keep it editorial",
-        "And the maker/sourcing story has to be front and center, not an afterthought.",
-        "Never use discount-led or price-first language; lead with material/craft/provenance story instead."
+        "No benefit-only claims without backing them with the actual ingredient or mechanism",
+        "Keep the tone informative and warm, not preachy or clinical-cold",
+        "Do not overclaim against Plum specifically",
+        "Maintain a mid-tier price posture where value, accessibility, and ingredient efficacy are emphasized without luxury exclusivity or frantic discount-led urgency"
       ]
     },
-    "generation_method": "mock",
-    "model": null
+    "generation_method": "llm",
+    "model": "gemini-flash-lite-latest"
   }
 }
